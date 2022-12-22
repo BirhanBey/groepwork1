@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Ideas</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- navbar starts -->
+    <nav class="nav-container">
+      <div class="logo">LOGO</div>
+
+      <div class="navbar">
+        <ul>
+          <li class="list active">
+            <a href="#">
+              <span class="icon"><i class="fa-solid fa-tv"></i></span>
+              <span class="text">TV</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#">
+              <span class="icon"><i class="fa-solid fa-desktop"></i></span>
+              <span class="text">PC</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#">
+              <span class="icon"><i class="fa-solid fa-laptop"></i></span>
+              <span class="text">Laptop</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#">
+              <span class="icon"
+                ><i class="fa-solid fa-mobile-screen-button"></i
+              ></span>
+              <span class="text">Smartphone</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#">
+              <span class="icon"
+                ><i class="fa-solid fa-tablet-screen-button"></i
+              ></span>
+              <span class="text">Tablet</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#">
+              <span class="icon"
+                ><i class="fa-solid fa-headphones-simple"></i
+              ></span>
+              <span class="text">Headphone</span>
+            </a>
+          </li>
+          <li class="list dropdown">
+            <a href="#">
+              <span class="icon"><i class="fa-solid fa-toolbox"></i></span>
+              <span class="text"> Accessories</span>
+            </a>
+            <ul>
+              <li><a href="#">TV</a></li>
+              <li><a href="#">PC</a></li>
+              <li><a href="#">Laptop</a></li>
+              <li><a href="#">Smartphone</a></li>
+              <li><a href="#">Tablet</a></li>
+              <li><a href="#">Headphone</a></li>
+            </ul>
+          </li>
+
+          <div class="indicator">
+            <span class="icon-indicator"></span>
+          </div>
+        </ul>
+      </div>
+    </nav>
+    <!-- navbar finished -->
+    <!-- sidebar-filter starts -->
+    <div class="sidebar-container">
+      <button class="btn btn-filters">
+        <i class="fa-solid fa-filter"></i>
+      </button>
+
+      <div class="sidebar-header">
+        <h3>Filters</h3>
+      </div>
+      <div class="sidebar-content">
+        <div class="filter-section">
+          <h4>Color</h4>
+          <div class="filter-option">
+            <input type="radio" id="color-red" name="color" value="red" />
+            <label for="color-red">Red</label><br />
+            <input type="radio" id="color-blue" name="color" value="blue" />
+            <label for="color-blue">Blue</label><br />
+            <input type="radio" id="color-yellow" name="color" value="yellow" />
+            <label for="color-yellow">Yellow</label><br /><br />
+          </div>
+          <!-- color options -->
+        </div>
+        <div class="filter-section">
+          <h4>Price</h4>
+          <div class="filter-option">
+            <input type="radio" id="price-low" name="price" value="low" />
+            <label for="price-low">low</label><br />
+            <input type="radio" id="price-middle" name="price" value="middle" />
+            <label for="price-middle">middle</label><br />
+            <input type="radio" id="price-high" name="price" value="high" />
+            <label for="price-high">high</label><br /><br />
+          </div>
+        </div>
+        <!-- price options -->
+
+        <div class="filter-section">
+          <h4>Brands</h4>
+          <div class="filter-option">
+            <input type="radio" id="brand-adidas" name="brand" value="adidas" />
+            <label for="brand-adidas">Adidas</label><br />
+            <input type="radio" id="brand-nike" name="brand" value="nike" />
+            <label for="brand-nike">Nike</label><br />
+            <input type="radio" id="brand-puma" name="brand" value="puma" />
+            <label for="brand-puma">Puma</label><br />
+            <input type="radio" id="brand-asics" name="brand" value="asics" />
+            <label for="brand-asics">Asics</label><br />
+            <input type="radio" id="brand-reebok" name="brand" value="reebok" />
+            <label for="brand-reebok">Reebok</label><br />
+            <input type="radio" id="brand-fila" name="brand" value="fila" />
+            <label for="brand-fila">Fila</label><br />
+            <input
+              type="radio"
+              id="brand-timberland"
+              name="brand"
+              value="timberland"
+            />
+            <label for="brand-timberland">Timberland</label><br />
+          </div>
+        </div>
+        <!-- brand options -->
+      </div>
+      <div class="sidebar-footer">
+        <button class="btn btn-primary apply-filters-btn">Filter</button>
+      </div>
+    </div>
+    <!-- sidebar-filter finished -->
+    <script src="./js/navbar.js"></script>
+  </body>
+</html>

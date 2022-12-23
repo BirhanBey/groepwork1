@@ -6,21 +6,19 @@
   left: 0;
   top: 0;
   width: 100%;
+  height: 100%;
   overflow: auto;
   background-color: black;
-  height: calc(100% - 200px);
 }
 
 /* Modal Content */
 .modal-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  position: relative;
+  background-color: #fefefe;
+  align-items: center;
   margin: auto;
+  padding: 0;
   width: 70%;
-  height: calc(100% - 200px);
-  margin-top: 100px;
-
 }
 
 /* The Close Button */
@@ -49,23 +47,21 @@
 }
 
 /* Next & previous buttons */
-.prev-next {
-  display: flex;
-    justify-content: space-between;
-    align-items: center !important;
-    position: relative;
-    top: calc(30% + 70px);
-}
 .prev,
 .next {
   cursor: pointer;
-  color: var(--black);
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 20px;
   transition: 0.6s ease;
-  border-radius: 0 3px 3px 0; 
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.452);
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 /* Position the "next button" to the right */
@@ -78,17 +74,15 @@
 .prev:hover,
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
-  color: var(--white);
 }
 
 /* Number text (1/3 etc) */
 .numbertext {
-  color: var(--black);
+  color: #f2f2f2;
   font-size: 12px;
   padding: 8px 12px;
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.452);
-
+  top: 0;
 }
 
 img {
@@ -97,7 +91,7 @@ img {
 
 .caption-container {
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.405);
+  background-color: black;
   padding: 2px 16px;
   color: white;
 }
@@ -120,13 +114,12 @@ img.hover-shadow {
 }
 
 /* image box */
-
 .imagebox {
   width: 100%;
   position: fixed;
   inset: 30px;
   z-index: 1000;
-  background: #222327f1;
+  background: #222327b8;
   left: 0;
   top: 0px;
   padding-top: 50px;
@@ -145,9 +138,10 @@ img.hover-shadow {
 .imagebox img.demo {
   width: 100%;
 }
-
+.imagebox .slides {
+  background: #222327b8;
+}
 .imagebox .slides img {
   background: #222327b8;
-
   width: 100%;
 }

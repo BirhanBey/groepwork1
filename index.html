@@ -5,21 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping Ideas</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
     <link rel="stylesheet" href="./css/style.scss" />
     <script src="./js/index.js" defer></script>
   </head>
   <body>
     <!-- navbar starts -->
     <nav class="nav-container">
-      <div class="logo">LOGO</div>
-
+      <div class="logo">
+        <span style="position: fixed"> LOGO </span>
+      </div>
       <div class="navbar">
         <ul>
           <li class="list active">
@@ -101,16 +95,19 @@
             <h4>Color</h4>
             <div class="filter-option">
               <input type="radio" id="color-red" name="color" value="red" />
-              <label for="color-red">Red</label><br />
+              <label class="color-red" for="color-red">Red</label><br />
               <input type="radio" id="color-blue" name="color" value="blue" />
-              <label for="color-blue">Blue</label><br />
+              <label class="color-blue" for="color-blue">Blue</label><br />
               <input
                 type="radio"
                 id="color-yellow"
                 name="color"
                 value="yellow"
               />
-              <label for="color-yellow">Yellow</label><br /><br />
+              <label class="color-yellow" for="color-yellow">Yellow</label
+              ><br />
+              <input type="radio" id="color-none" name="color" value="none" />
+              <label for="color-none">None</label><br />
             </div>
             <!-- color options -->
           </div>
@@ -403,90 +400,86 @@
             </div>
           </div>
         </div>
-        
-          <!-- imagebox started -->
 
-    <div id="myModal1" class="imagebox">
-      <span class="close cursor" onclick="closeModal(1)">&times;</span>
-      <div class="modal-content">
-        <div class="slides">
-          <div class="numbertext">1 / 5</div>
-          <img src="https://loremflickr.com/1920/1080?random=1" />
-        </div>
+        <!-- imagebox started -->
 
-        <div class="slides">
-          <div class="numbertext">2 / 5</div>
-          <img src="https://loremflickr.com/1920/1080?random=2" />
-        </div>
-
-        <div class="slides">
-          <div class="numbertext">3 / 5</div>
-          <img src="https://loremflickr.com/1920/1080?random=3" />
-        </div>
-
-        <div class="slides">
-          <div class="numbertext">4 / 5</div>
-          <img src="https://loremflickr.com/1920/1080?random=4" />
-        </div>
-
-        <div class="slides">
-          <div class="numbertext">5 / 5</div>
-          <img src="https://loremflickr.com/1920/1080?random=5" />
-        </div>
-
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-        <div class="caption-container">
-          <p id="caption"></p>
-        </div>
-        <div class="thumb">
-          <div class="column">
-            <img
-              class="demo cursor"
-              src="https://loremflickr.com/640/480?random=1"
-              onclick="currentSlide(1)"
-              alt="Nature and sunrise"
-            />
-          </div>
-          <div class="column">
-            <img
-              class="demo cursor"
-              src="https://loremflickr.com/640/480?random=2"
-              onclick="currentSlide(2)"
-              alt="Snow"
-            />
-          </div>
-          <div class="column">
-            <img
-              class="demo cursor"
-              src="https://loremflickr.com/640/480?random=3"
-              onclick="currentSlide(3)"
-              alt="Mountains and fjords"
-            />
-          </div>
-          <div class="column">
-            <img
-              class="demo cursor"
-              src="https://loremflickr.com/640/480?random=4"
-              onclick="currentSlide(4)"
-              alt="Northern Lights"
-            />
-          </div>
-          <div class="column">
-            <img
-              class="demo cursor"
-              src="https://loremflickr.com/640/480?random=5"
-              onclick="currentSlide(5)"
-              alt="Northern Lights"
-            />
+        <div id="myModal1" class="imagebox">
+          <span class="close cursor" onclick="closeModal(1)">&times;</span>
+          <div class="modal-content">
+            <div class="prev-next">
+              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+              <a class="next" onclick="plusSlides(1)">&#10095;</a>
+              <div class="slides">
+                <div class="numbertext">1 / 5</div>
+                <img src="https://loremflickr.com/1920/1080?random=1" />
+              </div>
+              <div class="slides">
+                <div class="numbertext">2 / 5</div>
+                <img src="https://loremflickr.com/1920/1080?random=2" />
+              </div>
+              <div class="slides">
+                <div class="numbertext">3 / 5</div>
+                <img src="https://loremflickr.com/1920/1080?random=3" />
+              </div>
+              <div class="slides">
+                <div class="numbertext">4 / 5</div>
+                <img src="https://loremflickr.com/1920/1080?random=4" />
+              </div>
+              <div class="slides">
+                <div class="numbertext">5 / 5</div>
+                <img src="https://loremflickr.com/1920/1080?random=5" />
+              </div>
+            </div>
+            <div class="caption-container">
+              <p id="caption"></p>
+            </div>
+            <div class="thumb">
+              <div class="column">
+                <img
+                  class="demo cursor"
+                  src="https://loremflickr.com/640/480?random=1"
+                  onclick="currentSlide(1)"
+                  alt="Nature and sunrise"
+                />
+              </div>
+              <div class="column">
+                <img
+                  class="demo cursor"
+                  src="https://loremflickr.com/640/480?random=2"
+                  onclick="currentSlide(2)"
+                  alt="Snow"
+                />
+              </div>
+              <div class="column">
+                <img
+                  class="demo cursor"
+                  src="https://loremflickr.com/640/480?random=3"
+                  onclick="currentSlide(3)"
+                  alt="Mountains and fjords"
+                />
+              </div>
+              <div class="column">
+                <img
+                  class="demo cursor"
+                  src="https://loremflickr.com/640/480?random=4"
+                  onclick="currentSlide(4)"
+                  alt="Northern Lights"
+                />
+              </div>
+              <div class="column">
+                <img
+                  class="demo cursor"
+                  src="https://loremflickr.com/640/480?random=5"
+                  onclick="currentSlide(5)"
+                  alt="Northern Lights"
+                />
+              </div>
+            </div>
           </div>
         </div>
+        <!-- imagebox finished -->
       </div>
-    </div>
-          <!-- imagebox finished -->
       <!-- product-main finished -->
-
-  </section>
+    </section>
   </body>
 </html>

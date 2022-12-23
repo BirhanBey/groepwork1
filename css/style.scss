@@ -2,13 +2,16 @@
 @import url("./base/_fonts.scss");
 @import url("./base/_variables.scss");
 @import url("./base/_imagebox.scss");
+@import url("./base/_icons.scss");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Oswald", sans-serif;
   font-weight: 500;
-  /* Chrome, Edge, and Safari */
+  /* Chrome, Edge, Firefox and Safari */
+  /* ===== Scrollbar CSS ===== */
   ::-webkit-scrollbar {
     width: 9px;
   }
@@ -25,7 +28,6 @@
     background: var(--black);
   }
 }
-
 body {
   background-color: var(--black);
 }
@@ -33,10 +35,11 @@ body {
 .nav-container {
   padding-top: 30px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   min-height: 120px;
   background-color: var(--black);
+  margin: 0 50px;
 }
 .nav-container .logo {
   color: white;
@@ -127,18 +130,27 @@ body {
   top: calc(100% + 15px);
   box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 20px #0ba9ca, 0 0 30px #0ba9ca,
     0 0 40px #0ba9ca, 0 0 50px #0ba9ca;
+  margin: 0;
+  padding: 20px 0;
 }
 .nav-container .navbar ul li ul li {
   width: 100%;
   height: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
+  border-radius: 5px;
+  padding: 5px 0;
 }
-.nav-container .navbar ul li ul li:last-child {
-  margin-bottom: 0;
+.nav-container .navbar ul li ul li:hover {
+  box-shadow: inset 0px 0px 11px 4px #0ba9ca, 0px -6px 22px -3px #ffffff;
+  background-color: var(--white);
+  transition: 0.3s;
 }
 .nav-container .navbar ul li ul li a {
   color: var(--black);
   text-decoration: none;
+  font-size: 12px;
+  padding: 7px;
+  font-weight: 400;
 }
 /* .nav-container .navbar .indicator{
     top: -50%;
@@ -203,7 +215,7 @@ body {
 .project-main {
   position: relative;
   display: flex;
-  padding-left: 150px;
+  padding-left: 100px;
   flex-direction: row;
   justify-content: flex-end;
 }
@@ -250,6 +262,8 @@ body {
 }
 .sidebar-container.active button {
   box-shadow: none;
+  transform: translatex(-30px);
+  transition: 0.3s ease-in;
 }
 .sidebar-header {
   display: flex;
@@ -265,14 +279,8 @@ body {
 
 .sidebar-content {
   overflow-y: auto;
+  height: 500px;
 }
-/* ===== Scrollbar CSS ===== */
-/* Firefox */
-.sidebar-content {
-  scrollbar-width: auto;
-  scrollbar-color: #bdff42 #ffffff;
-}
-
 .sidebar-footer {
   padding: 18px;
   text-align: right;
@@ -287,13 +295,31 @@ body {
   margin: 0 0 10px 0;
   font-size: 16px;
 }
-
+.filter-option {
+  margin-bottom: 15px;
+}
 .filter-option label {
   display: inline-block;
   margin-left: 5px;
   font-size: 14px;
+  transition: 0.3s;
 }
-
+.filter-option label:hover {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ffffff,
+    0 0 30px #ffffff, 0 0 10px #ffffff;
+}
+.filter-option .color-red:hover {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff0000,
+    0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 75px #ff0000;
+}
+.filter-option .color-blue:hover {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #6393fb,
+    0 0 30px #6393fb, 0 0 40px #6393fb, 0 0 55px #6393fb, 0 0 45px #6393fb;
+}
+.filter-option .color-yellow:hover {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #f4f740,
+    0 0 30px #f4f740, 0 0 40px #f4f740, 0 0 55px #49ff18;
+}
 .apply-filters-btn {
   display: flex;
   margin-left: 93px;
@@ -309,7 +335,7 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   justify-items: center;
-  margin-right: 30px;
+  margin-right: 50px;
   margin-top: 5px;
 }
 .product-main .product-card {

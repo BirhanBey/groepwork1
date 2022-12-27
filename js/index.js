@@ -4,8 +4,36 @@ navbarRef.forEach((listItem) =>
   listItem.addEventListener('click', (e) => {
     navbarRef.forEach((listItem) => listItem.classList.remove('active'));
     e.currentTarget.classList.add('active');
+
+    // handle categories
+
+    let category = e.currentTarget.dataset.category;
+    let subcategory = false;
+    // check if clicking on subcategory
+    const parentRef = e.target.parentElement;
+    if (parentRef.tagName == 'LI' && !parentRef.classList.contains('list')) {
+      subcategory = parentRef.dataset.subcategory;
+    }
+    hideProducts(category, subcategory);
   })
 );
+
+const productCardsRef = document.querySelectorAll('.product-card');
+
+function hideProducts(category, subcategory) {
+  productCardsRef.forEach((productCard) => {
+    // reset hidden class
+    productCard.classList.remove('hidden');
+    // if subcategory exists filter with subcategory else with category
+    if (subcategory) {
+      if (productCard.dataset.subcategory !== subcategory) {
+        productCard.classList.add('hidden');
+      }
+    } else if (productCard.dataset.category !== category) {
+      productCard.classList.add('hidden');
+    }
+  });
+}
 
 // sidebar toggle
 var sidebar = document.querySelector('.sidebar-container');

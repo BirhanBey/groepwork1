@@ -16,25 +16,25 @@
       </div>
       <div class="navbar">
         <ul>
-          <li class="list active">
+          <li class="list active" data-category="tv">
             <a href="#">
               <span class="icon"><i class="fa-solid fa-tv"></i></span>
               <span class="text">TV</span>
             </a>
           </li>
-          <li class="list">
+          <li class="list" data-category="pc">
             <a href="#">
               <span class="icon"><i class="fa-solid fa-desktop"></i></span>
               <span class="text">PC</span>
             </a>
           </li>
-          <li class="list">
+          <li class="list" data-category="laptop">
             <a href="#">
               <span class="icon"><i class="fa-solid fa-laptop"></i></span>
               <span class="text">Laptop</span>
             </a>
           </li>
-          <li class="list">
+          <li class="list" data-category="smartphone">
             <a href="#">
               <span class="icon"
                 ><i class="fa-solid fa-mobile-screen-button"></i
@@ -42,7 +42,7 @@
               <span class="text">Smartphone</span>
             </a>
           </li>
-          <li class="list">
+          <li class="list" data-category="tablet">
             <a href="#">
               <span class="icon"
                 ><i class="fa-solid fa-tablet-screen-button"></i
@@ -50,7 +50,7 @@
               <span class="text">Tablet</span>
             </a>
           </li>
-          <li class="list">
+          <li class="list" data-category="headphone">
             <a href="#">
               <span class="icon"
                 ><i class="fa-solid fa-headphones-simple"></i
@@ -58,18 +58,18 @@
               <span class="text">Headphone</span>
             </a>
           </li>
-          <li class="list dropdown">
+          <li class="list dropdown" data-category="accessories">
             <a href="#">
               <span class="icon"><i class="fa-solid fa-toolbox"></i></span>
               <span class="text"> Accessories</span>
             </a>
             <ul>
-              <li><a href="#">TV</a></li>
-              <li><a href="#">PC</a></li>
-              <li><a href="#">Laptop</a></li>
-              <li><a href="#">Smartphone</a></li>
-              <li><a href="#">Tablet</a></li>
-              <li><a href="#">Headphone</a></li>
+              <li data-subcategory="tv"><a href="#">TV</a></li>
+              <li data-subcategory="pc"><a href="#">PC</a></li>
+              <li data-subcategory="laptop"><a href="#">Laptop</a></li>
+              <li data-subcategory="smartphone"><a href="#">Smartphone</a></li>
+              <li data-subcategory="tablet"><a href="#">Tablet</a></li>
+              <li data-subcategory="headphone"><a href="#">Headphone</a></li>
             </ul>
           </li>
 
@@ -172,7 +172,273 @@
       <!-- sidebar-filter finished -->
       <!-- product-main started -->
       <div class="product-main">
-        <div class="product-card">
+        <div class="product-card" data-category="tv">
+          <img src="./img/1-0.webp" alt="img" />
+          <a
+            href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+            class="product-card-title"
+          >
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam,
+              consequuntur.
+            </p>
+          </a>
+          <div class="product-card-price">
+            <h2>$49.99</h2>
+          </div>
+          <div class="product-card-overlay">
+            <h6>About Product</h6>
+            <p class="porduct-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+              totam voluptas consequuntur reprehenderit. Molestiae, nostrum
+              expedita? Voluptatem quasi explicabo sed iure totam suscipit quia
+              minus? Odio culpa nesciunt sit est!
+            </p>
+            <div>
+              <a
+                href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+                target="_blank"
+              >
+                <span><i class="fa-solid fa-link"></i></span>
+              </a>
+              <a style="margin-left: 10px" href="#">
+                <span
+                  ><button type="button" onclick="openModal(1)">
+                    <i class="fa-regular fa-images"></i></button
+                ></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" data-category="pc">
+          <img src="./img/1-0.webp" alt="img" />
+          <a
+            href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+            class="product-card-title"
+          >
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam,
+              consequuntur.
+            </p>
+          </a>
+          <div class="product-card-price">
+            <h2>$49.99</h2>
+          </div>
+          <div class="product-card-overlay">
+            <h6>About Product</h6>
+            <p class="porduct-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+              totam voluptas consequuntur reprehenderit. Molestiae, nostrum
+              expedita? Voluptatem quasi explicabo sed iure totam suscipit quia
+              minus? Odio culpa nesciunt sit est!
+            </p>
+            <div>
+              <a
+                href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+                target="_blank"
+              >
+                <span><i class="fa-solid fa-link"></i></span>
+              </a>
+              <a style="margin-left: 10px" href="#">
+                <span
+                  ><button type="button" onclick="openModal(1)">
+                    <i class="fa-regular fa-images"></i></button
+                ></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" data-category="laptop">
+          <img src="./img/1-0.webp" alt="img" />
+          <a
+            href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+            class="product-card-title"
+          >
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam,
+              consequuntur.
+            </p>
+          </a>
+          <div class="product-card-price">
+            <h2>$49.99</h2>
+          </div>
+          <div class="product-card-overlay">
+            <h6>About Product</h6>
+            <p class="porduct-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+              totam voluptas consequuntur reprehenderit. Molestiae, nostrum
+              expedita? Voluptatem quasi explicabo sed iure totam suscipit quia
+              minus? Odio culpa nesciunt sit est!
+            </p>
+            <div>
+              <a
+                href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+                target="_blank"
+              >
+                <span><i class="fa-solid fa-link"></i></span>
+              </a>
+              <a style="margin-left: 10px" href="#">
+                <span
+                  ><button type="button" onclick="openModal(1)">
+                    <i class="fa-regular fa-images"></i></button
+                ></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" data-category="laptop">
+          <img src="./img/1-0.webp" alt="img" />
+          <a
+            href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+            class="product-card-title"
+          >
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam,
+              consequuntur.
+            </p>
+          </a>
+          <div class="product-card-price">
+            <h2>$49.99</h2>
+          </div>
+          <div class="product-card-overlay">
+            <h6>About Product</h6>
+            <p class="porduct-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+              totam voluptas consequuntur reprehenderit. Molestiae, nostrum
+              expedita? Voluptatem quasi explicabo sed iure totam suscipit quia
+              minus? Odio culpa nesciunt sit est!
+            </p>
+            <div>
+              <a
+                href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+                target="_blank"
+              >
+                <span><i class="fa-solid fa-link"></i></span>
+              </a>
+              <a style="margin-left: 10px" href="#">
+                <span
+                  ><button type="button" onclick="openModal(1)">
+                    <i class="fa-regular fa-images"></i></button
+                ></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" data-category="smartphone">
+          <img src="./img/1-0.webp" alt="img" />
+          <a
+            href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+            class="product-card-title"
+          >
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam,
+              consequuntur.
+            </p>
+          </a>
+          <div class="product-card-price">
+            <h2>$49.99</h2>
+          </div>
+          <div class="product-card-overlay">
+            <h6>About Product</h6>
+            <p class="porduct-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+              totam voluptas consequuntur reprehenderit. Molestiae, nostrum
+              expedita? Voluptatem quasi explicabo sed iure totam suscipit quia
+              minus? Odio culpa nesciunt sit est!
+            </p>
+            <div>
+              <a
+                href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+                target="_blank"
+              >
+                <span><i class="fa-solid fa-link"></i></span>
+              </a>
+              <a style="margin-left: 10px" href="#">
+                <span
+                  ><button type="button" onclick="openModal(1)">
+                    <i class="fa-regular fa-images"></i></button
+                ></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" data-category="tablet">
+          <img src="./img/1-0.webp" alt="img" />
+          <a
+            href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+            class="product-card-title"
+          >
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam,
+              consequuntur.
+            </p>
+          </a>
+          <div class="product-card-price">
+            <h2>$49.99</h2>
+          </div>
+          <div class="product-card-overlay">
+            <h6>About Product</h6>
+            <p class="porduct-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+              totam voluptas consequuntur reprehenderit. Molestiae, nostrum
+              expedita? Voluptatem quasi explicabo sed iure totam suscipit quia
+              minus? Odio culpa nesciunt sit est!
+            </p>
+            <div>
+              <a
+                href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+                target="_blank"
+              >
+                <span><i class="fa-solid fa-link"></i></span>
+              </a>
+              <a style="margin-left: 10px" href="#">
+                <span
+                  ><button type="button" onclick="openModal(1)">
+                    <i class="fa-regular fa-images"></i></button
+                ></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" data-category="tablet">
+          <img src="./img/1-0.webp" alt="img" />
+          <a
+            href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+            class="product-card-title"
+          >
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam,
+              consequuntur.
+            </p>
+          </a>
+          <div class="product-card-price">
+            <h2>$49.99</h2>
+          </div>
+          <div class="product-card-overlay">
+            <h6>About Product</h6>
+            <p class="porduct-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+              totam voluptas consequuntur reprehenderit. Molestiae, nostrum
+              expedita? Voluptatem quasi explicabo sed iure totam suscipit quia
+              minus? Odio culpa nesciunt sit est!
+            </p>
+            <div>
+              <a
+                href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+                target="_blank"
+              >
+                <span><i class="fa-solid fa-link"></i></span>
+              </a>
+              <a style="margin-left: 10px" href="#">
+                <span
+                  ><button type="button" onclick="openModal(1)">
+                    <i class="fa-regular fa-images"></i></button
+                ></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" data-category="tv">
           <img src="./img/1-0.webp" alt="img" />
           <a
             href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
@@ -248,7 +514,7 @@
             </div>
           </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-category="headphone">
           <img src="./img/1-0.webp" alt="img" />
           <a
             href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
@@ -286,7 +552,11 @@
             </div>
           </div>
         </div>
-        <div class="product-card">
+        <div
+          class="product-card"
+          data-category="accessories"
+          data-subcategory="tv"
+        >
           <img src="./img/1-0.webp" alt="img" />
           <a
             href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
@@ -324,7 +594,11 @@
             </div>
           </div>
         </div>
-        <div class="product-card">
+        <div
+          class="product-card"
+          data-category="accessories"
+          data-subcategory="pc"
+        >
           <img src="./img/1-0.webp" alt="img" />
           <a
             href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
@@ -362,7 +636,221 @@
             </div>
           </div>
         </div>
-        <div class="product-card">
+        <div
+          class="product-card"
+          data-category="accessories"
+          data-subcategory="laptop"
+        >
+          <img src="./img/1-0.webp" alt="img" />
+          <a
+            href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+            class="product-card-title"
+          >
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam,
+              consequuntur.
+            </p>
+          </a>
+          <div class="product-card-price">
+            <h2>$49.99</h2>
+          </div>
+          <div class="product-card-overlay">
+            <h6>About Product</h6>
+            <p class="porduct-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+              totam voluptas consequuntur reprehenderit. Molestiae, nostrum
+              expedita? Voluptatem quasi explicabo sed iure totam suscipit quia
+              minus? Odio culpa nesciunt sit est!
+            </p>
+            <div>
+              <a
+                href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+                target="_blank"
+              >
+                <span><i class="fa-solid fa-link"></i></span>
+              </a>
+              <a style="margin-left: 10px" href="#">
+                <span
+                  ><button type="button" onclick="openModal(1)">
+                    <i class="fa-regular fa-images"></i></button
+                ></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="product-card"
+          data-category="accessories"
+          data-subcategory="smartphone"
+        >
+          <img src="./img/1-0.webp" alt="img" />
+          <a
+            href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+            class="product-card-title"
+          >
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam,
+              consequuntur.
+            </p>
+          </a>
+          <div class="product-card-price">
+            <h2>$49.99</h2>
+          </div>
+          <div class="product-card-overlay">
+            <h6>About Product</h6>
+            <p class="porduct-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+              totam voluptas consequuntur reprehenderit. Molestiae, nostrum
+              expedita? Voluptatem quasi explicabo sed iure totam suscipit quia
+              minus? Odio culpa nesciunt sit est!
+            </p>
+            <div>
+              <a
+                href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+                target="_blank"
+              >
+                <span><i class="fa-solid fa-link"></i></span>
+              </a>
+              <a style="margin-left: 10px" href="#">
+                <span
+                  ><button type="button" onclick="openModal(1)">
+                    <i class="fa-regular fa-images"></i></button
+                ></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="product-card"
+          data-category="accessories"
+          data-subcategory="tablet"
+        >
+          <img src="./img/1-0.webp" alt="img" />
+          <a
+            href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+            class="product-card-title"
+          >
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam,
+              consequuntur.
+            </p>
+          </a>
+          <div class="product-card-price">
+            <h2>$49.99</h2>
+          </div>
+          <div class="product-card-overlay">
+            <h6>About Product</h6>
+            <p class="porduct-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+              totam voluptas consequuntur reprehenderit. Molestiae, nostrum
+              expedita? Voluptatem quasi explicabo sed iure totam suscipit quia
+              minus? Odio culpa nesciunt sit est!
+            </p>
+            <div>
+              <a
+                href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+                target="_blank"
+              >
+                <span><i class="fa-solid fa-link"></i></span>
+              </a>
+              <a style="margin-left: 10px" href="#">
+                <span
+                  ><button type="button" onclick="openModal(1)">
+                    <i class="fa-regular fa-images"></i></button
+                ></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="product-card"
+          data-category="accessories"
+          data-subcategory="headphone"
+        >
+          <img src="./img/1-0.webp" alt="img" />
+          <a
+            href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+            class="product-card-title"
+          >
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam,
+              consequuntur.
+            </p>
+          </a>
+          <div class="product-card-price">
+            <h2>$49.99</h2>
+          </div>
+          <div class="product-card-overlay">
+            <h6>About Product</h6>
+            <p class="porduct-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+              totam voluptas consequuntur reprehenderit. Molestiae, nostrum
+              expedita? Voluptatem quasi explicabo sed iure totam suscipit quia
+              minus? Odio culpa nesciunt sit est!
+            </p>
+            <div>
+              <a
+                href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+                target="_blank"
+              >
+                <span><i class="fa-solid fa-link"></i></span>
+              </a>
+              <a style="margin-left: 10px" href="#">
+                <span
+                  ><button type="button" onclick="openModal(1)">
+                    <i class="fa-regular fa-images"></i></button
+                ></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="product-card"
+          data-category="accessories"
+          data-subcategory="headphone"
+        >
+          <img src="./img/1-0.webp" alt="img" />
+          <a
+            href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+            class="product-card-title"
+          >
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam,
+              consequuntur.
+            </p>
+          </a>
+          <div class="product-card-price">
+            <h2>$49.99</h2>
+          </div>
+          <div class="product-card-overlay">
+            <h6>About Product</h6>
+            <p class="porduct-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+              totam voluptas consequuntur reprehenderit. Molestiae, nostrum
+              expedita? Voluptatem quasi explicabo sed iure totam suscipit quia
+              minus? Odio culpa nesciunt sit est!
+            </p>
+            <div>
+              <a
+                href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"
+                target="_blank"
+              >
+                <span><i class="fa-solid fa-link"></i></span>
+              </a>
+              <a style="margin-left: 10px" href="#">
+                <span
+                  ><button type="button" onclick="openModal(1)">
+                    <i class="fa-regular fa-images"></i></button
+                ></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="product-card"
+          data-category="accessories"
+          data-subcategory="headphone"
+        >
           <img src="./img/1-0.webp" alt="img" />
           <a
             href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete"

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="./css/admin.scss" />
+  </head>
+  <body>
+    <div class="navigation">
+      <ul>
+        <li class="list">
+          <b></b>
+          <b></b>
+          <a href="../index.html">
+            <span class="icon"><i class="fa-solid fa-house-user"></i></span>
+            <span class="title">Home</span>
+          </a>
+        </li>
+        <li class="list active">
+          <b></b>
+          <b></b>
+          <a href="#">
+            <span class="icon"><i class="fa-solid fa-gears"></i></span>
+            <span class="title">Product</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="toggle">
+      <i class="fa-solid fa-bars open"></i>
+      <i class="fa-solid fa-xmark close"></i>
+    </div>
+    <div class="product-table">
+      <div class="head">
+        <h1>Products</h1>
+        <button class="add-item">
+          <i class="fa-solid fa-plus"></i>
+          New Item
+        </button>
+      </div>
+      <table class="products">
+        <tr>
+          <th>ID</th>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Reference</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td>Alfreds Futterkiste</td>
+          <td>Maria Anders</td>
+          <td>Germany</td>
+        </tr>
+        <tr>
+          <td>Berglunds snabbköp</td>
+          <td>Christina Berglund</td>
+          <td>Sweden</td>
+        </tr>
+        <tr>
+          <td>Centro comercial Moctezuma</td>
+          <td>Francisco Chang</td>
+          <td>Mexico</td>
+        </tr>
+        <tr>
+          <td>Ernst Handel</td>
+          <td>Roland Mendel</td>
+          <td>Austria</td>
+        </tr>
+        <tr>
+          <td>Island Trading</td>
+          <td>Helen Bennett</td>
+          <td>UK</td>
+        </tr>
+        <tr>
+          <td>Königlich Essen</td>
+          <td>Philip Cramer</td>
+          <td>Germany</td>
+        </tr>
+        <tr>
+          <td>Laughing Bacchus Winecellars</td>
+          <td>Yoshi Tannamuri</td>
+          <td>Canada</td>
+        </tr>
+        <tr>
+          <td>Magazzini Alimentari Riuniti</td>
+          <td>Giovanni Rovelli</td>
+          <td>Italy</td>
+        </tr>
+        <tr>
+          <td>North/South</td>
+          <td>Simon Crowther</td>
+          <td>UK</td>
+        </tr>
+        <tr>
+          <td>Paris spécialités</td>
+          <td>Marie Bertrand</td>
+          <td>France</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- navbar toggle -->
+    <script>
+      let menuToggle = document.querySelector(".toggle");
+      let navigation = document.querySelector(".navigation");
+      let table = document.querySelector(".product-table");
+      menuToggle.onclick = function () {
+        menuToggle.classList.toggle("active");
+        navigation.classList.toggle("active");
+        table.classList.toggle("active");
+      };
+    </script>
+    <!-- navbar selection -->
+    <script>
+      const list = document.querySelectorAll(".list");
+      function activeLink() {
+        list.forEach((item) => item.classList.remove("active"));
+        this.classList.add("active");
+      }
+      list.forEach((item) => item.addEventListener("click", activeLink));
+    </script>
+  </body>
+</html>

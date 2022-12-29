@@ -1,0 +1,181 @@
+@import url(../../css/base/_fonts.scss);
+@import url(../../css/base/_icons.scss);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+body {
+  min-height: 100vh;
+  background-color: #fff;
+}
+.navigation {
+  position: fixed;
+  inset: 20px;
+  width: 70px;
+  border-radius: 10px;
+  box-sizing: initial;
+  border-left: 5px solid #4d5bf9;
+  background: #4d5bf9;
+  transition: 0.5s;
+  overflow: hidden;
+}
+.navigation.active {
+  width: 200px;
+}
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-left: 5px;
+  padding-top: 40px;
+}
+.navigation ul li {
+  position: relative;
+  list-style: none;
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.navigation ul li.active {
+  background: #fff;
+}
+.navigation ul li b:nth-child(1) {
+  position: absolute;
+  top: -20px;
+  height: 20px;
+  width: 100%;
+  background: #fff;
+  display: none;
+}
+.navigation ul li b:nth-child(1)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4d5bf9;
+  border-bottom-right-radius: 20px;
+}
+.navigation ul li b:nth-child(2) {
+  position: absolute;
+  bottom: -20px;
+  height: 20px;
+  width: 100%;
+  background: #fff;
+  display: none;
+}
+.navigation ul li b:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4d5bf9;
+  border-top-right-radius: 20px;
+}
+.navigation ul li.active b:nth-child(1),
+.navigation ul li.active b:nth-child(2) {
+  display: block;
+}
+.navigation ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: #fff;
+}
+.navigation ul li.active a {
+  color: #333;
+}
+.navigation ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+.navigation ul li a .icon i {
+  font-size: 1.5em;
+}
+.navigation ul li a .title {
+  position: relative;
+  display: block;
+  padding-left: 10px;
+  height: 60px;
+  line-height: 60px;
+  white-space: normal;
+}
+.toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: #4d5bf9;
+  cursor: pointer;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.toggle.active {
+  background: red;
+}
+.toggle i {
+  position: absolute;
+  color: #fff;
+  font-size: 34px;
+  display: none;
+}
+.toggle i.open,
+.toggle.active i.close {
+  display: block;
+}
+.toggle i.close,
+.toggle.active i.open {
+  display: none;
+}
+.product-table {
+  margin-top: 100px;
+  margin-left: 120px;
+  transition: 0.5s;
+  /* width: 100%; */
+}
+.product-table.active {
+  margin-left: 240px;
+  transition: 0.5s;
+}
+.product-table .products {
+  border: 2px solid #4d5bf9;
+  border-radius: 15px;
+  padding: 10px 20px;
+  display: flex;
+}
+.product-table .products th {
+  padding: 0 10px;
+  border-bottom: 3px solid #ddd;
+  height: 40px;
+}
+.product-table .products td {
+  padding: 0 5px;
+  height: 40px;
+  border-bottom: 1px solid #ddd;
+}
+.product-table .head {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 15px;
+}
+.product-table .head .add-item {
+  padding: 5px 10px;
+  color: #fff;
+  background-color: #4d5bf9;
+  border-radius: 10px;
+}

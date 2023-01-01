@@ -13,8 +13,6 @@ $manifestObject = json_decode($manifest, true);
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shopping Ideas</title>
-  <!-- <link rel="stylesheet" href="./css/style.scss" />
-  <script src="./js/index.js" defer></script> -->
   <link rel="stylesheet" href="./dist/<?= $manifestObject["js/index.js"]["css"][0] ?>">
   <script src="./dist/<?= $manifestObject["js/index.js"]["file"] ?>" defer></script>
 </head>
@@ -27,55 +25,31 @@ $manifestObject = json_decode($manifest, true);
     </div>
     <div class="navbar">
       <ul>
-        <?php foreach ($categories as $index => $category) {
+        <?php foreach ($categories as $index => $category) { ?>
 
-          // create categories without subcategories
-          if (!$category["subcategories"]) {
+          <!-- add class 'active' to the first category and add class 'dropdown' if it has subcategories  -->
+          <li class="list<?= ($index == 0 ? " active" : "");
+                          ($category["subcategories"] ? " dropdown" : "") ?>" data-category="<?= $category["name"] ?>">
 
-            // first category is 'active' at the start
-
-            // TODO: clean code ----->
-            if ($index == 0) {
-        ?>
-              <li class="list active" data-category="<?= $category["name"] ?>">
-                <a href="#">
-
-                  <!-- TODO: change icons to match category -->
-                  <span class="icon"><i class="fa-solid fa-tv"></i></span>
-                  <span class="text"><?= $category["name"] ?></span>
-                </a>
-              </li>
-            <?php
-            } else {
-            ?>
-              <li class="list" data-category="<?= $category["name"] ?>">
-                <a href="#">
-                  <span class="icon"><i class="fa-solid fa-tv"></i></span>
-                  <span class="text"><?= $category["name"] ?></span>
-                </a>
-              </li>
-            <?php
-            }
-
-            // create subcategories inside category
-          } else {
-            ?>
-            <li class="list dropdown" data-category="<?= $category["name"] ?>">
-              <a href="#">
-                <span class="icon"><i class="fa-solid fa-toolbox"></i></span>
-                <span class="text"><?= $category["name"] ?></span>
-              </a>
+            <a href="#">
+              <!-- TODO: change icons to match category -->
+              <span class="icon"><i class="fa-solid fa-tv"></i></span>
+              <span class="text"><?= $category["name"] ?></span>
+            </a>
+            <?php if ($category["subcategories"]) { ?>
               <ul>
+
+                <!-- create subcategories inside category -->
                 <?php foreach ($category["subcategories"] as $subcategory) { ?>
-                  <li data-subcategory="<?= $subcategory["name"] ?>"><a href="#"><?= $subcategory["name"] ?></a></li>
+                  <li data-subcategory="<?= $subcategory["name"] ?>">
+                    <a href="#"><?= $subcategory["name"] ?></a>
+                  </li>
                 <?php } ?>
+
               </ul>
-            </li>
-        <?php
-            // TODO: clean code <-----
-          }
-        }
-        ?>
+            <?php } ?>
+          </li>
+        <?php } ?>
         <!-- <li class="list active" data-category="tv">
           <a href="#">
             <span class="icon"><i class="fa-solid fa-tv"></i></span>

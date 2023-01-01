@@ -3,30 +3,8 @@ require './data/products.php';
 
 $manifest = file_get_contents("./dist/manifest.json");
 $manifestObject = json_decode($manifest, true);
-
-
-$categories = [];
-foreach ($products as $product) {
-  // TODO: only add 'subcategories' key when needed
-  $product['subcategories'] = [];
-  if (!$product["parent_id"]) {
-    array_push($categories, $product);
-  } else {
-    foreach ($categories as $key => $category) {
-      if ($category["id"] == $product["parent_id"]) {
-        array_push($categories[$key]["subcategories"], $product);
-      }
-    }
-  }
-}
 ?>
 
-<pre>
-  <?php
-  print_r($categories);
-  ?>
-
-</pre>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,31 +27,52 @@ foreach ($products as $product) {
     </div>
     <div class="navbar">
       <ul>
-        <?php foreach ($products as $index => $product) {
-          if (!$product["parent_id"]) {
+        <?php foreach ($categories as $index => $category) {
+
+          // create categories without subcategories
+          if (!$category["subcategories"]) {
+
+            // first category is 'active' at the start
+
+            // TODO: clean code ----->
             if ($index == 0) {
         ?>
-              <li class="list active" data-category="<?= $product["name"] ?>">
+              <li class="list active" data-category="<?= $category["name"] ?>">
                 <a href="#">
+
+                  <!-- TODO: change icons to match category -->
                   <span class="icon"><i class="fa-solid fa-tv"></i></span>
-                  <span class="text"><?= $product["name"] ?></span>
+                  <span class="text"><?= $category["name"] ?></span>
                 </a>
               </li>
             <?php
             } else {
             ?>
-              <li class="list" data-category="<?= $product["name"] ?>">
+              <li class="list" data-category="<?= $category["name"] ?>">
                 <a href="#">
                   <span class="icon"><i class="fa-solid fa-tv"></i></span>
-                  <span class="text"><?= $product["name"] ?></span>
+                  <span class="text"><?= $category["name"] ?></span>
                 </a>
               </li>
             <?php
             }
+
+            // create subcategories inside category
           } else {
             ?>
-            <li data-subcategory="<?= $product["name"] ?>"><a href="#"><?= $product["name"] ?></a></li>
+            <li class="list dropdown" data-category="<?= $category["name"] ?>">
+              <a href="#">
+                <span class="icon"><i class="fa-solid fa-toolbox"></i></span>
+                <span class="text"><?= $category["name"] ?></span>
+              </a>
+              <ul>
+                <?php foreach ($category["subcategories"] as $subcategory) { ?>
+                  <li data-subcategory="<?= $subcategory["name"] ?>"><a href="#"><?= $subcategory["name"] ?></a></li>
+                <?php } ?>
+              </ul>
+            </li>
         <?php
+            // TODO: clean code <-----
           }
         }
         ?>

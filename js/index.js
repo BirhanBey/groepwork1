@@ -37,8 +37,10 @@ function hideProducts(category, subcategory) {
       if (productCard.dataset.subcategory !== subcategory) {
         productCard.classList.add('hidden');
       }
-    } else if (productCard.dataset.category !== category) {
-      productCard.classList.add('hidden');
+    } else if (category) {
+      if (productCard.dataset.category !== category) {
+        productCard.classList.add('hidden');
+      }
     }
   });
 }

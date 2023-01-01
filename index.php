@@ -5,42 +5,28 @@ $manifest = file_get_contents("./dist/manifest.json");
 $manifestObject = json_decode($manifest, true);
 
 
-// $categories = [];
-// foreach ($products as $product) {
-//   if (!$product["parent_id"]) {
-//     array_push($categories, $product);
-//   } else {
-//     foreach ($categories as $category) {
-//       if ($category["id"] === $product["parent_id"]) {
-//         var_dump(array_key_exists("subcategories", $category));
-//         if (!array_key_exists("subcategories", $category)) {
-//           $category["subcategories"] = array($product);
-//           echo '<h1> sub made </h1>';
-//           var_dump(array_key_exists("subcategories", $category));
-// break;
-// } else {
-//   echo '<h1> sub added </h1>';
-//   array_push($category["subcategories"], $product);
-// }
-// var_dump($product);
-?>
-<!-- <pre> -->
-<?php
-// print_r($category);
-?>
-<!-- <pre> -->
-<?php
-//       }
-//     }
-//   }
-// }
+$categories = [];
+foreach ($products as $product) {
+  // TODO: only add 'subcategories' key when needed
+  $product['subcategories'] = [];
+  if (!$product["parent_id"]) {
+    array_push($categories, $product);
+  } else {
+    foreach ($categories as $key => $category) {
+      if ($category["id"] == $product["parent_id"]) {
+        array_push($categories[$key]["subcategories"], $product);
+      }
+    }
+  }
+}
 ?>
 
-<!-- <pre> -->
-<?php
-// print_r($categories);
-?>
-<!-- </pre> -->
+<pre>
+  <?php
+  print_r($categories);
+  ?>
+
+</pre>
 <!DOCTYPE html>
 <html lang="en">
 

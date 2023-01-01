@@ -1,11 +1,46 @@
 <?php
-$title = "<h1>een <span>titel</span></h1>";
-//we requiren de json file. (bekijk hem eens. hij bevat de output van de door vite gegenereerde bestanden)
+require './data/products.php';
+
 $manifest = file_get_contents("./dist/manifest.json");
-//we lezen hem in als associatieve array
 $manifestObject = json_decode($manifest, true);
+
+
+// $categories = [];
+// foreach ($products as $product) {
+//   if (!$product["parent_id"]) {
+//     array_push($categories, $product);
+//   } else {
+//     foreach ($categories as $category) {
+//       if ($category["id"] === $product["parent_id"]) {
+//         var_dump(array_key_exists("subcategories", $category));
+//         if (!array_key_exists("subcategories", $category)) {
+//           $category["subcategories"] = array($product);
+//           echo '<h1> sub made </h1>';
+//           var_dump(array_key_exists("subcategories", $category));
+// break;
+// } else {
+//   echo '<h1> sub added </h1>';
+//   array_push($category["subcategories"], $product);
+// }
+// var_dump($product);
+?>
+<!-- <pre> -->
+<?php
+// print_r($category);
+?>
+<!-- <pre> -->
+<?php
+//       }
+//     }
+//   }
+// }
 ?>
 
+<!-- <pre> -->
+<?php
+// print_r($categories);
+?>
+<!-- </pre> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +63,35 @@ $manifestObject = json_decode($manifest, true);
     </div>
     <div class="navbar">
       <ul>
-        <li class="list active" data-category="tv">
+        <?php foreach ($products as $index => $product) {
+          if (!$product["parent_id"]) {
+            if ($index == 0) {
+        ?>
+              <li class="list active" data-category="<?= $product["name"] ?>">
+                <a href="#">
+                  <span class="icon"><i class="fa-solid fa-tv"></i></span>
+                  <span class="text"><?= $product["name"] ?></span>
+                </a>
+              </li>
+            <?php
+            } else {
+            ?>
+              <li class="list" data-category="<?= $product["name"] ?>">
+                <a href="#">
+                  <span class="icon"><i class="fa-solid fa-tv"></i></span>
+                  <span class="text"><?= $product["name"] ?></span>
+                </a>
+              </li>
+            <?php
+            }
+          } else {
+            ?>
+            <li data-subcategory="<?= $product["name"] ?>"><a href="#"><?= $product["name"] ?></a></li>
+        <?php
+          }
+        }
+        ?>
+        <!-- <li class="list active" data-category="tv">
           <a href="#">
             <span class="icon"><i class="fa-solid fa-tv"></i></span>
             <span class="text">TV</span>
@@ -77,7 +140,7 @@ $manifestObject = json_decode($manifest, true);
             <li data-subcategory="tablet"><a href="#">Tablet</a></li>
             <li data-subcategory="headphone"><a href="#">Headphone</a></li>
           </ul>
-        </li>
+        </li> -->
 
         <div class="indicator">
           <span class="icon-indicator"></span>

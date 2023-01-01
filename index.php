@@ -25,15 +25,28 @@ $manifestObject = json_decode($manifest, true);
     </div>
     <div class="navbar">
       <ul>
-        <?php foreach ($categories as $index => $category) { ?>
+        <?php
+
+        // create icons object to translate "database name" => "icon name"
+        $icons = [
+          "TV" => 'tv',
+          "PC" => 'desktop',
+          "Laptop" => 'laptop',
+          "Tablet" => 'tablet-screen-button',
+          "Headphone" => 'headphones-simple',
+          "Accessories" => 'toolbox',
+          "Smartphone" => 'mobile-screen-button'
+        ];
+
+        foreach ($categories as $index => $category) { ?>
 
           <!-- add class 'active' to the first category and add class 'dropdown' if it has subcategories  -->
           <li class="list<?= ($index == 0 ? " active" : "");
                           ($category["subcategories"] ? " dropdown" : "") ?>" data-category="<?= $category["name"] ?>">
 
             <a href="#">
-              <!-- TODO: change icons to match category -->
-              <span class="icon"><i class="fa-solid fa-tv"></i></span>
+              <!-- use icons object -->
+              <span class="icon"><i class="fa-solid fa-<?= $icons[$category["name"]] ?>"></i></span>
               <span class="text"><?= $category["name"] ?></span>
             </a>
             <?php if ($category["subcategories"]) { ?>
@@ -50,56 +63,6 @@ $manifestObject = json_decode($manifest, true);
             <?php } ?>
           </li>
         <?php } ?>
-        <!-- <li class="list active" data-category="tv">
-          <a href="#">
-            <span class="icon"><i class="fa-solid fa-tv"></i></span>
-            <span class="text">TV</span>
-          </a>
-        </li>
-        <li class="list" data-category="pc">
-          <a href="#">
-            <span class="icon"><i class="fa-solid fa-desktop"></i></span>
-            <span class="text">PC</span>
-          </a>
-        </li>
-        <li class="list" data-category="laptop">
-          <a href="#">
-            <span class="icon"><i class="fa-solid fa-laptop"></i></span>
-            <span class="text">Laptop</span>
-          </a>
-        </li>
-        <li class="list" data-category="smartphone">
-          <a href="#">
-            <span class="icon"><i class="fa-solid fa-mobile-screen-button"></i></span>
-            <span class="text">Smartphone</span>
-          </a>
-        </li>
-        <li class="list" data-category="tablet">
-          <a href="#">
-            <span class="icon"><i class="fa-solid fa-tablet-screen-button"></i></span>
-            <span class="text">Tablet</span>
-          </a>
-        </li>
-        <li class="list" data-category="headphone">
-          <a href="#">
-            <span class="icon"><i class="fa-solid fa-headphones-simple"></i></span>
-            <span class="text">Headphone</span>
-          </a>
-        </li>
-        <li class="list dropdown" data-category="accessories">
-          <a href="#">
-            <span class="icon"><i class="fa-solid fa-toolbox"></i></span>
-            <span class="text"> Accessories</span>
-          </a>
-          <ul>
-            <li data-subcategory="tv"><a href="#">TV</a></li>
-            <li data-subcategory="pc"><a href="#">PC</a></li>
-            <li data-subcategory="laptop"><a href="#">Laptop</a></li>
-            <li data-subcategory="smartphone"><a href="#">Smartphone</a></li>
-            <li data-subcategory="tablet"><a href="#">Tablet</a></li>
-            <li data-subcategory="headphone"><a href="#">Headphone</a></li>
-          </ul>
-        </li> -->
 
         <div class="indicator">
           <span class="icon-indicator"></span>

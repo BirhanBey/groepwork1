@@ -1,11 +1,17 @@
 <?php
-require './data/db.php';
+require_once './data/db.php';
 
 /**
  * GET
  */
 
-$result = $mysqli->query("SELECT * FROM categories ORDER BY id ASC");
+$result = $mysqli->query("
+SELECT
+    * 
+FROM 
+    categories 
+ORDER BY id ASC
+");
 $SQLcategories = $result->fetch_all(MYSQLI_ASSOC);
 
 $categories = [];

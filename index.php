@@ -1,6 +1,7 @@
 <?php
 require './data/categories.php';
 require './data/products.php';
+require './data/filters.php';
 $manifest = file_get_contents("./dist/manifest.json");
 $manifestObject = json_decode($manifest, true);
 ?>
@@ -85,18 +86,18 @@ $manifestObject = json_decode($manifest, true);
         <div class="filter-section">
           <h4>Color</h4>
           <div class="filter-option">
-            <input type="radio" id="color-red" name="color" value="red" />
-            <label class="color-red" for="color-red">Red</label><br />
-            <input type="radio" id="color-blue" name="color" value="blue" />
-            <label class="color-blue" for="color-blue">Blue</label><br />
-            <input type="radio" id="color-yellow" name="color" value="yellow" />
-            <label class="color-yellow" for="color-yellow">Yellow</label><br />
+
+            <?php foreach ($colors as $color) { ?>
+              <input type="radio" id="color-<?= $color["name"] ?>" name="color" value="<?= $color["name"] ?>" />
+              <label class="color-<?= $color["name"] ?>" for="color-<?= $color["name"] ?>"><?= $color["name"] ?></label><br />
+            <?php } ?>
+
             <input type="radio" id="color-none" name="color" value="" />
             <label for="color-none">None</label><br />
           </div>
           <!-- color options -->
         </div>
-        <div class="filter-section">
+        <!-- <div class="filter-section">
           <h4>Price</h4>
           <div class="filter-option">
             <input type="radio" id="price-low" name="price" value="low" />
@@ -106,26 +107,18 @@ $manifestObject = json_decode($manifest, true);
             <input type="radio" id="price-high" name="price" value="high" />
             <label for="price-high">high</label><br /><br />
           </div>
-        </div>
+        </div> -->
         <!-- price options -->
 
         <div class="filter-section">
           <h4>Brands</h4>
           <div class="filter-option">
-            <input type="radio" id="brand-adidas" name="brand" value="adidas" />
-            <label for="brand-adidas">Adidas</label><br />
-            <input type="radio" id="brand-nike" name="brand" value="nike" />
-            <label for="brand-nike">Nike</label><br />
-            <input type="radio" id="brand-puma" name="brand" value="puma" />
-            <label for="brand-puma">Puma</label><br />
-            <input type="radio" id="brand-asics" name="brand" value="asics" />
-            <label for="brand-asics">Asics</label><br />
-            <input type="radio" id="brand-reebok" name="brand" value="reebok" />
-            <label for="brand-reebok">Reebok</label><br />
-            <input type="radio" id="brand-fila" name="brand" value="fila" />
-            <label for="brand-fila">Fila</label><br />
-            <input type="radio" id="brand-timberland" name="brand" value="timberland" />
-            <label for="brand-timberland">Timberland</label><br />
+
+            <?php foreach ($brands as $brand) { ?>
+              <input type="radio" id="brand-<?= $brand["name"] ?>" name="brand" value="<?= $brand["name"] ?>" />
+              <label for="brand-<?= $brand["name"] ?>"><?= $brand["name"] ?></label><br />
+            <?php } ?>
+
           </div>
         </div>
         <!-- brand options -->
@@ -140,8 +133,8 @@ $manifestObject = json_decode($manifest, true);
     <div class="product-main">
 
       <?php foreach ($products as $product) { ?>
-        <div class="product-card" data-category="<?= $product["category"] ?>">
-          <img src="<?= $product["img"] ?>" alt="img" />
+        <div class="product-card" data-category="<?= $product["category"] ?>" data-color="<?= $product["color"] ?>" data-brand="<?= $product["brand"] ?>">
+          <img src=" <?= $product["img"] ?>" alt="img" />
           <a href="<?= $product["url"] ?>" class="product-card-title">
             <p>
               <?= $product["title"] ?>
@@ -167,37 +160,6 @@ $manifestObject = json_decode($manifest, true);
           </div>
         </div>
       <?php } ?>
-
-      <div class="product-card" data-category="PC" data-color="red" data-price="low">
-        <img src="./img/1-0.webp" alt="img" />
-        <a href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete" class="product-card-title">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam,
-            consequuntur.
-          </p>
-        </a>
-        <div class="product-card-price">
-          <h2>$49.99</h2>
-        </div>
-        <div class="product-card-overlay">
-          <h6>About Product</h6>
-          <p class="porduct-description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-            totam voluptas consequuntur reprehenderit. Molestiae, nostrum
-            expedita? Voluptatem quasi explicabo sed iure totam suscipit quia
-            minus? Odio culpa nesciunt sit est!
-          </p>
-          <div>
-            <a href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete" target="_blank">
-              <span><i class="fa-solid fa-link"></i></span>
-            </a>
-            <a style="margin-left: 10px" href="#">
-              <span><button type="button" onclick="openModal(1)">
-                  <i class="fa-regular fa-images"></i></button></span>
-            </a>
-          </div>
-        </div>
-      </div>
 
       <!-- imagebox started -->
 

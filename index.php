@@ -138,6 +138,7 @@ $manifestObject = json_decode($manifest, true);
 
     <!-- product-main started -->
     <div class="product-main">
+
       <?php foreach ($products as $product) { ?>
         <div class="product-card" data-category="<?= $product["category"] ?>">
           <img src="<?= $product["img"] ?>" alt="img" />
@@ -167,7 +168,7 @@ $manifestObject = json_decode($manifest, true);
         </div>
       <?php } ?>
 
-      <div class="product-card" data-category="accessories" data-subcategory="headphone">
+      <div class="product-card" data-category="PC" data-color="red" data-price="low">
         <img src="./img/1-0.webp" alt="img" />
         <a href="https://www.n11.com/urun/cafele-ak33-rgb-isikli-oyuncu-gamer-gaming-klavye-1803490?magaza=yollasepete" class="product-card-title">
           <p>

@@ -2,6 +2,7 @@
 require './data/categories.php';
 require './data/products.php';
 require './data/filters.php';
+
 $manifest = file_get_contents("./dist/manifest.json");
 $manifestObject = json_decode($manifest, true);
 ?>
@@ -97,6 +98,7 @@ $manifestObject = json_decode($manifest, true);
           </div>
           <!-- color options -->
         </div>
+
         <!-- <div class="filter-section">
           <h4>Price</h4>
           <div class="filter-option">
@@ -108,6 +110,7 @@ $manifestObject = json_decode($manifest, true);
             <label for="price-high">high</label><br /><br />
           </div>
         </div> -->
+
         <!-- price options -->
 
         <div class="filter-section">
@@ -145,17 +148,17 @@ $manifestObject = json_decode($manifest, true);
           </div>
           <div class="product-card-overlay">
             <h6>About Product</h6>
-            <p class="porduct-description">
+            <p class="product-description">
               <?= $product["description"] ?>
             </p>
-            <div>
+            <div class="connection">
               <a href="<?= $product["url"] ?>" target="_blank">
                 <span><i class="fa-solid fa-link"></i></span>
               </a>
-              <a style="margin-left: 10px" href="#">
-                <span><button type="button" onclick="openModal(1)">
-                    <i class="fa-regular fa-images"></i></button></span>
-              </a>
+              <!-- <a style="margin-left: 10px" href="#"> -->
+              <button type="button" onclick="openModal(1)"><span>
+                  <i class="fa-regular fa-images"></i></span></button>
+              <!-- </a> -->
             </div>
           </div>
         </div>

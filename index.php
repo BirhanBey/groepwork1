@@ -1,8 +1,6 @@
 <?php
-$title = "<h1>een <span>titel</span></h1>";
-//we requiren de json file. (bekijk hem eens. hij bevat de output van de door vite gegenereerde bestanden)
+require './data/categories.php';
 $manifest = file_get_contents("./dist/manifest.json");
-//we lezen hem in als associatieve array
 $manifestObject = json_decode($manifest, true);
 ?>
 
@@ -14,8 +12,6 @@ $manifestObject = json_decode($manifest, true);
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shopping Ideas</title>
-  <!-- <link rel="stylesheet" href="./css/style.scss" />
-  <script src="./js/index.js" defer></script> -->
   <link rel="stylesheet" href="./dist/<?= $manifestObject["js/index.js"]["css"][0] ?>">
   <script src="./dist/<?= $manifestObject["js/index.js"]["file"] ?>" defer></script>
 </head>
@@ -28,56 +24,44 @@ $manifestObject = json_decode($manifest, true);
     </div>
     <div class="navbar">
       <ul>
-        <li class="list active" data-category="tv">
-          <a href="#">
-            <span class="icon"><i class="fa-solid fa-tv"></i></span>
-            <span class="text">TV</span>
-          </a>
-        </li>
-        <li class="list" data-category="pc">
-          <a href="#">
-            <span class="icon"><i class="fa-solid fa-desktop"></i></span>
-            <span class="text">PC</span>
-          </a>
-        </li>
-        <li class="list" data-category="laptop">
-          <a href="#">
-            <span class="icon"><i class="fa-solid fa-laptop"></i></span>
-            <span class="text">Laptop</span>
-          </a>
-        </li>
-        <li class="list" data-category="smartphone">
-          <a href="#">
-            <span class="icon"><i class="fa-solid fa-mobile-screen-button"></i></span>
-            <span class="text">Smartphone</span>
-          </a>
-        </li>
-        <li class="list" data-category="tablet">
-          <a href="#">
-            <span class="icon"><i class="fa-solid fa-tablet-screen-button"></i></span>
-            <span class="text">Tablet</span>
-          </a>
-        </li>
-        <li class="list" data-category="headphone">
-          <a href="#">
-            <span class="icon"><i class="fa-solid fa-headphones-simple"></i></span>
-            <span class="text">Headphone</span>
-          </a>
-        </li>
-        <li class="list dropdown" data-category="accessories">
-          <a href="#">
-            <span class="icon"><i class="fa-solid fa-toolbox"></i></span>
-            <span class="text"> Accessories</span>
-          </a>
-          <ul>
-            <li data-subcategory="tv"><a href="#">TV</a></li>
-            <li data-subcategory="pc"><a href="#">PC</a></li>
-            <li data-subcategory="laptop"><a href="#">Laptop</a></li>
-            <li data-subcategory="smartphone"><a href="#">Smartphone</a></li>
-            <li data-subcategory="tablet"><a href="#">Tablet</a></li>
-            <li data-subcategory="headphone"><a href="#">Headphone</a></li>
-          </ul>
-        </li>
+        <?php
+
+        // create icons object to translate "database name" => "icon name"
+        $icons = [
+          "TV" => 'tv',
+          "PC" => 'desktop',
+          "Laptop" => 'laptop',
+          "Tablet" => 'tablet-screen-button',
+          "Headphone" => 'headphones-simple',
+          "Accessories" => 'toolbox',
+          "Smartphone" => 'mobile-screen-button'
+        ];
+
+        foreach ($categories as $index => $category) { ?>
+
+          <!-- add class 'active' to the first category and add class 'dropdown' if it has subcategories  -->
+          <li class="list<?= ($index == 0 ? " active" : "");
+                          ($category["subcategories"] ? " dropdown" : "") ?>" data-category="<?= $category["name"] ?>">
+
+            <a href="#">
+              <!-- use icons object -->
+              <span class="icon"><i class="fa-solid fa-<?= $icons[$category["name"]] ?>"></i></span>
+              <span class="text"><?= $category["name"] ?></span>
+            </a>
+            <?php if ($category["subcategories"]) { ?>
+              <ul>
+
+                <!-- create subcategories inside category -->
+                <?php foreach ($category["subcategories"] as $subcategory) { ?>
+                  <li data-subcategory="<?= $subcategory["name"] ?>">
+                    <a href="#"><?= $subcategory["name"] ?></a>
+                  </li>
+                <?php } ?>
+
+              </ul>
+            <?php } ?>
+          </li>
+        <?php } ?>
 
         <div class="indicator">
           <span class="icon-indicator"></span>

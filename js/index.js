@@ -1,3 +1,5 @@
+import '../css/style.scss';
+
 /**
  * navbar
  */
@@ -20,24 +22,21 @@ navbarRef.forEach((listItem) =>
     // check if clicking on subcategory
     const parentRef = e.target.parentElement;
     if (parentRef.tagName == 'LI' && !parentRef.classList.contains('list')) {
-      subcategory = parentRef.dataset.subcategory;
+      category += '-' + parentRef.dataset.subcategory;
     }
-    hideProducts(category, subcategory);
+    hideProducts(category);
   })
 );
 
 const productCardsRef = document.querySelectorAll('.product-card');
 
-function hideProducts(category, subcategory) {
+function hideProducts(category) {
   productCardsRef.forEach((productCard) => {
     // reset hidden class
     productCard.classList.remove('hidden');
-    // if subcategory exists filter with subcategory else with category
-    if (subcategory) {
-      if (productCard.dataset.subcategory !== subcategory) {
-        productCard.classList.add('hidden');
-      }
-    } else if (productCard.dataset.category !== category) {
+
+    // check if selected category is one of the categories of the product
+    if (!productCard.dataset.category.split(',').includes(category)) {
       productCard.classList.add('hidden');
     }
   });

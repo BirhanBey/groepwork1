@@ -152,17 +152,17 @@ $manifestObject = json_decode($manifest, true);
           </div>
           <div class="product-card-overlay">
             <h6>About Product</h6>
-            <p class="porduct-description">
+            <p class="product-description">
               <?= $product["description"] ?>
             </p>
-            <div>
+            <div class="connection">
               <a href="<?= $product["url"] ?>" target="_blank">
                 <span><i class="fa-solid fa-link"></i></span>
               </a>
-              <a style="margin-left: 10px" href="#">
-                <span><button type="button" onclick="openModal(1)">
-                    <i class="fa-regular fa-images"></i></button></span>
-              </a>
+              <!-- <a style="margin-left: 10px" href="#"> -->
+              <button type="button" onclick="openModal(1)"><span>
+                  <i class="fa-regular fa-images"></i></span></button>
+              <!-- </a> -->
             </div>
           </div>
         </div>

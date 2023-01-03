@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="./css/admin.scss" />
+  </head>
+  <body>
+    <div class="navigation">
+      <ul>
+        <li class="list">
+          <b></b>
+          <b></b>
+          <a href="../index.php">
+            <span class="icon"><i class="fa-solid fa-house-user"></i></span>
+            <span class="title">Home</span>
+          </a>
+        </li>
+        <li class="list active">
+          <b></b>
+          <b></b>
+          <a href="#">
+            <span class="icon"><i class="fa-solid fa-gears"></i></span>
+            <span class="title">Product</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="toggle">
+      <i class="fa-solid fa-bars open"></i>
+      <i class="fa-solid fa-xmark close"></i>
+    </div>
+    <div class="product-table">
+      <div class="head">
+        <h1>Products</h1>
+        <button class="add-item">
+          <i class="fa-solid fa-plus"></i>
+          New Item
+        </button>
+      </div>
+      <table class="products">
+        <tr>
+          <th>ID</th>
+          <th class="tog hide">Image</th>
+          <th>Title</th>
+          <th class="tog hide">Description</th>
+          <th>Categories</th>
+          <th>Color</th>
+          <th>Price</th>
+          <th>Brand</th>
+          <th class="tog hide">URL</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td id="">#113</td>
+          <td id="" class="tog hide">
+            URL
+            alşdaksdlkmaşlsdkmcaşskdfjalskdnvşaksdnfnaşsdlknvşalksdncşajkdsnvşkasjfdvşakjsfdnşvkjnaşfsjkvafds
+          </td>
+          <td id="">Mouse</td>
+          <td id="" class="tog hide">
+            very high dpi gamer mouse asldkmfşalksdfş askdmfalks asdlkfaslkdfa
+            asldkalskdfjasd asldkffaslkdjfasd asşdlkfjadska dsladslkfa sdfsdsf
+            sdk
+          </td>
+          <td id="">7,2</td>
+          <td id="">color</td>
+          <td id="">$42,21</td>
+          <td id="">privacy</td>
+          <td class="tog hide">
+            https://
+            alşdaksdlkmaşlsdkmcaşskdfjalskdnvşaksdnfnaşsdlknvşalksdncşajkdsnvşkasjfdvşakjsfdnşvkjnaşfsjkvafds
+          </td>
+          <td>
+            <button><i class="fa-solid fa-square-check"></i></button>
+            <button>
+              <i class="fa-solid fa-square-xmark" style="color: red"></i>
+            </button>
+          </td>
+          <td>
+            <button type="button" value="">
+              <i class="fa-solid fa-trash-can-arrow-up"></i>
+            </button>
+            <button type="submit" id=" ">
+              <i class="fa-solid fa-marker"></i>
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- New Item form -->
+    <div></div>
+
+    <!-- navbar toggle -->
+    <script>
+      let menuToggle = document.querySelector(".toggle");
+      let navigation = document.querySelector(".navigation");
+      let table = document.querySelector(".product-table");
+      menuToggle.onclick = function () {
+        menuToggle.classList.toggle("active");
+        navigation.classList.toggle("active");
+        table.classList.toggle("active");
+      };
+    </script>
+    <!-- navbar selection -->
+    <script>
+      const list = document.querySelectorAll(".list");
+      function activeLink() {
+        list.forEach((item) => item.classList.remove("active"));
+        this.classList.add("active");
+      }
+      list.forEach((item) => item.addEventListener("click", activeLink));
+    </script>
+  </body>
+</html>

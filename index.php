@@ -157,8 +157,8 @@ $manifestObject = json_decode($manifest, true);
                 <span><i class="fa-solid fa-link"></i></span>
               </a>
               <!-- <a style="margin-left: 10px" href="#"> -->
-              <button type="button" onclick="openModal(1)"><span>
-                  <i class="fa-regular fa-images"></i></span></button>
+              <!-- <button type="button" onclick="openModal(1)"><span>
+                  <i class="fa-regular fa-images"></i></span></button> -->
               <!-- </a> -->
             </div>
           </div>

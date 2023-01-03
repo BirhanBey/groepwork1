@@ -35,10 +35,6 @@
     <div class="product-table">
       <div class="head">
         <h1>Products</h1>
-        <button class="hide-item">
-          <i class="fa-regular fa-eye"></i> &
-          <i class="fa-regular fa-eye-slash"></i>
-        </button>
         <button class="add-item">
           <i class="fa-solid fa-plus"></i>
           New Item
@@ -59,22 +55,22 @@
           <th>Action</th>
         </tr>
         <tr>
-          <td id=" " contenteditable="true">#113</td>
-          <td id=" " class="tog hide" contenteditable="true">
+          <td id="">#113</td>
+          <td id="" class="tog hide">
             URL
             alşdaksdlkmaşlsdkmcaşskdfjalskdnvşaksdnfnaşsdlknvşalksdncşajkdsnvşkasjfdvşakjsfdnşvkjnaşfsjkvafds
           </td>
-          <td id=" " contenteditable="true">Mouse</td>
-          <td id=" " class="tog hide" contenteditable="true">
+          <td id="">Mouse</td>
+          <td id="" class="tog hide">
             very high dpi gamer mouse asldkmfşalksdfş askdmfalks asdlkfaslkdfa
             asldkalskdfjasd asldkffaslkdjfasd asşdlkfjadska dsladslkfa sdfsdsf
             sdk
           </td>
-          <td id=" " contenteditable="true">7,2</td>
-          <td id=" " contenteditable="true">color</td>
-          <td id=" " contenteditable="true">$42,21</td>
-          <td id=" " contenteditable="true">privacy</td>
-          <td class="tog hide" contenteditable="true">
+          <td id="">7,2</td>
+          <td id="">color</td>
+          <td id="">$42,21</td>
+          <td id="">privacy</td>
+          <td class="tog hide">
             https://
             alşdaksdlkmaşlsdkmcaşskdfjalskdnvşaksdnfnaşsdlknvşalksdncşajkdsnvşkasjfdvşakjsfdnşvkjnaşfsjkvafds
           </td>
@@ -89,7 +85,7 @@
               <i class="fa-solid fa-trash-can-arrow-up"></i>
             </button>
             <button type="submit" id=" ">
-              <i class="fa-solid fa-ellipsis-vertical"> </i>
+              <i class="fa-solid fa-marker"></i>
             </button>
           </td>
         </tr>
@@ -97,9 +93,7 @@
     </div>
 
     <!-- New Item form -->
-    <div>
-
-    </div>
+    <div></div>
 
     <!-- navbar toggle -->
     <script>
@@ -120,17 +114,6 @@
         this.classList.add("active");
       }
       list.forEach((item) => item.addEventListener("click", activeLink));
-    </script>
-
-
-    <!-- admin panel hidden button (not working very well, it shows hidden coloums when you clicked but it is not hiding in second click)-->
-    <script>
-      const buttn = document.querySelector(".hide-item");
-      const longones = document.querySelectorAll(".tog");
-      buttn.onclick = function () {
-        longones.forEach((e) => e.classList.remove("hide"));
-        this.classList.add("hide");
-      };
     </script>
   </body>
 </html>

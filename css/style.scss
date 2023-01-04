@@ -16,20 +16,18 @@
     width: 9px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--black);
+    margin-top: 40px;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
     background: #0ba9ca;
     border-radius: 9px;
-    border: 2px solid #ffffff;
-  }
-  ::-webkit-scrollbar-track:hover {
-    background: var(--black);
+    border: 2px solid #ecb96b;
   }
 }
 body {
-  background-color: var(--black);
+  background-color: #48c6f847;
 }
 
 /**
@@ -37,26 +35,30 @@ body {
  */
 
 .nav-container {
-  padding-top: 30px;
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   min-height: 120px;
-  background-color: var(--black);
-  margin: 0 50px;
+  padding: 50px 50px 0 50px;
+  background: #48c6f8;
+  // position: fixed;
 }
 .nav-container .logo {
-  color: white;
+  color: #ecb96b;
+  position: relative;
+  top: -30px;
 }
 .nav-container .navbar {
   position: relative;
   height: 70px;
-  background: white;
+  background: #ecb96b;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
   padding: 0 20px;
+  top: -10px;
 }
 .nav-container .navbar ul {
   display: flex;
@@ -251,14 +253,16 @@ body {
   bottom: 0;
   width: 180px;
   /* height: 100%; */
-  background: #fff;
+  // background: #fff;
   z-index: 999;
   transition: right 0.5s;
   margin-top: 120px;
-  background-color: transparent;
-  color: white;
+  background-color: rgba(72, 198, 248, 0.1803921569);
+  color: #485665;
   border: none;
   transition: 500ms ease;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .sidebar-container.active {
@@ -341,10 +345,11 @@ body {
   gap: 20px;
   justify-items: center;
   margin-right: 50px;
-  margin-top: 5px;
+  margin-top: 30px;
 }
 .product-main .product-card {
   display: grid;
+  border-radius: 20px;
   &.hidden {
     display: none;
   }
@@ -359,19 +364,21 @@ body {
   grid-row: 1 / -1;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  mix-blend-mode: multiply;
 }
 .product-main .product-card .product-card-title {
   text-decoration: none;
-  background: var(--white);
+  background-color: var(--white);
   display: flex;
   justify-content: center;
-  text-align: center;
+  text-align: start;
   color: var(--black);
-  font-weight: 400;
-  font-size: 10px;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 10px 20px;
+  font-family: "Raleway";
 }
 .product-main .product-card .product-card-price {
-  background: var(--white);
   display: flex;
   text-align: center;
   color: var(--black);
@@ -392,13 +399,27 @@ body {
   transform: rotateY(90deg);
   transition: 0.5s;
   justify-items: center;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  font-family: "Raleway", sans-serif;
+  mix-blend-mode: luminosity;
+}
+.product-main .product-card:hover {
+  transition: 0.3s;
+  -webkit-box-shadow: 10px 9px 5px -3px rgba(70, 156, 217, 1);
+  -moz-box-shadow: 10px 9px 5px -3px rgba(70, 156, 217, 1);
+  box-shadow: 10px 9px 5px -3px rgba(70, 156, 217, 1);
 }
 .product-main .product-card:hover .product-card-overlay {
   transform: rotateY(0);
   transition: 0.3s ease-in-out;
-  background: rgba(255, 255, 255, 0.7);
+  background: #caccce;
+}
+.product-main .product-card .product-card-overlay .connection {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 20px;
 }
 .product-main .product-card .product-card-overlay h6 {
   color: black;
@@ -406,13 +427,21 @@ body {
 }
 .product-main .product-card .product-card-overlay .product-description {
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
   margin-top: 20px;
-  padding: 10px;
-  font-family: "Lato", sans-serif;
+  padding: 5px 20px;
+  font-family: "Raleway", sans-serif;
 }
+.product-main .product-card .product-card-overlay button,
 .product-main .product-card .product-card-overlay span {
-  color: var(--black);
   font-size: 24px;
+  border: none;
+  mix-blend-mode: darken;
+}
+.product-main .product-card .product-card-overlay button:hover,
+.product-main .product-card .product-card-overlay a:hover {
+  transform: rotateY(360deg);
+  transition: 0.3s;
 }
 /* product-main finished */
+

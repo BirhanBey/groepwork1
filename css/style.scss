@@ -357,8 +357,9 @@ body {
 
 .product-main .product-card img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 300px;
+  object-fit: contain;
+  background-color: var(--white);
   grid-column: 1 / -1;
   grid-row: 1 / -1;
   border-top-left-radius: 10px;
@@ -367,8 +368,7 @@ body {
 }
 .product-main .product-card .product-card-title {
   text-decoration: none;
-}
-.product-main .product-card .product-card-title p {
+  background-color: var(--white);
   display: flex;
   justify-content: center;
   text-align: start;

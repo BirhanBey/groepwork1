@@ -40,12 +40,19 @@ $manifestObject = json_decode($manifest, true);
           "Smartphone" => 'mobile-screen-button'
         ];
 
-        foreach ($categories as $index => $category) { ?>
+        foreach ($categories as $index => $category) {
 
-          <!-- add class 'active' to the first category and add class 'dropdown' if it has subcategories  -->
-          <li class="list<?= ($index == 0 ? " active" : "");
-                          ($category["subcategories"] ? " dropdown" : "") ?>" data-category="<?= $category["name"] ?>">
+          // add class 'active' to the first category and add class 'dropdown' if it has subcategories
+          $class = "list";
+          if ($index == 0) {
+            $class .= " active";
+          }
+          if ($category["subcategories"]) {
+            $class .= " dropdown";
+          }
+        ?>
 
+          <li class="<?= $class ?>" data-category="<?= $category["name"] ?>">
             <a href="#">
               <!-- use icons object -->
               <span class="icon"><i class="fa-solid fa-<?= $icons[$category["name"]] ?>"></i></span>

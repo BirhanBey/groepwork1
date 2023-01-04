@@ -1,8 +1,19 @@
 import '../css/style.scss';
 
-/**
- * navbar
- */
+/* navbar */
+/* navbar resposive hide */
+const respNavIndicIcon = document.querySelector('.icon');
+const navbar = document.querySelector('.navbar');
+
+/* maybe its better if we use foreach for this but the main logic something like that and it is not closing when you click out of navbar */
+
+respNavIndicIcon.onclick = function toggleNavbar() {
+  if (navbar.classList.contains('active')) {
+    navbar.classList.toggle('active');
+  } else {
+    navbar.classList.add('active');
+  }
+};
 
 // navbar onclick
 

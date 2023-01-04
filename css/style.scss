@@ -445,3 +445,91 @@ body {
 }
 /* product-main finished */
 
+@media only screen and (max-width: 768px) {
+  .nav-container .navbar {
+    position: fixed;
+    right: -150px;
+    top: 80px;
+    flex-direction: column;
+    margin-top: 50px;
+    height: 600px;
+    background: #ecb86b;
+    z-index: 10;
+
+  }
+  .nav-container .navbar ul {
+    display: block;
+  }
+  .nav-container .navbar.active{
+    transform: translateX(-150px);
+  }
+  .nav-container .navbar.active ul li.active a.icon{
+    display: none;
+  }
+  .nav-container .navbar ul > li {
+    width: 100px;
+  }
+  .nav-container .navbar ul li a.icon{
+    display: none;
+  }
+  .nav-container .navbar ul li.active a .icon {
+    transform: translateX(-80px);
+    background-color: transparent;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }
+  
+  .nav-container .navbar ul li.active.dropdown:before {    
+    display: none; 
+  }
+  .nav-container .navbar ul li.active a .text {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+  .nav-container .navbar ul li.active ul {
+    display: flex;
+    position: relative;
+    top: -360px;
+    right: 230px;
+    transition: 0.5s ease-in-out;
+  }
+  .nav-container .navbar .indicator {
+    left: -65% ;
+    top: -87%;
+    position: relative;
+    transition: 0.5s;
+    background-color: #48c6f8;
+    
+  }
+  .nav-container .navbar ul li:nth-child(1).active ~ .indicator {
+    transform: translateY(calc(70px * 0));
+  }
+  .nav-container .navbar ul li:nth-child(2).active ~ .indicator {
+    transform: translateY(calc(70px * 1));
+  }
+  .nav-container .navbar ul li:nth-child(3).active ~ .indicator {
+    transform: translateY(calc(70px * 2));
+  }
+  .nav-container .navbar ul li:nth-child(4).active ~ .indicator {
+    transform: translateY(calc(70px * 3));
+  }
+  .nav-container .navbar ul li:nth-child(5).active ~ .indicator {
+    transform: translateY(calc(70px * 4));
+  }
+  .nav-container .navbar ul li:nth-child(6).active ~ .indicator {
+    transform: translateY(calc(70px * 5));
+  }
+  .nav-container .navbar ul li:nth-child(7).active ~ .indicator {
+    transform: translateY(calc(70px * 6));
+  }
+  .nav-container .navbar ul li:nth-child(8).active ~ .indicator {
+    transform: translateY(calc(70px * 7));
+  }
+  .nav-container .navbar ul li:nth-child(9).active ~ .indicator {
+    transform: translateY(calc(70px * 8));
+  }
+  .nav-container .navbar ul li:nth-child(10).active ~ .indicator {
+    transform: translateY(calc(70px * 9));
+  }
+}

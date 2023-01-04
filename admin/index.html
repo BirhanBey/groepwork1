@@ -35,7 +35,7 @@
     <div class="product-table">
       <div class="head">
         <h1>Products</h1>
-        <button class="add-item">
+        <button class="add-item-page">
           <i class="fa-solid fa-plus"></i>
           New Item
         </button>
@@ -93,7 +93,103 @@
     </div>
 
     <!-- New Item form -->
-    <div></div>
+    <div class="new-item">
+      <div class="background">
+        <p class="border"></p>
+        <div class="form">
+          <div class="info info1">
+            <i class="fa-solid fa-hashtag icon"></i>
+            <label for="product-id">ID</label><br />
+            <p>ID</p>
+          </div>
+          <div class="info info2">
+            <i class="fa-regular fa-image icon"></i>
+            <label class="active" for="image">Image</label><br />
+            <input
+              type="text"
+              id="image"
+              name="fav_language"
+              placeholder="  Image"
+            />
+          </div>
+          <div class="info info3">
+            <i class="fa-solid fa-t icon"></i>
+            <label for="title">Title</label><br />
+            <input
+              type="text"
+              id="title"
+              name="fav_language"
+              placeholder="  Title"
+            />
+          </div>
+          <div class="info info4">
+            <i class="fa-regular fa-file-lines icon"></i>
+            <label for="descript">Description</label><br />
+            <input
+              type="text"
+              id="descript"
+              name="fav_language"
+              placeholder="  Description"
+            />
+          </div>
+          <div class="info info5">
+            <i class="fa-solid fa-boxes-stacked icon"></i>
+            <label for="categories">Categories</label><br />
+            <input
+              type="text"
+              id="categories"
+              name="fav_language"
+              placeholder="  Categories"
+            />
+          </div>
+          <div class="info info6">
+            <i class="fa-solid fa-palette icon"></i>
+            <label for="color">Color</label><br />
+            <input
+              type="text"
+              id="color"
+              name="fav_language"
+              placeholder="  Color"
+            />
+          </div>
+          <div class="info info7">
+            <i class="fa-solid fa-euro-sign icon"></i>
+            <label for="price">Price</label><br />
+            <input
+              type="text"
+              id="price"
+              name="fav_language"
+              placeholder="  Price"
+            />
+          </div>
+          <div class="info info8">
+            <i class="fa-regular fa-copyright icon"></i>
+            <label for="brand">Brand</label><br />
+            <input
+              type="text"
+              id="brand"
+              name="fav_language"
+              placeholder="  Brand"
+            />
+          </div>
+
+          <div class="info info9">
+            <i class="fa-solid fa-link icon"></i>
+            <label for="url">URL</label><br />
+            <input
+              type="text"
+              id="url"
+              name="fav_language"
+              placeholder="  URL"
+            />
+          </div>
+        </div>
+        <button class="close-addnew">
+          <i class="fa-regular fa-circle-xmark"></i>
+        </button>
+        <button class="add-item">Add Item</button>
+      </div>
+    </div>
 
     <!-- navbar toggle -->
     <script>
@@ -115,5 +211,35 @@
       }
       list.forEach((item) => item.addEventListener("click", activeLink));
     </script>
+
+    <!--  -->
+    <!-- add new item focus-- this should move when you click each input but ony first one is working Ihope you can fix it or we can just delete it-->
+    <script>
+      let input = document.querySelector(".info input");
+      let info = document.querySelector(".info");
+
+      input.onclick = function () {
+        info.classList.toggle("active");
+      };
+
+      // input.onclick = function () {
+      //   info.forEach((e) => e.classList.toggle("active"));
+      // };
+    </script>
+    <!-- focus -->
+    <!-- close -->
+    <script>
+      let closebtn = document.querySelector(".close-addnew");
+      let addWindow = document.querySelector(".new-item");
+      let newitembtn = document.querySelector(".add-item-page");
+
+      closebtn.onclick = function () {
+        addWindow.style.display = "none";
+      };
+      newitembtn.onclick = function () {
+        addWindow.style.display = "flex";
+      };
+    </script>
+    <!-- add new item close -->
   </body>
 </html>

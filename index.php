@@ -139,9 +139,7 @@ $manifestObject = json_decode($manifest, true);
         <div class="product-card" data-category="<?= $product["category"] ?>" data-color="<?= $product["color"] ?>" data-brand="<?= $product["brand"] ?>">
           <img src=" <?= $product["img"] ?>" alt="img" />
           <a href="<?= $product["url"] ?>" class="product-card-title">
-            <p>
-              <?= $product["title"] ?>
-            </p>
+            <?= $product["title"] ?>
           </a>
           <div class="product-card-price">
             <h2>€ <?= $product["price"] ?></h2>
@@ -149,7 +147,14 @@ $manifestObject = json_decode($manifest, true);
           <div class="product-card-overlay">
             <h6>About Product</h6>
             <p class="product-description">
-              <?= $product["description"] ?>
+              <?=
+              // making short description from 300 char
+              strlen($product["description"]) > 300
+                ?
+                substr($product["description"], 0, 300) . "..."
+                :
+                $product["description"]
+              ?>
             </p>
             <div class="connection">
               <a href="<?= $product["url"] ?>" target="_blank">

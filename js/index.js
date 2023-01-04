@@ -28,10 +28,18 @@ navbarRef.forEach((listItem) =>
     }
     hideProducts(category);
     resetFilter();
+
+    // dropdown
+    if (e.currentTarget.classList.contains('dropdown')) {
+      e.currentTarget.classList.add('open');
+      e.currentTarget
+        .querySelector('ul')
+        .addEventListener('mouseleave', hideDropdown);
+    }
   })
 );
 
-// Hide function
+// Hide products function
 
 function hideProducts(category = '') {
   productCardsRef.forEach((productCard) => {
@@ -46,6 +54,12 @@ function hideProducts(category = '') {
       productCard.classList.add('hidden');
     }
   });
+}
+
+// Hide dropdown function
+
+function hideDropdown(e) {
+  e.currentTarget.parentElement.classList.remove('open');
 }
 
 /**

@@ -30,13 +30,16 @@ navbarRef.forEach((listItem) =>
 
 const productCardsRef = document.querySelectorAll('.product-card');
 
-function hideProducts(category) {
+function hideProducts(category = '') {
   productCardsRef.forEach((productCard) => {
     // reset hidden class
     productCard.classList.remove('hidden');
 
     // check if selected category is one of the categories of the product
-    if (!productCard.dataset.category.split(',').includes(category)) {
+    if (
+      category &&
+      !productCard.dataset.category.split(',').includes(category)
+    ) {
       productCard.classList.add('hidden');
     }
   });

@@ -84,7 +84,7 @@
             <button type="button" value="">
               <i class="fa-solid fa-trash-can-arrow-up"></i>
             </button>
-            <button type="submit" id=" ">
+            <button class="editBtn">
               <i class="fa-solid fa-marker"></i>
             </button>
           </td>
@@ -190,7 +190,103 @@
         <button class="add-item">Add Item</button>
       </div>
     </div>
-
+    <!-- Edit Item form -->
+    <div class="edit-item">
+      <div class="background">
+        <p class="border"></p>
+        <div class="form">
+          <div class="info info1">
+            <i class="fa-solid fa-hashtag icon"></i>
+            <label for="product-id">ID</label><br />
+            <p>ID</p>
+          </div>
+          <div class="info info2">
+            <i class="fa-regular fa-image icon"></i>
+            <label class="active" for="image">Image</label><br />
+            <input
+              type="text"
+              id="image"
+              name="fav_language"
+              placeholder="  Image"
+            />
+          </div>
+          <div class="info info3">
+            <i class="fa-solid fa-t icon"></i>
+            <label for="title">Title</label><br />
+            <input
+              type="text"
+              id="title"
+              name="fav_language"
+              placeholder="  Title"
+            />
+          </div>
+          <div class="info info4">
+            <i class="fa-regular fa-file-lines icon"></i>
+            <label for="descript">Description</label><br />
+            <input
+              type="text"
+              id="descript"
+              name="fav_language"
+              placeholder="  Description"
+            />
+          </div>
+          <div class="info info5">
+            <i class="fa-solid fa-boxes-stacked icon"></i>
+            <label for="categories">Categories</label><br />
+            <input
+              type="text"
+              id="categories"
+              name="fav_language"
+              placeholder="  Categories"
+            />
+          </div>
+          <div class="info info6">
+            <i class="fa-solid fa-palette icon"></i>
+            <label for="color">Color</label><br />
+            <input
+              type="text"
+              id="color"
+              name="fav_language"
+              placeholder="  Color"
+            />
+          </div>
+          <div class="info info7">
+            <i class="fa-solid fa-euro-sign icon"></i>
+            <label for="price">Price</label><br />
+            <input
+              type="text"
+              id="price"
+              name="fav_language"
+              placeholder="  Price"
+            />
+          </div>
+          <div class="info info8">
+            <i class="fa-regular fa-copyright icon"></i>
+            <label for="brand">Brand</label><br />
+            <input
+              type="text"
+              id="brand"
+              name="fav_language"
+              placeholder="  Brand"
+            />
+          </div>
+          <div class="info info9">
+            <i class="fa-solid fa-link icon"></i>
+            <label for="url">URL</label><br />
+            <input
+              type="text"
+              id="url"
+              name="fav_language"
+              placeholder="  URL"
+            />
+          </div>
+        </div>
+        <button class="close-edit">
+          <i class="fa-regular fa-circle-xmark"></i>
+        </button>
+        <button class="save-item">Save Item</button>
+      </div>
+    </div>
     <!-- navbar toggle -->
     <script>
       let menuToggle = document.querySelector(".toggle");
@@ -232,12 +328,21 @@
       let closebtn = document.querySelector(".close-addnew");
       let addWindow = document.querySelector(".new-item");
       let newitembtn = document.querySelector(".add-item-page");
+      let closeEditBtn = document.querySelector(".close-edit");
+      let editWindow = document.querySelector(".edit-item");
+      let edititembtn = document.querySelector(".editBtn");
 
       closebtn.onclick = function () {
         addWindow.style.display = "none";
       };
       newitembtn.onclick = function () {
         addWindow.style.display = "flex";
+      };
+      closeEditBtn.onclick = function () {
+        editWindow.style.display = "none";
+      };
+      edititembtn.onclick = function () {
+        editWindow.style.display = "flex";
       };
     </script>
     <!-- add new item close -->

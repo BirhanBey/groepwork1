@@ -64,7 +64,7 @@ $manifestObject = json_decode($manifest, true);
 
                 <!-- create subcategories inside category -->
                 <?php foreach ($category["subcategories"] as $subcategory) { ?>
-                  <li data-subcategory="<?= $subcategory["name"] ?>">
+                  <li data-category="<?= $category["name"] . "-" . $subcategory["name"] ?>">
                     <a href="#"><?= $subcategory["name"] ?></a>
                   </li>
                 <?php } ?>
@@ -134,9 +134,9 @@ $manifestObject = json_decode($manifest, true);
         </div>
         <!-- brand options -->
       </div>
-      <div class="sidebar-footer">
+      <!-- <div class="sidebar-footer">
         <button class="btn btn-primary apply-filters-btn">Filter</button>
-      </div>
+      </div> -->
     </div>
     <!-- sidebar-filter finished -->
 

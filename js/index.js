@@ -122,6 +122,7 @@ filterOptionsRef.forEach((filterOption) =>
     hideProducts(category);
     // filter on color, price and brand
     filterProducts(color, price, brand);
+    console.log(color, price, brand);
   })
 );
 

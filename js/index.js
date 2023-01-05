@@ -24,7 +24,7 @@ navbarRef.forEach((listItem) =>
     // check if clicking on subcategory
     const parentRef = e.target.parentElement;
     if (parentRef.tagName == 'LI' && !parentRef.classList.contains('list')) {
-      category += '-' + parentRef.dataset.subcategory;
+      category = parentRef.dataset.category;
     }
     hideProducts(category);
     resetFilter();
@@ -49,7 +49,9 @@ function hideProducts(category = '') {
     // check if selected category is one of the categories of the product
     if (
       category &&
-      !productCard.dataset.category.split(',').includes(category)
+      !productCard.dataset.category
+        .split(',')
+        .reduce((acc, cat) => (cat.startsWith(category) ? true : acc), false)
     ) {
       productCard.classList.add('hidden');
     }
@@ -120,7 +122,6 @@ filterOptionsRef.forEach((filterOption) =>
     hideProducts(category);
     // filter on color, price and brand
     filterProducts(color, price, brand);
-    console.log(color, price, brand);
   })
 );
 

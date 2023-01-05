@@ -49,12 +49,19 @@ $manifestObject = json_decode($manifest, true);
           "Smartphone" => 'mobile-screen-button'
         ];
 
-        foreach ($categories as $index => $category) { ?>
+        foreach ($categories as $index => $category) {
 
-          <!-- add class 'active' to the first category and add class 'dropdown' if it has subcategories  -->
-          <li class="list<?= ($index == 0 ? " active" : "");
-                          ($category["subcategories"] ? " dropdown" : "") ?>" data-category="<?= $category["name"] ?>">
+          // add class 'active' to the first category and add class 'dropdown' if it has subcategories
+          $class = "list";
+          if ($index == 0) {
+            $class .= " active";
+          }
+          if ($category["subcategories"]) {
+            $class .= " dropdown";
+          }
+        ?>
 
+          <li class="<?= $class ?>" data-category="<?= $category["name"] ?>">
             <a href="#">
               <!-- use icons object -->
               <span class="icon"><i class="fa-solid fa-<?= $icons[$category["name"]] ?>"></i></span>
@@ -65,7 +72,7 @@ $manifestObject = json_decode($manifest, true);
 
                 <!-- create subcategories inside category -->
                 <?php foreach ($category["subcategories"] as $subcategory) { ?>
-                  <li data-subcategory="<?= $subcategory["name"] ?>">
+                  <li data-category="<?= $category["name"] . "-" . $subcategory["name"] ?>">
                     <a href="#"><?= $subcategory["name"] ?></a>
                   </li>
                 <?php } ?>
@@ -135,9 +142,9 @@ $manifestObject = json_decode($manifest, true);
         </div>
         <!-- brand options -->
       </div>
-      <div class="sidebar-footer">
+      <!-- <div class="sidebar-footer">
         <button class="btn btn-primary apply-filters-btn">Filter</button>
-      </div>
+      </div> -->
     </div>
     <!-- sidebar-filter finished -->
 
@@ -148,9 +155,7 @@ $manifestObject = json_decode($manifest, true);
         <div class="product-card" data-category="<?= $product["category"] ?>" data-color="<?= $product["color"] ?>" data-brand="<?= $product["brand"] ?>">
           <img src=" <?= $product["img"] ?>" alt="img" />
           <a href="<?= $product["url"] ?>" class="product-card-title">
-            <p>
-              <?= $product["title"] ?>
-            </p>
+            <?= $product["title"] ?>
           </a>
           <div class="product-card-price">
             <h2>€ <?= $product["price"] ?></h2>
@@ -158,7 +163,14 @@ $manifestObject = json_decode($manifest, true);
           <div class="product-card-overlay">
             <h6>About Product</h6>
             <p class="product-description">
-              <?= $product["description"] ?>
+              <?=
+              // making short description from 300 char
+              strlen($product["description"]) > 300
+                ?
+                substr($product["description"], 0, 300) . "..."
+                :
+                $product["description"]
+              ?>
             </p>
             <div class="connection">
               <a href="<?= $product["url"] ?>" target="_blank">

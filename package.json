@@ -2,9 +2,10 @@
   "name": "groupwork1",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "vite.config.js",
   "scripts": {
-    "start": "vite --host",
+    "prev-start": "vite --host",
+    "start": "npm run build",
     "build": "vite build",
     "preview": "vite preview --host",
     "predeploy": "npm run build",

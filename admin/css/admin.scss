@@ -205,8 +205,8 @@ body {
 
 .product-table .head .hide-item {
   padding: 5px 10px;
-  color: #fff;
-  background-color: #4d5bf9;
+  color: #4d5bf9;
+  background-color: #fff;
   border-radius: 10px;
   width: 99px;
   display: flex;
@@ -214,10 +214,136 @@ body {
   align-items: center;
   cursor: pointer;
 }
-.product-table .head .add-item {
+.product-table .head .add-item-page {
   padding: 5px 10px;
   color: #fff;
   background-color: #4d5bf9;
   border-radius: 10px;
   cursor: pointer;
+}
+/*add new item start*/
+.new-item,
+.edit-item {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.671);
+  inset: 0px;
+  display: none;
+}
+.new-item .background,
+.edit-item .background {
+  position: fixed;
+  display: flex;
+  width: 900px;
+  background-color: #fff;
+  z-index: 2;
+  top: 20px;
+  justify-content: center;
+  align-self: center;
+  bottom: 44px;
+  border-radius: 15px;
+}
+.new-item .border,
+.edit-item .border {
+  content: " ";
+  background-color: #4d5bf9;
+  height: 650px;
+  width: 80px;
+  border-radius: 15px;
+}
+.new-item .form,
+.edit-item .form {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  margin-left: -57px;
+  margin-top: 20px;
+}
+.new-item .form .info,
+.edit-item .form .info {
+  margin-top: -5px;
+}
+.new-item .form .info .icon,
+.edit-item .form .info .icon {
+  font-size: 36px;
+  color: #4d5bf9;
+  margin-right: 14px;
+  width: 45px;
+  height: 45px;
+  background-color: #fff;
+  display: inline-flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 50%;
+}
+.new-item .form .info .icon:before,
+.edit-item .form .info .icon:before {
+  font-size: 25px;
+  z-index: 4;
+}
+.new-item .form .info label,
+.edit-item .form .info label {
+  font-size: 22px;
+  top: -18px;
+  position: relative;
+  color: #4d5bf9;
+}
+.new-item .form .info p,
+.edit-item .form .info p {
+  position: relative;
+  left: 70px;
+  top: -20px;
+}
+.new-item .form .info input,
+.edit-item .form .info input {
+  margin-left: 60px;
+  height: 32px;
+  width: 90%;
+  position: relative;
+  top: -22px;
+  border-radius: 15px;
+  border: none;
+  padding: 0 10px;
+  background: #fff;
+}
+.new-item .form .info.active:before,
+.edit-item .form .info.active:before {
+  content: "";
+  width: 70px;
+  height: 70px;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background: #fff;
+  position: absolute;
+  left: 0px;
+  margin-top: -15px;
+}
+.new-item .close-addnew,
+.edit-item .close-edit {
+  height: 30px;
+  width: 30px;
+  background: #fff;
+  color: #4d5bf9;
+  border: none;
+  border-radius: 50%;
+  font-size: 25px;
+  right: 50px;
+  position: relative;
+  font-size: 36px;
+  left: 93px;
+}
+.new-item .add-item,
+.edit-item .save-item {
+  height: 45px;
+  color: #fff;
+  background-color: #4d5bf9;
+  border: 1px solid #fff;
+  width: 120px;
+  top: 615px;
+  border-radius: 15px;
+  position: relative;
+  font-size: 16px;
+  padding: 5px 10px;
 }

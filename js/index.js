@@ -15,12 +15,15 @@ respNavIndicIcon.onclick = function toggleNavbar() {
   }
 };
 
-// navbar onclick
+// Create variables
 
-let category = "";
-let subcategory = "";
+const navbarRef = document.querySelectorAll('.list');
+const productCardsRef = document.querySelectorAll('.product-card');
 
-const navbarRef = document.querySelectorAll(".list");
+let category = '';
+
+// Event listener
+
 navbarRef.forEach((listItem) =>
   listItem.addEventListener("click", (e) => {
     navbarRef.forEach((listItem) => listItem.classList.remove("active"));
@@ -30,35 +33,56 @@ navbarRef.forEach((listItem) =>
     // handle categories
 
     category = e.currentTarget.dataset.category;
-    subcategory = "";
     // check if clicking on subcategory
     const parentRef = e.target.parentElement;
-    if (parentRef.tagName == "LI" && !parentRef.classList.contains("list")) {
-      category += "-" + parentRef.dataset.subcategory;
+    if (parentRef.tagName == 'LI' && !parentRef.classList.contains('list')) {
+      category = parentRef.dataset.category;
     }
     hideProducts(category);
+    resetFilter();
+
+    // dropdown
+    if (e.currentTarget.classList.contains('dropdown')) {
+      e.currentTarget.classList.add('open');
+      e.currentTarget
+        .querySelector('ul')
+        .addEventListener('mouseleave', hideDropdown);
+    }
   })
 );
 
-const productCardsRef = document.querySelectorAll(".product-card");
+// Hide products function
 
-function hideProducts(category) {
+function hideProducts(category = '') {
   productCardsRef.forEach((productCard) => {
     // reset hidden class
     productCard.classList.remove("hidden");
 
     // check if selected category is one of the categories of the product
-    if (!productCard.dataset.category.split(",").includes(category)) {
-      productCard.classList.add("hidden");
+    if (
+      category &&
+      !productCard.dataset.category
+        .split(',')
+        .reduce((acc, cat) => (cat.startsWith(category) ? true : acc), false)
+    ) {
+      productCard.classList.add('hidden');
     }
   });
 }
 
+// Hide dropdown function
+
+function hideDropdown(e) {
+  e.currentTarget.parentElement.classList.remove('open');
+}
+
 /**
- * sidebar / filter
+ * Sidebar / Filter
  */
 
-// sidebar toggle
+// Sidebar onclick
+
+// Create variables
 
 const sidebarRef = document.querySelector(".sidebar-container");
 const productMainRef = document.querySelector(".product-main");
@@ -74,13 +98,19 @@ btnFiltersRef.onclick = function toggleSidebar() {
   }
 };
 
-// filter handler
+// Filter handler
+
+// Create variables
 
 let color = "";
 let price = "";
 let brand = "";
 
-const filterOptionsRef = document.querySelectorAll(".filter-option");
+const filterOptionsRef = document.querySelectorAll('.filter-option');
+const filterOptionsInputRef = document.querySelectorAll('.filter-option input');
+
+// Event listener
+
 filterOptionsRef.forEach((filterOption) =>
   filterOption.addEventListener("change", (e) => {
     // save value of filters
@@ -100,12 +130,15 @@ filterOptionsRef.forEach((filterOption) =>
         brand = "";
         break;
     }
-    // reset hidden class but keeps category && subcategory
-    hideProducts(category, subcategory);
+    // reset hidden class but keeps category
+    hideProducts(category);
     // filter on color, price and brand
     filterProducts(color, price, brand);
+    console.log(color, price, brand);
   })
 );
+
+// Filter function
 
 function filterProducts(color, price, brand) {
   productCardsRef.forEach((productCard) => {
@@ -128,6 +161,15 @@ function filterProducts(color, price, brand) {
       }
     }
   });
+}
+
+// Reset filter function
+
+function resetFilter() {
+  filterOptionsInputRef.forEach((input) => (input.checked = false));
+  color = '';
+  price = '';
+  brand = '';
 }
 
 // image box(these are from w3school you can delete and put your owns, they arehere only for show an example)

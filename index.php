@@ -39,7 +39,6 @@ $manifestObject = json_decode($manifest, true);
 
         // create icons object to translate "database name" => "icon name"
         $icons = [
-          "All" => 'earth-americas',
           "TV" => 'tv',
           "PC" => 'desktop',
           "Laptop" => 'laptop',

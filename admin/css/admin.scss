@@ -282,6 +282,11 @@ body {
   position: relative;
   color: #4d5bf9;
 }
+.new-item .form .info p{
+  position: relative;
+  left: 70px;
+  top: -20px;
+}
 .new-item .form .info input {
   margin-left: 60px;
   height: 32px;
@@ -307,13 +312,15 @@ body {
 .new-item .close-addnew {
   height: 30px;
   width: 30px;
-  background-color: #4d5bf9;
-  color: #fff;
+  background: white;
+  color: #4d5bf9;
   border: none;
   border-radius: 50%;
   font-size: 25px;
   right: 50px;
-  position: fixed;
+  position: relative;
+  font-size: 36px;
+  left: 93px;
 }
 .new-item .add-item {
   height: 45px;

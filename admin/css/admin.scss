@@ -222,7 +222,8 @@ body {
   cursor: pointer;
 }
 /*add new item start*/
-.new-item {
+.new-item,
+.edit-item {
   position: fixed;
   display: flex;
   justify-content: center;
@@ -230,7 +231,8 @@ body {
   inset: 0px;
   display: none;
 }
-.new-item .background {
+.new-item .background,
+.edit-item .background {
   position: fixed;
   display: flex;
   width: 900px;
@@ -242,14 +244,16 @@ body {
   bottom: 44px;
   border-radius: 15px;
 }
-.new-item .border {
+.new-item .border,
+.edit-item .border {
   content: " ";
   background-color: #4d5bf9;
   height: 650px;
   width: 80px;
   border-radius: 15px;
 }
-.new-item .form {
+.new-item .form,
+.edit-item .form {
   display: flex;
   width: 100%;
   height: 100vh;
@@ -257,10 +261,12 @@ body {
   margin-left: -57px;
   margin-top: 20px;
 }
-.new-item .form .info {
+.new-item .form .info,
+.edit-item .form .info {
   margin-top: -5px;
 }
-.new-item .form .info .icon {
+.new-item .form .info .icon,
+.edit-item .form .info .icon {
   font-size: 36px;
   color: #4d5bf9;
   margin-right: 14px;
@@ -272,22 +278,26 @@ body {
   align-items: center;
   border-radius: 50%;
 }
-.new-item .form .info .icon:before {
+.new-item .form .info .icon:before,
+.edit-item .form .info .icon:before {
   font-size: 25px;
   z-index: 4;
 }
-.new-item .form .info label {
+.new-item .form .info label,
+.edit-item .form .info label {
   font-size: 22px;
   top: -18px;
   position: relative;
   color: #4d5bf9;
 }
-.new-item .form .info p{
+.new-item .form .info p,
+.edit-item .form .info p {
   position: relative;
   left: 70px;
   top: -20px;
 }
-.new-item .form .info input {
+.new-item .form .info input,
+.edit-item .form .info input {
   margin-left: 60px;
   height: 32px;
   width: 90%;
@@ -298,7 +308,8 @@ body {
   padding: 0 10px;
   background: #fff;
 }
-.new-item .form .info.active:before {
+.new-item .form .info.active:before,
+.edit-item .form .info.active:before {
   content: "";
   width: 70px;
   height: 70px;
@@ -309,10 +320,11 @@ body {
   left: 0px;
   margin-top: -15px;
 }
-.new-item .close-addnew {
+.new-item .close-addnew,
+.edit-item .close-edit {
   height: 30px;
   width: 30px;
-  background: white;
+  background: #fff;
   color: #4d5bf9;
   border: none;
   border-radius: 50%;
@@ -322,7 +334,8 @@ body {
   font-size: 36px;
   left: 93px;
 }
-.new-item .add-item {
+.new-item .add-item,
+.edit-item .save-item {
   height: 45px;
   color: #fff;
   background-color: #4d5bf9;

@@ -28,10 +28,18 @@ $manifestObject = json_decode($manifest, true);
     <a href="./admin/index.html">Admin Page</a>
     <div class="navbar">
       <ul>
+        <li class="list" data-category="All">
+          <a href="#">
+            <!-- use icons object -->
+            <span class="icon"><i class="fa-solid fa-earth-americas"></i></span>
+            <span class="text">All</span>
+          </a>
+        </li>
         <?php
 
         // create icons object to translate "database name" => "icon name"
         $icons = [
+          "All" => 'earth-americas',
           "TV" => 'tv',
           "PC" => 'desktop',
           "Laptop" => 'laptop',

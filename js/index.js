@@ -1,54 +1,55 @@
-import '../css/style.scss';
+import "../css/style.scss";
 
 /* navbar */
 /* navbar resposive hide */
-const respNavIndicIcon = document.querySelector('.icon');
-const navbar = document.querySelector('.navbar');
+const respNavIndicIcon = document.querySelector(".icon");
+const navbar = document.querySelector(".navbar");
 
 /* maybe its better if we use foreach for this but the main logic something like that and it is not closing when you click out of navbar */
 
 respNavIndicIcon.onclick = function toggleNavbar() {
-  if (navbar.classList.contains('active')) {
-    navbar.classList.toggle('active');
+  if (navbar.classList.contains("active")) {
+    navbar.classList.toggle("active");
   } else {
-    navbar.classList.add('active');
+    navbar.classList.add("active");
   }
 };
 
 // navbar onclick
 
-let category = '';
-let subcategory = '';
+let category = "";
+let subcategory = "";
 
-const navbarRef = document.querySelectorAll('.list');
+const navbarRef = document.querySelectorAll(".list");
 navbarRef.forEach((listItem) =>
-  listItem.addEventListener('click', (e) => {
-    navbarRef.forEach((listItem) => listItem.classList.remove('active'));
-    e.currentTarget.classList.add('active');
+  listItem.addEventListener("click", (e) => {
+    navbarRef.forEach((listItem) => listItem.classList.remove("active"));
+    e.currentTarget.classList.add("active");
+    navbar.classList.toggle("active");
 
     // handle categories
 
     category = e.currentTarget.dataset.category;
-    subcategory = '';
+    subcategory = "";
     // check if clicking on subcategory
     const parentRef = e.target.parentElement;
-    if (parentRef.tagName == 'LI' && !parentRef.classList.contains('list')) {
-      category += '-' + parentRef.dataset.subcategory;
+    if (parentRef.tagName == "LI" && !parentRef.classList.contains("list")) {
+      category += "-" + parentRef.dataset.subcategory;
     }
     hideProducts(category);
   })
 );
 
-const productCardsRef = document.querySelectorAll('.product-card');
+const productCardsRef = document.querySelectorAll(".product-card");
 
 function hideProducts(category) {
   productCardsRef.forEach((productCard) => {
     // reset hidden class
-    productCard.classList.remove('hidden');
+    productCard.classList.remove("hidden");
 
     // check if selected category is one of the categories of the product
-    if (!productCard.dataset.category.split(',').includes(category)) {
-      productCard.classList.add('hidden');
+    if (!productCard.dataset.category.split(",").includes(category)) {
+      productCard.classList.add("hidden");
     }
   });
 }
@@ -59,44 +60,44 @@ function hideProducts(category) {
 
 // sidebar toggle
 
-const sidebarRef = document.querySelector('.sidebar-container');
-const productMainRef = document.querySelector('.product-main');
-const btnFiltersRef = document.querySelector('.btn-filters');
+const sidebarRef = document.querySelector(".sidebar-container");
+const productMainRef = document.querySelector(".product-main");
+const btnFiltersRef = document.querySelector(".btn-filters");
 
 btnFiltersRef.onclick = function toggleSidebar() {
-  if (sidebarRef.classList.contains('active')) {
-    sidebarRef.classList.remove('active');
-    productMainRef.style.width = '100%';
+  if (sidebarRef.classList.contains("active")) {
+    sidebarRef.classList.remove("active");
+    productMainRef.style.width = "100%";
   } else {
-    sidebarRef.classList.add('active');
-    productMainRef.style.width = 'calc(100% - 150px)';
+    sidebarRef.classList.add("active");
+    productMainRef.style.width = "calc(100% - 150px)";
   }
 };
 
 // filter handler
 
-let color = '';
-let price = '';
-let brand = '';
+let color = "";
+let price = "";
+let brand = "";
 
-const filterOptionsRef = document.querySelectorAll('.filter-option');
+const filterOptionsRef = document.querySelectorAll(".filter-option");
 filterOptionsRef.forEach((filterOption) =>
-  filterOption.addEventListener('change', (e) => {
+  filterOption.addEventListener("change", (e) => {
     // save value of filters
     switch (e.target.name) {
-      case 'color':
+      case "color":
         color = e.target.value;
         break;
-      case 'price':
+      case "price":
         price = e.target.value;
         break;
-      case 'brand':
+      case "brand":
         brand = e.target.value;
         break;
       default:
-        color = '';
-        price = '';
-        brand = '';
+        color = "";
+        price = "";
+        brand = "";
         break;
     }
     // reset hidden class but keeps category && subcategory
@@ -111,19 +112,19 @@ function filterProducts(color, price, brand) {
     // hide products that do not have the filtered color
     if (color) {
       if (productCard.dataset.color !== color) {
-        productCard.classList.add('hidden');
+        productCard.classList.add("hidden");
       }
     }
     // hide products that do not have the filtered price
     if (price) {
       if (productCard.dataset.price !== price) {
-        productCard.classList.add('hidden');
+        productCard.classList.add("hidden");
       }
     }
     // hide products that do not have the filtered brand
     if (brand) {
       if (productCard.dataset.brand !== brand) {
-        productCard.classList.add('hidden');
+        productCard.classList.add("hidden");
       }
     }
   });
@@ -131,11 +132,11 @@ function filterProducts(color, price, brand) {
 
 // image box(these are from w3school you can delete and put your owns, they arehere only for show an example)
 function openModal(id) {
-  document.getElementById('myModal' + id).style.display = 'block';
+  document.getElementById("myModal" + id).style.display = "block";
 }
 
 function closeModal(id) {
-  document.getElementById('myModal' + id).style.display = 'none';
+  document.getElementById("myModal" + id).style.display = "none";
 }
 
 var slideIndex = 1;
@@ -151,9 +152,9 @@ function currentSlide(n) {
 
 function showSlides(n) {
   var i;
-  var slides = document.getElementsByClassName('slides');
-  var dots = document.getElementsByClassName('demo');
-  var captionText = document.getElementById('caption');
+  var slides = document.getElementsByClassName("slides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
   if (n > slides.length) {
     slideIndex = 1;
   }
@@ -161,12 +162,12 @@ function showSlides(n) {
     slideIndex = slides.length;
   }
   for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = 'none';
+    slides[i].style.display = "none";
   }
   for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(' active', '');
+    dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndex - 1].style.display = 'block';
-  dots[slideIndex - 1].className += ' active';
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " active";
   captionText.innerHTML = dots[slideIndex - 1].alt;
 }

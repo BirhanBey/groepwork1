@@ -105,7 +105,7 @@ $manifestObject = json_decode($manifest, true);
   <div class="new-item">
     <div class="background">
       <p class="border"></p>
-      <div class="form">
+      <form class="form">
         <div class="info info1">
           <i class="fa-solid fa-hashtag icon"></i>
           <label for="product-id">ID</label><br />
@@ -152,18 +152,20 @@ $manifestObject = json_decode($manifest, true);
           <label for="url">URL</label><br />
           <input type="text" id="url" name="fav_language" placeholder="  URL" />
         </div>
-      </div>
+        <button type="submit" class="add-item">Add Item</button>
+
+      </form>
       <button class="close-addnew">
         <i class="fa-regular fa-circle-xmark"></i>
       </button>
-      <button class="add-item">Add Item</button>
+      <!-- <button type="submit" class="add-item">Add Item</button> -->
     </div>
   </div>
   <!-- Edit Item form -->
   <div class="edit-item">
     <div class="background">
       <p class="border"></p>
-      <div class="form">
+      <form class="form">
         <div class="info info1">
           <i class="fa-solid fa-hashtag icon"></i>
           <label for="product-id">ID</label><br />
@@ -209,11 +211,11 @@ $manifestObject = json_decode($manifest, true);
           <label for="url">URL</label><br />
           <input type="text" id="url" name="fav_language" placeholder="  URL" />
         </div>
-      </div>
+        <button type="submit" class="save-item">Save Item</button>
+      </form>
       <button class="close-edit">
         <i class="fa-regular fa-circle-xmark"></i>
       </button>
-      <button class="save-item">Save Item</button>
     </div>
   </div>
   <!-- delete confirmation -->

@@ -3,7 +3,7 @@ export default {
     manifest: true,
     watch: true,
     rollupOptions: {
-      input: '/js/index.js',
+      input: { index: '/js/index.js', admin: '/js/admin.js' },
     },
   },
 };

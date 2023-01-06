@@ -25,7 +25,7 @@ $manifestObject = json_decode($manifest, true);
     <div class="logo">
       <span style="position: fixed"> LOGO </span>
     </div>
-    <a href="./admin/index.html">Admin Page</a>
+    <a href="./admin/index.php">Admin Page</a>
     <div class="navbar">
       <ul>
         <li class="list" data-category="All">

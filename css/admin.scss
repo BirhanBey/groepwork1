@@ -307,6 +307,10 @@ body {
     border-radius: 15px;
     z-index: 2;
     background-color: #fff;
+    button {
+      position: absolute;
+      cursor: pointer;
+    }
     form {
       display: flex;
       flex-direction: column;
@@ -314,7 +318,6 @@ body {
       margin-left: -57px;
       margin-top: 20px;
       button {
-        position: absolute;
         width: 120px;
         height: 45px;
         bottom: 0;
@@ -328,7 +331,6 @@ body {
       }
     }
     &>button {
-      position: absolute;
       width: 30px;
       height: 30px;
       top: 10px;

@@ -15,7 +15,7 @@ $manifestObject = json_decode($manifest, true);
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shopping Ideas</title>
-  <link rel="stylesheet" href="./dist/<?= $manifestObject["js/index.js"]["css"][0] ?>">
+  <link rel="stylesheet" href="./dist/<?= $manifestObject["js/index.css"]["file"] ?>">
   <script src="./dist/<?= $manifestObject["js/index.js"]["file"] ?>" defer></script>
 </head>
 
@@ -25,7 +25,7 @@ $manifestObject = json_decode($manifest, true);
     <div class="logo">
       <span style="position: fixed"> LOGO </span>
     </div>
-    <a href="./admin/index.html">Admin Page</a>
+    <a href="./php/admin.php">Admin Page</a>
     <div class="navbar">
       <ul>
         <li class="list" data-category="All">

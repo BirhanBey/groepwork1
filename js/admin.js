@@ -109,7 +109,7 @@ editWindow.onclick = function (event) {
 
 const deletebox = document.getElementById('delete-box');
 
-// Display delete confirm
+// Event listener
 
 window.onclick = function (event) {
   if (event.target == deletebox) {
@@ -117,9 +117,52 @@ window.onclick = function (event) {
   }
 };
 
+/**
+ * Form
+ */
+
+// Variables
+
 const form = document.querySelector('.new-item .form');
+
+// Event listener
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  console.log('submit');
+
+  // TODO: make it with forEach
+  // check if all inputs are valid
+  const imageValid = validateInput(form.elements['image']);
+  const titleValid = validateInput(form.elements['title']);
+  const descriptionValid = validateInput(form.elements['description']);
+  const categoriesValid = validateInput(form.elements['categories']);
+  const colorValid = validateInput(form.elements['color']);
+  const priceValid = validateInput(form.elements['price']);
+  const brandValid = validateInput(form.elements['brand']);
+  const urlValid = validateInput(form.elements['url']);
+
+  if (
+    imageValid &&
+    titleValid &&
+    descriptionValid &&
+    categoriesValid &&
+    colorValid &&
+    priceValid &&
+    brandValid &&
+    urlValid
+  ) {
+    console.log('save to database');
+  }
 });
+
+// Functions
+
+function validateInput(input, message) {
+  //check if input is empty
+  if (input.value.trim() === '') {
+    // TODO: error class with different border color
+    return message;
+  }
+  // TODO: other checks. Make sure the data is correct
+  return true;
+}

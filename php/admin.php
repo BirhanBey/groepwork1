@@ -123,8 +123,8 @@ $manifestObject = json_decode($manifest, true);
         </div>
         <div class="info info4">
           <i class="fa-regular fa-file-lines icon"></i>
-          <label for="descript">Description</label><br />
-          <input type="text" id="descript" name="fav_language" placeholder="  Description" />
+          <label for="description">Description</label><br />
+          <input type="text" id="description" name="fav_language" placeholder="  Description" />
         </div>
         <div class="info info5">
           <i class="fa-solid fa-boxes-stacked icon"></i>
@@ -139,7 +139,7 @@ $manifestObject = json_decode($manifest, true);
         <div class="info info7">
           <i class="fa-solid fa-euro-sign icon"></i>
           <label for="price">Price</label><br />
-          <input type="text" id="price" name="fav_language" placeholder="  Price" />
+          <input type="number" id="price" name="fav_language" step=".01" placeholder="  Price" />
         </div>
         <div class="info info8">
           <i class="fa-regular fa-copyright icon"></i>
@@ -183,8 +183,8 @@ $manifestObject = json_decode($manifest, true);
         </div>
         <div class="info info4">
           <i class="fa-regular fa-file-lines icon"></i>
-          <label for="descript">Description</label><br />
-          <input type="text" id="descript" name="fav_language" placeholder="  Description" />
+          <label for="description">Description</label><br />
+          <input type="text" id="description" name="fav_language" placeholder="  Description" />
         </div>
         <div class="info info5">
           <i class="fa-solid fa-boxes-stacked icon"></i>

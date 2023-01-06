@@ -126,7 +126,7 @@ body {
   align-items: center;
 }
 .toggle.active {
-  background: red;
+  background: orangered;
 }
 .toggle i {
   position: absolute;
@@ -221,7 +221,7 @@ body {
   border-radius: 10px;
   cursor: pointer;
 }
-/*add new item start*/
+/*edit and add new item start*/
 .new-item,
 .edit-item {
   position: fixed;
@@ -235,7 +235,8 @@ body {
 .edit-item .background {
   position: fixed;
   display: flex;
-  width: 900px;
+  width: 90%;
+  height: 650px;
   background-color: #fff;
   z-index: 2;
   top: 20px;
@@ -256,7 +257,6 @@ body {
 .edit-item .form {
   display: flex;
   width: 100%;
-  height: 100vh;
   flex-direction: column;
   margin-left: -57px;
   margin-top: 20px;
@@ -332,7 +332,7 @@ body {
   right: 50px;
   position: relative;
   font-size: 36px;
-  left: 93px;
+  left: 80px;
 }
 .new-item .add-item,
 .edit-item .save-item {
@@ -346,4 +346,66 @@ body {
   position: relative;
   font-size: 16px;
   padding: 5px 10px;
+}
+
+/*delete item*/
+.deletebox {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.671);
+  padding-top: 150px;
+}
+.deletebox .deletebox-content {
+  background-color: #fefefe;
+  margin: 15% auto 15% auto;
+  border: 1px solid #888;
+  width: 50%;
+  font-size: 16px;
+  border-radius: 15px;
+}
+.deletebox .close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #4d5bf9;
+  background-color: #ffffff4a;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  width: 33px;
+  padding: 1px 7px;
+}
+.deletebox .close:hover {
+  color: #f44336;
+  cursor: pointer;
+}
+.container {
+  padding: 16px;
+  text-align: center;
+}
+.container .buttonbox {
+  display: flex;
+}
+.container .cancelbtn,
+.deletebtn {
+  text-align: center;
+  width: 50%;
+  height: 45px;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  font-size: 16px;
+}
+.container .cancelbtn {
+  background-color: #4d5bf9;
+  color: #fff;
+}
+.container .deletebtn {
+  background-color: #f44336;
 }

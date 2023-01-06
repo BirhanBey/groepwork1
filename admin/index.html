@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/admin.scss" />
   </head>
   <body>
+    <!-- admin page start -->
     <div class="navigation">
       <ul>
         <li class="list">
@@ -82,7 +83,10 @@
           </td>
           <td>
             <button type="button" value="">
-              <i class="fa-solid fa-trash-can-arrow-up"></i>
+              <i
+                class="fa-solid fa-trash-can-arrow-up"
+                onclick="document.getElementById('delete-box').style.display='block'"
+              ></i>
             </button>
             <button class="editBtn">
               <i class="fa-solid fa-marker"></i>
@@ -287,6 +291,40 @@
         <button class="save-item">Save Item</button>
       </div>
     </div>
+    <!-- delete confirmation -->
+    <div id="delete-box" class="deletebox">
+      <span
+        onclick="document.getElementById('delete-box').style.display='none'"
+        class="close"
+        title="Close deletebox"
+        ><i class="fa-solid fa-xmark"></i
+      ></span>
+      <form class="deletebox-content" action="/action_page.php">
+        <div class="container">
+          <h1>Delete Item</h1>
+          <p>Are you sure you want to delete the Item?</p>
+
+          <div class="buttonbox">
+            <button
+              type="button"
+              onclick="document.getElementById('delete-box').style.display='none'"
+              class="cancelbtn"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              onclick="document.getElementById('delete-box').style.display='none'"
+              class="deletebtn"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- admin page finished -->
+
     <!-- navbar toggle -->
     <script>
       let menuToggle = document.querySelector(".toggle");
@@ -308,7 +346,6 @@
       list.forEach((item) => item.addEventListener("click", activeLink));
     </script>
 
-    <!--  -->
     <!-- add new item focus-- this should move when you click each input but ony first one is working Ihope you can fix it or we can just delete it-->
     <script>
       let input = document.querySelector(".info input");
@@ -344,7 +381,28 @@
       edititembtn.onclick = function () {
         editWindow.style.display = "flex";
       };
+      addWindow.onclick = function (event) {
+        if (event.target == addWindow) {
+          addWindow.style.display = "none";
+        }
+      };
+      editWindow.onclick = function (event) {
+        if (event.target == editWindow) {
+          editWindow.style.display = "none";
+        }
+      };
     </script>
-    <!-- add new item close -->
+    
+    <!-- delete item -->
+    <script>
+      const deletebox = document.getElementById("delete-box");
+
+      window.onclick = function (event) {
+        if (event.target == deletebox) {
+          deletebox.style.display = "none";
+        }
+      };
+    </script>
+
   </body>
 </html>

@@ -118,40 +118,20 @@ window.onclick = function (event) {
 };
 
 /**
- * Form
+ * Add product Form
  */
 
 // Variables
 
 const form = document.querySelector('.new-item .form');
+const formElementsList = [...form.elements];
 
 // Event listener
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-
-  // TODO: make it with forEach
-  // check if all inputs are valid
-  const imageValid = validateInput(form.elements['image']);
-  const titleValid = validateInput(form.elements['title']);
-  const descriptionValid = validateInput(form.elements['description']);
-  const categoriesValid = validateInput(form.elements['categories']);
-  const colorValid = validateInput(form.elements['color']);
-  const priceValid = validateInput(form.elements['price']);
-  const brandValid = validateInput(form.elements['brand']);
-  const urlValid = validateInput(form.elements['url']);
-
-  if (
-    imageValid &&
-    titleValid &&
-    descriptionValid &&
-    categoriesValid &&
-    colorValid &&
-    priceValid &&
-    brandValid &&
-    urlValid
-  ) {
-    console.log('save to database');
+  if (validateForm(formElementsList)) {
+    console.log('send to database');
   }
 });
 
@@ -161,8 +141,23 @@ function validateInput(input, message) {
   //check if input is empty
   if (input.value.trim() === '') {
     // TODO: error class with different border color
-    return message;
+    return false;
   }
   // TODO: other checks. Make sure the data is correct
   return true;
+}
+
+function validateForm(validationArr) {
+  return validationArr.reduce((acc, el) => {
+    if (el.nodeName === 'INPUT') {
+      // checks every input and validate it or not
+      if (!validateInput(el, `please fill in the ${el.id} field`)) {
+        return false;
+      } else {
+        return acc;
+      }
+    } else {
+      return acc;
+    }
+  }, true);
 }

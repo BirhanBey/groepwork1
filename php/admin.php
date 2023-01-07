@@ -105,7 +105,7 @@ $manifestObject = json_decode($manifest, true);
   <div class="new-item">
     <div class="background">
       <p class="border"></p>
-      <div class="form">
+      <form class="form">
         <div class="info info1">
           <i class="fa-solid fa-hashtag icon"></i>
           <label for="product-id">ID</label><br />
@@ -123,8 +123,8 @@ $manifestObject = json_decode($manifest, true);
         </div>
         <div class="info info4">
           <i class="fa-regular fa-file-lines icon"></i>
-          <label for="descript">Description</label><br />
-          <input type="text" id="descript" name="fav_language" placeholder="  Description" />
+          <label for="description">Description</label><br />
+          <input type="text" id="description" name="fav_language" placeholder="  Description" />
         </div>
         <div class="info info5">
           <i class="fa-solid fa-boxes-stacked icon"></i>
@@ -139,7 +139,7 @@ $manifestObject = json_decode($manifest, true);
         <div class="info info7">
           <i class="fa-solid fa-euro-sign icon"></i>
           <label for="price">Price</label><br />
-          <input type="text" id="price" name="fav_language" placeholder="  Price" />
+          <input type="number" id="price" name="fav_language" step=".01" placeholder="  Price" />
         </div>
         <div class="info info8">
           <i class="fa-regular fa-copyright icon"></i>
@@ -152,18 +152,20 @@ $manifestObject = json_decode($manifest, true);
           <label for="url">URL</label><br />
           <input type="text" id="url" name="fav_language" placeholder="  URL" />
         </div>
-      </div>
+        <button type="submit" class="add-item">Add Item</button>
+
+      </form>
       <button class="close-addnew">
         <i class="fa-regular fa-circle-xmark"></i>
       </button>
-      <button class="add-item">Add Item</button>
+      <!-- <button type="submit" class="add-item">Add Item</button> -->
     </div>
   </div>
   <!-- Edit Item form -->
   <div class="edit-item">
     <div class="background">
       <p class="border"></p>
-      <div class="form">
+      <form class="form">
         <div class="info info1">
           <i class="fa-solid fa-hashtag icon"></i>
           <label for="product-id">ID</label><br />
@@ -181,8 +183,8 @@ $manifestObject = json_decode($manifest, true);
         </div>
         <div class="info info4">
           <i class="fa-regular fa-file-lines icon"></i>
-          <label for="descript">Description</label><br />
-          <input type="text" id="descript" name="fav_language" placeholder="  Description" />
+          <label for="description">Description</label><br />
+          <input type="text" id="description" name="fav_language" placeholder="  Description" />
         </div>
         <div class="info info5">
           <i class="fa-solid fa-boxes-stacked icon"></i>
@@ -209,11 +211,11 @@ $manifestObject = json_decode($manifest, true);
           <label for="url">URL</label><br />
           <input type="text" id="url" name="fav_language" placeholder="  URL" />
         </div>
-      </div>
+        <button type="submit" class="save-item">Save Item</button>
+      </form>
       <button class="close-edit">
         <i class="fa-regular fa-circle-xmark"></i>
       </button>
-      <button class="save-item">Save Item</button>
     </div>
   </div>
   <!-- delete confirmation -->
@@ -236,86 +238,6 @@ $manifestObject = json_decode($manifest, true);
     </form>
   </div>
   <!-- admin page finished -->
-
-  <!-- navbar toggle -->
-  <script>
-    let menuToggle = document.querySelector(".toggle");
-    let navigation = document.querySelector(".navigation");
-    let table = document.querySelector(".product-table");
-    menuToggle.onclick = function() {
-      menuToggle.classList.toggle("active");
-      navigation.classList.toggle("active");
-      table.classList.toggle("active");
-    };
-  </script>
-  <!-- navbar selection -->
-  <script>
-    const list = document.querySelectorAll(".list");
-
-    function activeLink() {
-      list.forEach((item) => item.classList.remove("active"));
-      this.classList.add("active");
-    }
-    list.forEach((item) => item.addEventListener("click", activeLink));
-  </script>
-
-  <!-- add new item focus-- this should move when you click each input but ony first one is working Ihope you can fix it or we can just delete it-->
-  <script>
-    let input = document.querySelector(".info input");
-    let info = document.querySelector(".info");
-
-    input.onclick = function() {
-      info.classList.toggle("active");
-    };
-
-    // input.onclick = function () {
-    //   info.forEach((e) => e.classList.toggle("active"));
-    // };
-  </script>
-  <!-- focus -->
-  <!-- close -->
-  <script>
-    let closebtn = document.querySelector(".close-addnew");
-    let addWindow = document.querySelector(".new-item");
-    let newitembtn = document.querySelector(".add-item-page");
-    let closeEditBtn = document.querySelector(".close-edit");
-    let editWindow = document.querySelector(".edit-item");
-    let edititembtn = document.querySelector(".editBtn");
-
-    closebtn.onclick = function() {
-      addWindow.style.display = "none";
-    };
-    newitembtn.onclick = function() {
-      addWindow.style.display = "flex";
-    };
-    closeEditBtn.onclick = function() {
-      editWindow.style.display = "none";
-    };
-    edititembtn.onclick = function() {
-      editWindow.style.display = "flex";
-    };
-    addWindow.onclick = function(event) {
-      if (event.target == addWindow) {
-        addWindow.style.display = "none";
-      }
-    };
-    editWindow.onclick = function(event) {
-      if (event.target == editWindow) {
-        editWindow.style.display = "none";
-      }
-    };
-  </script>
-
-  <!-- delete item -->
-  <script>
-    const deletebox = document.getElementById("delete-box");
-
-    window.onclick = function(event) {
-      if (event.target == deletebox) {
-        deletebox.style.display = "none";
-      }
-    };
-  </script>
 
 </body>
 

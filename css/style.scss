@@ -45,9 +45,10 @@ body {
   // position: fixed;
 }
 .nav-container .logo {
-  color: #ecb96b;
-  position: relative;
-  top: -30px;
+  position: fixed;
+  top: 19px;
+  left: 23px;
+  width: 129px;
 }
 .nav-container .navbar {
   position: relative;

@@ -22,8 +22,8 @@ $manifestObject = json_decode($manifest, true);
 <body>
   <!-- navbar starts -->
   <nav class="nav-container">
-    <div class="logo">
-      <span style="position: fixed"> LOGO </span>
+     <div>
+      <img class="logo" src="./img/logo3.png" alt="">
     </div>
     <a href="./php/admin.php">Admin Page</a>
     <div class="navbar">

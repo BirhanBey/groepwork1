@@ -1,5 +1,5 @@
 <?php
-$manifest = file_get_contents("../dist/manifest.json");
+$manifest = file_get_contents("./dist/manifest.json");
 $manifestObject = json_decode($manifest, true);
 ?>
 
@@ -11,8 +11,8 @@ $manifestObject = json_decode($manifest, true);
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin Page</title>
-  <link rel="stylesheet" href="../dist/<?= $manifestObject["js/admin.css"]["file"] ?>">
-  <script src="../dist/<?= $manifestObject["js/admin.js"]["file"] ?>" defer></script>
+  <link rel="stylesheet" href="./dist/<?= $manifestObject["js/admin.css"]["file"] ?>">
+  <script src="./dist/<?= $manifestObject["js/admin.js"]["file"] ?>" defer></script>
 </head>
 
 <body>
@@ -22,7 +22,7 @@ $manifestObject = json_decode($manifest, true);
       <li class="list">
         <b></b>
         <b></b>
-        <a href="../index.php">
+        <a href="./index.php">
           <span class="icon"><i class="fa-solid fa-house-user"></i></span>
           <span class="title">Home</span>
         </a>

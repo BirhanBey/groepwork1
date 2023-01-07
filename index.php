@@ -22,10 +22,10 @@ $manifestObject = json_decode($manifest, true);
 <body>
   <!-- navbar starts -->
   <nav class="nav-container">
-     <div>
+    <div>
       <img class="logo" src="./img/logo3.png" alt="">
     </div>
-    <a href="./php/admin.php">Admin Page</a>
+    <a href="./admin.php">Admin Page</a>
     <div class="navbar">
       <ul>
         <li class="list" data-category="All">

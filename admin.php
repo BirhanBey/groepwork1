@@ -2,6 +2,7 @@
 $manifest = file_get_contents("./dist/manifest.json");
 $manifestObject = json_decode($manifest, true);
 
+require './data/db.php';
 require './data/products.php';
 require './data/categories.php';
 require './data/filters.php';
@@ -54,6 +55,17 @@ require './data/filters.php';
         New Item
       </button>
     </div>
+    <?php
+
+    if (isset($_POST['form'])) {
+      if ($_POST['type'] == "productdel") {
+        $sql = $mysqli->prepare("DELETE FROM products WHERE id=?")->execute([$_POST['product_id']]);
+        if ($sql) {
+          header("Refresh:0;");
+        }
+      }
+    }
+    ?>
     <table class="products">
       <tr>
         <th>ID</th>
@@ -80,9 +92,10 @@ require './data/filters.php';
             </button>
           </td>
           <td>
-            <button class="product__delete">
+            <button class="product__delete" onclick="productDel(<?php echo $product['id']; ?>)">
               <i class="fa-solid fa-trash-can-arrow-up"></i>
             </button>
+
             <button class="editBtn">
               <i class="fa-solid fa-marker"></i>
             </button>
@@ -241,7 +254,7 @@ require './data/filters.php';
   <!-- delete confirmation -->
   <div id="delete-box" class="deletebox">
     <span onclick="document.getElementById('delete-box').style.display='none'" class="close" title="Close deletebox"><i class="fa-solid fa-xmark"></i></span>
-    <form class="deletebox-content" action="/action_page.php">
+    <form id="productDeleteForm" class="deletebox-content" method="post" action="?">
       <div class="container">
         <h1>Delete Item</h1>
         <p>Are you sure you want to delete the Item?</p>
@@ -250,15 +263,21 @@ require './data/filters.php';
           <button type="button" onclick="document.getElementById('delete-box').style.display='none'" class="cancelbtn">
             Cancel
           </button>
-          <button type="button" onclick="document.getElementById('delete-box').style.display='none'" class="deletebtn">
+          <input type="hidden" name="product_id">
+          <input type="hidden" name="type" value="productdel">
+          <button type="submit" name="form" class="deletebtn">
             Delete
           </button>
-        </div>
+          </div>
       </div>
     </form>
   </div>
   <!-- admin page finished -->
-
+  <script>
+    function productDel(product_id) {
+      document.querySelector("form#productDeleteForm input[name=product_id]").value = product_id;
+    }
+  </script>
 </body>
 
 </html>

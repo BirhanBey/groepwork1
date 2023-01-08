@@ -132,8 +132,8 @@ require './data/filters.php';
         <div class="info info5">
           <i class="fa-solid fa-boxes-stacked icon"></i>
           <label for="categories">Categories</label><br />
-          <select id="categories" name="fav_language" multiple>
-            <option value="" selected disabled hidden>choose a or multiple categories</option>
+          <select id="categories" class="list-selector" name="fav_language" multiple>
+            <option value="" selected disabled hidden>Choose a or multiple categories</option>
 
             <?php foreach ($categories as $category) { ?>
               <option value="<?= $category["name"] ?>"><?= $category["name"] ?></option>
@@ -152,8 +152,8 @@ require './data/filters.php';
         <div class="info info6">
           <i class="fa-solid fa-palette icon"></i>
           <label for="color">Color</label><br />
-          <select id="color" name="fav_language">
-            <option value="" selected disabled hidden>choose a color</option>
+          <select id="color" class="list-selector" name="fav_language">
+            <option value="" selected disabled hidden>Choose a color</option>
 
             <?php foreach ($colors as $color) { ?>
               <option value="<?= $color["name"] ?>"><?= $color["name"] ?></option>
@@ -169,8 +169,8 @@ require './data/filters.php';
         <div class="info info8">
           <i class="fa-regular fa-copyright icon"></i>
           <label for="brand">Brand</label><br />
-          <select id="brand" name="fav_language">
-            <option value="" selected disabled hidden>choose a brand</option>
+          <select id="brand" class="list-selector" name="fav_language">
+            <option value="" selected disabled hidden>Choose a brand</option>
 
             <?php foreach ($brands as $brand) { ?>
               <option value="<?= $brand["name"] ?>"><?= $brand["name"] ?></option>

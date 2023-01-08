@@ -6,6 +6,25 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
+  scroll-behavior: smooth;
+  ::selection {
+    color: #f44336;
+    background: #4d5bf9;
+  }
+  /* Chrome, Edge, Firefox and Safari */
+  /* ===== Scrollbar CSS ===== */
+  ::-webkit-scrollbar {
+    width: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #4d5bf9;
+    border-radius: 9px;
+    border: 2px solid #ecb96b;
+  }
 }
 body {
   min-height: 100vh;
@@ -157,8 +176,8 @@ body {
   border: 2px solid #4d5bf9;
   border-radius: 15px;
   padding: 10px 20px;
-  display: flex;
-  width: auto;
+  width: 100%;
+  text-align: center;
 }
 .product-table .products tbody {
   width: 100%;
@@ -290,7 +309,20 @@ body {
   left: 0px;
   margin-top: -15px;
 }
-.new-item, .edit-item {
+.new-item .form .list-selector {
+  margin-left: 60px;
+  position: relative;
+  top: -24px;
+  border-radius: 15px;
+  padding: 0 10px;
+  border: none;
+  color: #888;
+}
+.new-item .form .list-selector option {
+  color: black;
+}
+.new-item,
+.edit-item {
   display: none;
   position: fixed;
   justify-content: center;
@@ -330,7 +362,7 @@ body {
         background-color: #4d5bf9;
       }
     }
-    &>button {
+    & > button {
       width: 30px;
       height: 30px;
       top: 10px;

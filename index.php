@@ -28,8 +28,8 @@ $manifestObject = json_decode($manifest, true);
     <a href="./admin.php">Admin Page</a>
     <div class="navbar">
       <ul>
-        <li class="list" data-category="All">
-          <a href="#">
+        <li class="list active" data-category="All">
+          <a href="">
             <!-- use icons object -->
             <span class="icon"><i class="fa-solid fa-earth-americas"></i></span>
             <span class="text">All</span>
@@ -52,9 +52,6 @@ $manifestObject = json_decode($manifest, true);
 
           // add class 'active' to the first category and add class 'dropdown' if it has subcategories
           $class = "list";
-          if ($index == 0) {
-            $class .= " active";
-          }
           if ($category["subcategories"]) {
             $class .= " dropdown";
           }

@@ -152,33 +152,35 @@ $manifestObject = json_decode($manifest, true);
 
       <?php foreach ($products as $product) { ?>
         <div class="product-card" data-category="<?= $product["category"] ?>" data-color="<?= $product["color"] ?>" data-brand="<?= $product["brand"] ?>">
-          <img src=" <?= $product["img"] ?>" alt="img" />
-          <a href="<?= $product["url"] ?>" class="product-card-title">
-            <?= $product["title"] ?>
-          </a>
-          <div class="product-card-price">
-            <h2>€ <?= $product["price"] ?></h2>
-          </div>
-          <div class="product-card-overlay">
-            <h6>About Product</h6>
-            <p class="product-description">
-              <?=
-              // making short description from 300 char
-              strlen($product["description"]) > 300
-                ?
-                substr($product["description"], 0, 300) . "..."
-                :
-                $product["description"]
-              ?>
-            </p>
-            <div class="connection">
-              <a href="<?= $product["url"] ?>" target="_blank">
-                <span><i class="fa-solid fa-link"></i></span>
-              </a>
-              <!-- <a style="margin-left: 10px" href="#"> -->
-              <!-- <button type="button" onclick="openModal(1)"><span>
+          <div class="inset">
+            <img src=" <?= $product["img"] ?>" alt="img" />
+            <a href="<?= $product["url"] ?>" class="product-card-title">
+              <?= $product["title"] ?>
+            </a>
+            <div class="product-card-price">
+              <h2>€ <?= $product["price"] ?></h2>
+            </div>
+            <div class="product-card-overlay">
+              <h6>About Product</h6>
+              <p class="product-description">
+                <?=
+                // making short description from 300 char
+                strlen($product["description"]) > 300
+                  ?
+                  substr($product["description"], 0, 300) . "..."
+                  :
+                  $product["description"]
+                ?>
+              </p>
+              <div class="connection">
+                <a href="<?= $product["url"] ?>" target="_blank">
+                  <span><i class="fa-solid fa-link"></i></span>
+                </a>
+                <!-- <a style="margin-left: 10px" href="#"> -->
+                <!-- <button type="button" onclick="openModal(1)"><span>
                   <i class="fa-regular fa-images"></i></span></button> -->
-              <!-- </a> -->
+                <!-- </a> -->
+              </div>
             </div>
           </div>
         </div>

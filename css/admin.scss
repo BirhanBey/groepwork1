@@ -185,19 +185,32 @@ body {
   height: 40px;
   border-bottom: 1px solid #ddd;
 }
-.product-table .products td button {
-  margin: 0;
-  padding: 0;
-  font-size: 26px;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  margin: 4px;
+
+.product-table .products {
+  .product__status,
+  td button {
+    margin: 0;
+    padding: 0;
+    font-size: 26px;
+    border: none;
+    background-color: transparent;
+    margin: 4px;
+    cursor: default;
+    i {
+      padding: 0;
+      color: blue;
+    }
+    &--error {
+      i {
+        color: red;
+      }
+    }
+  }
+  td button {
+    cursor: pointer;
+  }
 }
-.product-table .products td button i {
-  padding: 0;
-  color: blue;
-}
+
 .product-table .head {
   display: flex;
   justify-content: space-between;

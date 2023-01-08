@@ -125,6 +125,7 @@ window.onclick = function (event) {
 
 const form = document.querySelector('.new-item .form');
 const formElementsList = [...form.elements];
+console.log(formElementsList);
 
 // Event listener
 
@@ -147,11 +148,28 @@ function validateInput(input, message) {
   return true;
 }
 
+function validateSelect(select, message) {
+  //check if input is empty
+  if (select.selectedOptions[0].value === '') {
+    // TODO: error class with different border color
+    return false;
+  }
+  // TODO: other checks. Make sure the data is correct
+  return true;
+}
+
 function validateForm(validationArr) {
   return validationArr.reduce((acc, el) => {
     if (el.nodeName === 'INPUT') {
       // checks every input and validate it or not
       if (!validateInput(el, `please fill in the ${el.id} field`)) {
+        return false;
+      } else {
+        return acc;
+      }
+    } else if (el.nodeName === 'SELECT') {
+      console.log(el.selectedOptions);
+      if (!validateSelect(el, `please fill in the ${el.id} field`)) {
         return false;
       } else {
         return acc;

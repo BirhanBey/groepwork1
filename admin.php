@@ -39,6 +39,10 @@ require './data/products.php';
       </li>
     </ul>
   </div>
+  <div class="toggle">
+    <i class="fa-solid fa-bars open"></i>
+    <i class="fa-solid fa-xmark close"></i>
+  </div>
   <div class="product-table">
     <div class="head">
       <h1>Products</h1>
@@ -68,13 +72,13 @@ require './data/products.php';
           <td><?= $product["price"] ?></td>
           <td><?= $product["brand"] ?></td>
           <td>
-            <button class='product__status<?= !$product["status"] ? ' product__status--error' : '' ?>' disabled>
+            <button class="product__status<?= !$product["status"] ? ' product__status--error' : '' ?>" disabled>
               <i class="fa-solid fa-square-<?= $product["status"] ? 'check' : 'xmark' ?>"></i>
             </button>
           </td>
           <td>
-            <button>
-              <i class="fa-solid fa-trash-can-arrow-up" onclick="document.getElementById('delete-box').style.display='block'"></i>
+            <button class="product__delete">
+              <i class="fa-solid fa-trash-can-arrow-up"></i>
             </button>
             <button class="editBtn">
               <i class="fa-solid fa-marker"></i>

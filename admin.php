@@ -2,8 +2,10 @@
 $manifest = file_get_contents("./dist/manifest.json");
 $manifestObject = json_decode($manifest, true);
 
+require './data/products.php';
 require './data/categories.php';
 require './data/filters.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -55,52 +57,39 @@ require './data/filters.php';
     <table class="products">
       <tr>
         <th>ID</th>
-        <th class="tog hide">Image</th>
         <th>Title</th>
-        <th class="tog hide">Description</th>
         <th>Categories</th>
         <th>Color</th>
         <th>Price</th>
         <th>Brand</th>
-        <th class="tog hide">URL</th>
         <th>Status</th>
         <th>Action</th>
       </tr>
-      <tr>
-        <td id="">#113</td>
-        <td id="" class="tog hide">
-          URL
-          alşdaksdlkmaşlsdkmcaşskdfjalskdnvşaksdnfnaşsdlknvşalksdncşajkdsnvşkasjfdvşakjsfdnşvkjnaşfsjkvafds
-        </td>
-        <td id="">Mouse</td>
-        <td id="" class="tog hide">
-          very high dpi gamer mouse asldkmfşalksdfş askdmfalks asdlkfaslkdfa
-          asldkalskdfjasd asldkffaslkdjfasd asşdlkfjadska dsladslkfa sdfsdsf
-          sdk
-        </td>
-        <td id="">7,2</td>
-        <td id="">color</td>
-        <td id="">$42,21</td>
-        <td id="">privacy</td>
-        <td class="tog hide">
-          https://
-          alşdaksdlkmaşlsdkmcaşskdfjalskdnvşaksdnfnaşsdlknvşalksdncşajkdsnvşkasjfdvşakjsfdnşvkjnaşfsjkvafds
-        </td>
-        <td>
-          <button><i class="fa-solid fa-square-check"></i></button>
-          <button>
-            <i class="fa-solid fa-square-xmark" style="color: red"></i>
-          </button>
-        </td>
-        <td>
-          <button type="button" value="">
-            <i class="fa-solid fa-trash-can-arrow-up" onclick="document.getElementById('delete-box').style.display='block'"></i>
-          </button>
-          <button class="editBtn">
-            <i class="fa-solid fa-marker"></i>
-          </button>
-        </td>
-      </tr>
+
+      <?php foreach ($products as $product) { ?>
+        <tr id="<?= $product["id"] ?>">
+          <td>#<?= $product["id"] ?></td>
+          <td><?= $product["title"] ?></td>
+          <td><?= $product["category"] ?></td>
+          <td><?= $product["color"] ?></td>
+          <td><?= $product["price"] ?></td>
+          <td><?= $product["brand"] ?></td>
+          <td>
+            <button class="product__status<?= !$product["status"] ? ' product__status--error' : '' ?>" disabled>
+              <i class="fa-solid fa-square-<?= $product["status"] ? 'check' : 'xmark' ?>"></i>
+            </button>
+          </td>
+          <td>
+            <button class="product__delete">
+              <i class="fa-solid fa-trash-can-arrow-up"></i>
+            </button>
+            <button class="editBtn">
+              <i class="fa-solid fa-marker"></i>
+            </button>
+          </td>
+        </tr>
+      <?php } ?>
+
     </table>
   </div>
 
@@ -184,6 +173,7 @@ require './data/filters.php';
           <input type="text" id="url" name="fav_language" placeholder="  URL" />
         </div>
         <button type="submit" class="add-item">Add Item</button>
+
       </form>
       <button class="close-addnew">
         <i class="fa-regular fa-circle-xmark"></i>

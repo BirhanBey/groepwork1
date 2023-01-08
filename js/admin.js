@@ -78,46 +78,6 @@ input.onclick = function () {
 // };
 
 /**
- * Edit product window
- */
-
-// Variables
-
-let closeEditBtn = document.querySelector('.close-edit');
-let editWindow = document.querySelector('.edit-item');
-let edititembtn = document.querySelector('.editBtn');
-
-// Event listener
-
-closeEditBtn.onclick = function () {
-  editWindow.style.display = 'none';
-};
-edititembtn.onclick = function () {
-  editWindow.style.display = 'flex';
-};
-editWindow.onclick = function (event) {
-  if (event.target == editWindow) {
-    editWindow.style.display = 'none';
-  }
-};
-
-/**
- * Delete
- */
-
-// Variables
-
-const deletebox = document.getElementById('delete-box');
-
-// Event listener
-
-window.onclick = function (event) {
-  if (event.target == deletebox) {
-    deletebox.style.display = 'none';
-  }
-};
-
-/**
  * Add product Form
  */
 
@@ -177,3 +137,49 @@ function validateForm(validationArr) {
     }
   }, true);
 }
+
+/**
+ * Edit product window
+ */
+
+// Variables
+
+let closeEditBtn = document.querySelector('.close-edit');
+let editWindow = document.querySelector('.edit-item');
+let edititembtn = document.querySelector('.editBtn');
+
+// Event listener
+
+closeEditBtn.onclick = function () {
+  editWindow.style.display = 'none';
+};
+edititembtn.onclick = function () {
+  editWindow.style.display = 'flex';
+};
+editWindow.onclick = function (event) {
+  if (event.target == editWindow) {
+    editWindow.style.display = 'none';
+  }
+};
+
+/**
+ * Delete
+ */
+
+// Variables
+
+const deleteBtnRef = document.querySelector('.product__delete');
+const deleteBoxRef = document.getElementById('delete-box');
+
+// Event listener
+
+deleteBtnRef.addEventListener(
+  'click',
+  () => (deleteBoxRef.style.display = 'block')
+);
+
+window.onclick = function (event) {
+  if (event.target == deleteBoxRef) {
+    deleteBoxRef.style.display = 'none';
+  }
+};

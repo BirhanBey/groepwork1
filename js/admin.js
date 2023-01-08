@@ -153,17 +153,17 @@ editWindow.onclick = function (event) {
 // Variables
 
 const deleteBtnRef = document.querySelector('.product__delete');
-const deletebox = document.getElementById('delete-box');
+const deleteBoxRef = document.getElementById('delete-box');
 
 // Event listener
 
 deleteBtnRef.addEventListener(
   'click',
-  () => (deletebox.style.display = 'block')
+  () => (deleteBoxRef.style.display = 'block')
 );
 
 window.onclick = function (event) {
-  if (event.target == deletebox) {
-    deletebox.style.display = 'none';
+  if (event.target == deleteBoxRef) {
+    deleteBoxRef.style.display = 'none';
   }
 };

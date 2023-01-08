@@ -125,7 +125,6 @@ window.onclick = function (event) {
 
 const form = document.querySelector('.new-item .form');
 const formElementsList = [...form.elements];
-console.log(formElementsList);
 
 // Event listener
 
@@ -168,7 +167,6 @@ function validateForm(validationArr) {
         return acc;
       }
     } else if (el.nodeName === 'SELECT') {
-      console.log(el.selectedOptions);
       if (!validateSelect(el, `please fill in the ${el.id} field`)) {
         return false;
       } else {

@@ -59,7 +59,7 @@ require './data/filters.php';
 
     if (isset($_POST['form'])) {
       if ($_POST['type'] == "productdel") {
-        $sql = $mysqli->prepare("DELETE FROM products WHERE id=?")->execute([$_POST['product_id']]);
+        $sql = $mysqli->query("DELETE FROM products WHERE id=" . $_POST['product_id']);
         if ($sql) {
           header("Refresh:0;");
         }
@@ -268,7 +268,7 @@ require './data/filters.php';
           <button type="submit" name="form" class="deletebtn">
             Delete
           </button>
-          </div>
+        </div>
       </div>
     </form>
   </div>

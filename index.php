@@ -1,4 +1,5 @@
 <?php
+require './data/db.php';
 require './data/categories.php';
 require './data/products.php';
 require './data/filters.php';
@@ -15,14 +16,16 @@ $manifestObject = json_decode($manifest, true);
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shopping Ideas</title>
+  <link rel="stylesheet" href="css/style.scss">
   <link rel="stylesheet" href="./dist/<?= $manifestObject["js/index.css"]["file"] ?>">
   <script src="./dist/<?= $manifestObject["js/index.js"]["file"] ?>" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 </head>
 
 <body>
   <!-- navbar starts -->
   <nav class="nav-container">
-     <div>
+    <div>
       <img class="logo" src="./img/logo3.png" alt="">
     </div>
     <a href="./php/admin.php">Admin Page</a>
@@ -149,10 +152,9 @@ $manifestObject = json_decode($manifest, true);
 
     <!-- product-main started -->
     <div class="product-main">
-
       <?php foreach ($products as $product) { ?>
         <div class="product-card" data-category="<?= $product["category"] ?>" data-color="<?= $product["color"] ?>" data-brand="<?= $product["brand"] ?>">
-          <img src=" <?= $product["img"] ?>" alt="img" />
+          <img src="<?= $product["img"] ?>" alt="img" />
           <a href="<?= $product["url"] ?>" class="product-card-title">
             <?= $product["title"] ?>
           </a>
@@ -175,70 +177,66 @@ $manifestObject = json_decode($manifest, true);
               <a href="<?= $product["url"] ?>" target="_blank">
                 <span><i class="fa-solid fa-link"></i></span>
               </a>
-              <!-- <a style="margin-left: 10px" href="#"> -->
-              <!-- <button type="button" onclick="openModal(1)"><span>
-                  <i class="fa-regular fa-images"></i></span></button> -->
-              <!-- </a> -->
+              <a style="margin-left: 10px" href="#">
+                <button type="button" onclick="openModal(<?php echo $product['id']; ?>)"><span>
+                    <i class="fa-regular fa-images"></i></span></button>
+              </a>
             </div>
           </div>
         </div>
+        <!-- imagebox started -->
+
+        <div id="myModal<?php echo $product['id']; ?>" class="imagebox">
+          <span class="close cursor" onclick="closeModal(<?php echo $product['id']; ?>)">&times;</span>
+          <div class="modal-content">
+            <div class="swiper">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                <?php
+
+                $sql = "SELECT product_id,fileurl,title FROM products_images WHERE product_id =" . $product['id'] . "";
+                $result = $mysqli->query($sql);
+
+                foreach ($result as $image) {
+                  echo '<div class="swiper-slide"><img src="' . $image['fileurl'] . '" alt="' . $image['title'] . '"></div>';
+                }
+                ?>
+
+              </div>
+              <!-- If we need pagination -->
+              <div class="swiper-pagination"></div>
+
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+
+              <!-- If we need scrollbar -->
+              <div class="swiper-scrollbar"></div>
+            </div>
+          </div>
+        </div>
+        <!-- imagebox finished -->
       <?php } ?>
-
-      <!-- imagebox started -->
-
-      <div id="myModal1" class="imagebox">
-        <span class="close cursor" onclick="closeModal(1)">&times;</span>
-        <div class="modal-content">
-          <div class="prev-next">
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            <div class="slides">
-              <div class="numbertext">1 / 5</div>
-              <img src="https://loremflickr.com/1920/1080?random=1" />
-            </div>
-            <div class="slides">
-              <div class="numbertext">2 / 5</div>
-              <img src="https://loremflickr.com/1920/1080?random=2" />
-            </div>
-            <div class="slides">
-              <div class="numbertext">3 / 5</div>
-              <img src="https://loremflickr.com/1920/1080?random=3" />
-            </div>
-            <div class="slides">
-              <div class="numbertext">4 / 5</div>
-              <img src="https://loremflickr.com/1920/1080?random=4" />
-            </div>
-            <div class="slides">
-              <div class="numbertext">5 / 5</div>
-              <img src="https://loremflickr.com/1920/1080?random=5" />
-            </div>
-          </div>
-          <div class="caption-container">
-            <p id="caption"></p>
-          </div>
-          <div class="thumb">
-            <div class="column">
-              <img class="demo cursor" src="https://loremflickr.com/640/480?random=1" onclick="currentSlide(1)" alt="Nature and sunrise" />
-            </div>
-            <div class="column">
-              <img class="demo cursor" src="https://loremflickr.com/640/480?random=2" onclick="currentSlide(2)" alt="Snow" />
-            </div>
-            <div class="column">
-              <img class="demo cursor" src="https://loremflickr.com/640/480?random=3" onclick="currentSlide(3)" alt="Mountains and fjords" />
-            </div>
-            <div class="column">
-              <img class="demo cursor" src="https://loremflickr.com/640/480?random=4" onclick="currentSlide(4)" alt="Northern Lights" />
-            </div>
-            <div class="column">
-              <img class="demo cursor" src="https://loremflickr.com/640/480?random=5" onclick="currentSlide(5)" alt="Northern Lights" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- imagebox finished -->
     </div>
     <!-- product-main finished -->
   </section>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script src="js/index.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+    });
+  </script>
 </body>
 
 </html>

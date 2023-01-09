@@ -17,9 +17,9 @@ $manifestObject = json_decode($manifest, true);
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shopping Ideas</title>
   <link rel="stylesheet" href="css/style.scss">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./dist/<?= $manifestObject["js/index.css"]["file"] ?>">
   <script src="./dist/<?= $manifestObject["js/index.js"]["file"] ?>" defer></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 </head>
 
 <body>

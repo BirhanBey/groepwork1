@@ -2,10 +2,9 @@
 $manifest = file_get_contents("./dist/manifest.json");
 $manifestObject = json_decode($manifest, true);
 
-require './data/db.php';
-require './data/products.php';
-require './data/categories.php';
-require './data/filters.php';
+require './php/data/products.php';
+require './php/data/categories.php';
+require './php/data/filters.php';
 
 ?>
 

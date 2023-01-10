@@ -1,5 +1,5 @@
 <?php
-require_once '../data/db.php';
+require_once './data/db.php';
 
 if (isset($_POST)) {
   $result1 = $mysqli->query("

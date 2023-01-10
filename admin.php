@@ -55,17 +55,6 @@ require './data/filters.php';
         New Item
       </button>
     </div>
-    <?php
-
-    if (isset($_POST['form'])) {
-      if ($_POST['type'] == "productdel") {
-        $sql = $mysqli->query("DELETE FROM products WHERE id=" . $_POST['product_id']);
-        if ($sql) {
-          header("Refresh:0;");
-        }
-      }
-    }
-    ?>
     <table class="products">
       <tr>
         <th>ID</th>
@@ -92,7 +81,7 @@ require './data/filters.php';
             </button>
           </td>
           <td>
-            <button class="product__delete" onclick="productDel(<?php echo $product['id']; ?>)">
+            <button class="product__delete">
               <i class="fa-solid fa-trash-can-arrow-up"></i>
             </button>
 
@@ -253,7 +242,7 @@ require './data/filters.php';
   <!-- delete confirmation -->
   <div id="delete-box" class="deletebox">
     <span onclick="document.getElementById('delete-box').style.display='none'" class="close" title="Close deletebox"><i class="fa-solid fa-xmark"></i></span>
-    <form id="productDeleteForm" class="deletebox-content" method="post" action="?">
+    <form id="productDeleteForm" class="deletebox-content" action="php/deleteProduct.php">
       <div class="container">
         <h1>Delete Item</h1>
         <p>Are you sure you want to delete the Item?</p>
@@ -273,9 +262,9 @@ require './data/filters.php';
   </div>
   <!-- admin page finished -->
   <script>
-    function productDel(product_id) {
-      document.querySelector("form#productDeleteForm input[name=product_id]").value = product_id;
-    }
+    // function productDel(product_id) {
+    //   document.querySelector("form#productDeleteForm input[name=product_id]").value = product_id;
+    // }
   </script>
 </body>
 

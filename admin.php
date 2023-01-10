@@ -242,7 +242,7 @@ require './data/filters.php';
   <!-- delete confirmation -->
   <div id="delete-box" class="deletebox">
     <span onclick="document.getElementById('delete-box').style.display='none'" class="close" title="Close deletebox"><i class="fa-solid fa-xmark"></i></span>
-    <form id="productDeleteForm" class="deletebox-content" action="php/deleteProduct.php">
+    <form id="productDeleteForm" method="post" class="deletebox-content" action="php/deleteProduct.php">
       <div class="container">
         <h1>Delete Item</h1>
         <p>Are you sure you want to delete the Item?</p>
@@ -253,7 +253,7 @@ require './data/filters.php';
           </button>
           <input type="hidden" name="product_id">
           <input type="hidden" name="type" value="productdel">
-          <button type="submit" name="form" class="deletebtn">
+          <button type="submit" class="deletebtn">
             Delete
           </button>
         </div>

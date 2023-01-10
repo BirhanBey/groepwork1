@@ -1,10 +1,6 @@
 <?php
 require_once './data/db.php';
 
-/**
- * GET
- */
-
 $result = $mysqli->query("
 SELECT
     * 

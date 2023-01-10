@@ -1,10 +1,6 @@
 <?php
 require_once './data/db.php';
 
-/**
- * GET
- */
-
 $resultColors = $mysqli->query("
 SELECT * FROM colors;
 ");

@@ -309,6 +309,9 @@ body {
   border: none;
   padding: 0 10px;
   background: #fff;
+  &.error {
+    background: #f4433638
+  }
 }
 .new-item .form .info.active:before,
 .edit-item .form .info.active:before {
@@ -330,6 +333,9 @@ body {
   padding: 0 10px;
   border: none;
   color: #888;
+  &.error {
+    background: #f4433638
+  }
 }
 .new-item .form .list-selector option {
   color: black;

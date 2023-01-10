@@ -91,7 +91,7 @@ const formElementsList = [...form.elements];
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   if (validateForm(formElementsList)) {
-    console.log('send to database');
+    form.submit();
   }
 });
 
@@ -101,9 +101,11 @@ function validateInput(input, message) {
   //check if input is empty
   if (input.value.trim() === '') {
     // TODO: error class with different border color
+    input.classList.add('error');
     return false;
   }
   // TODO: other checks. Make sure the data is correct
+  input.classList.remove('error');
   return true;
 }
 
@@ -111,9 +113,11 @@ function validateSelect(select, message) {
   //check if input is empty
   if (select.selectedOptions[0].value === '') {
     // TODO: error class with different border color
+    select.classList.add('error');
     return false;
   }
   // TODO: other checks. Make sure the data is correct
+  select.classList.remove('error');
   return true;
 }
 

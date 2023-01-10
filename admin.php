@@ -241,7 +241,7 @@ require './php/data/filters.php';
   <!-- delete confirmation -->
   <div id="delete-box" class="deletebox">
     <span onclick="document.getElementById('delete-box').style.display='none'" class="close" title="Close deletebox"><i class="fa-solid fa-xmark"></i></span>
-    <form id="productDeleteForm" method="post" class="deletebox-content" action="php/deleteProduct.php">
+    <form id="productDeleteForm" class="deletebox-content" method="post" action="php/deleteProduct.php">
       <div class="container">
         <h1>Delete Item</h1>
         <p>Are you sure you want to delete the Item?</p>
@@ -260,11 +260,6 @@ require './php/data/filters.php';
     </form>
   </div>
   <!-- admin page finished -->
-  <script>
-    // function productDel(product_id) {
-    //   document.querySelector("form#productDeleteForm input[name=product_id]").value = product_id;
-    // }
-  </script>
 </body>
 
 </html>

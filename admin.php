@@ -110,7 +110,7 @@ require './data/filters.php';
   <div class="new-item">
     <div class="background">
       <p class="border"></p>
-      <form class="form">
+      <form class="form" method="post" action="php/addProduct.php">
         <div class="info info1">
           <i class="fa-solid fa-hashtag icon"></i>
           <label for="product-id">ID</label><br />
@@ -119,31 +119,31 @@ require './data/filters.php';
         <div class="info info2">
           <i class="fa-regular fa-image icon"></i>
           <label class="active" for="image">Image</label><br />
-          <input type="text" id="image" name="fav_language" placeholder="  Image" />
+          <input type="text" id="image" name="image" placeholder="  Image" />
         </div>
         <div class="info info3">
           <i class="fa-solid fa-t icon"></i>
           <label for="title">Title</label><br />
-          <input type="text" id="title" name="fav_language" placeholder="  Title" />
+          <input type="text" id="title" name="title" placeholder="  Title" />
         </div>
         <div class="info info4">
           <i class="fa-regular fa-file-lines icon"></i>
           <label for="description">Description</label><br />
-          <input type="text" id="description" name="fav_language" placeholder="  Description" />
+          <input type="text" id="description" name="description" placeholder="  Description" />
         </div>
         <div class="info info5">
           <i class="fa-solid fa-boxes-stacked icon"></i>
           <label for="categories">Categories</label><br />
-          <select id="categories" name="fav_language" multiple>
-            <option value="" selected disabled hidden>choose a or multiple categories</option>
+          <select id="categories" class="list-selector" name="categories[]" multiple>
+            <option value="" selected disabled hidden>Choose a or multiple categories</option>
 
             <?php foreach ($categories as $category) { ?>
-              <option value="<?= $category["name"] ?>"><?= $category["name"] ?></option>
+              <option value="<?= $category["id"] ?>"><?= $category["name"] ?></option>
               <?php if ($category["subcategories"]) { ?>
                 <optgroup label="<?= $category["name"] ?>">
 
                   <?php foreach ($category["subcategories"] as $subcategory) { ?>
-                    <option value="<?= $category["name"] . "-" . $subcategory["name"] ?>"><?= $subcategory["name"] ?></option>
+                    <option value="<?= $subcategory["id"] ?>"><?= $subcategory["name"] ?></option>
               <?php
                   }
                 }
@@ -154,11 +154,11 @@ require './data/filters.php';
         <div class="info info6">
           <i class="fa-solid fa-palette icon"></i>
           <label for="color">Color</label><br />
-          <select id="color" name="fav_language">
-            <option value="" selected disabled hidden>choose a color</option>
+          <select id="color" class="list-selector" name="color">
+            <option value="" selected disabled hidden>Choose a color</option>
 
             <?php foreach ($colors as $color) { ?>
-              <option value="<?= $color["name"] ?>"><?= $color["name"] ?></option>
+              <option value="<?= $color["id"] ?>"><?= $color["name"] ?></option>
             <?php } ?>
 
           </select>
@@ -166,16 +166,16 @@ require './data/filters.php';
         <div class="info info7">
           <i class="fa-solid fa-euro-sign icon"></i>
           <label for="price">Price</label><br />
-          <input type="number" id="price" name="fav_language" step=".01" placeholder="  Price" />
+          <input type="number" id="price" name="price" step=".01" placeholder="  Price" />
         </div>
         <div class="info info8">
           <i class="fa-regular fa-copyright icon"></i>
           <label for="brand">Brand</label><br />
-          <select id="brand" name="fav_language">
-            <option value="" selected disabled hidden>choose a brand</option>
+          <select id="brand" class="list-selector" name="brand">
+            <option value="" selected disabled hidden>Choose a brand</option>
 
             <?php foreach ($brands as $brand) { ?>
-              <option value="<?= $brand["name"] ?>"><?= $brand["name"] ?></option>
+              <option value="<?= $brand["id"] ?>"><?= $brand["name"] ?></option>
             <?php } ?>
 
           </select>
@@ -183,10 +183,9 @@ require './data/filters.php';
         <div class="info info9">
           <i class="fa-solid fa-link icon"></i>
           <label for="url">URL</label><br />
-          <input type="text" id="url" name="fav_language" placeholder="  URL" />
+          <input type="text" id="url" name="url" placeholder="  URL" />
         </div>
         <button type="submit" class="add-item">Add Item</button>
-
       </form>
       <button class="close-addnew">
         <i class="fa-regular fa-circle-xmark"></i>

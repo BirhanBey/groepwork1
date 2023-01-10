@@ -91,7 +91,7 @@ const formElementsList = [...form.elements];
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   if (validateForm(formElementsList)) {
-    console.log('send to database');
+    form.submit();
   }
 });
 

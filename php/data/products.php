@@ -1,9 +1,5 @@
 <?php
-require_once './data/db.php';
-
-/**
- * GET
- */
+require_once './php/data/db.php';
 
 $result = $mysqli->query("
 SELECT 
@@ -16,7 +12,8 @@ SELECT
     b.name AS brand,
     col.name AS color,
     GROUP_CONCAT(CONCAT_WS('-', parent_cat.name, cat.name)
-        SEPARATOR ',') AS category
+        SEPARATOR ',') AS category,
+    p.status
 FROM
     products AS p
         LEFT JOIN

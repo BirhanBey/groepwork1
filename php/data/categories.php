@@ -1,9 +1,5 @@
 <?php
-require_once './data/db.php';
-
-/**
- * GET
- */
+require_once './php/data/db.php';
 
 $result = $mysqli->query("
 SELECT

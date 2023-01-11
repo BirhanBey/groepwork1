@@ -1,9 +1,5 @@
 <?php
-require_once './data/db.php';
-
-/**
- * GET
- */
+require_once './php/data/db.php';
 
 $resultColors = $mysqli->query("
 SELECT * FROM colors;

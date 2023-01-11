@@ -78,6 +78,71 @@ input.onclick = function () {
 // };
 
 /**
+ * Add product Form
+ */
+
+// Variables
+
+const form = document.querySelector('.new-item .form');
+const formElementsList = [...form.elements];
+
+// Event listener
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (validateForm(formElementsList)) {
+    form.submit();
+  }
+});
+
+// Functions
+
+function validateInput(input, message) {
+  //check if input is empty
+  if (input.value.trim() === '') {
+    // TODO: error class with different border color
+    input.classList.add('error');
+    return false;
+  }
+  // TODO: other checks. Make sure the data is correct
+  input.classList.remove('error');
+  return true;
+}
+
+function validateSelect(select, message) {
+  //check if input is empty
+  if (select.selectedOptions[0].value === '') {
+    // TODO: error class with different border color
+    select.classList.add('error');
+    return false;
+  }
+  // TODO: other checks. Make sure the data is correct
+  select.classList.remove('error');
+  return true;
+}
+
+function validateForm(validationArr) {
+  return validationArr.reduce((acc, el) => {
+    if (el.nodeName === 'INPUT') {
+      // checks every input and validate it or not
+      if (!validateInput(el, `please fill in the ${el.id} field`)) {
+        return false;
+      } else {
+        return acc;
+      }
+    } else if (el.nodeName === 'SELECT') {
+      if (!validateSelect(el, `please fill in the ${el.id} field`)) {
+        return false;
+      } else {
+        return acc;
+      }
+    } else {
+      return acc;
+    }
+  }, true);
+}
+
+/**
  * Edit product window
  */
 
@@ -107,57 +172,25 @@ editWindow.onclick = function (event) {
 
 // Variables
 
-const deletebox = document.getElementById('delete-box');
+const deleteBtnRef = document.querySelectorAll('.product__delete');
+const deleteBoxRef = document.getElementById('delete-box');
 
 // Event listener
+for (let i = 0; i < deleteBtnRef.length; i++) {
+  deleteBtnRef[i].addEventListener('click', (e) => {
+    deleteBoxRef.style.display = 'block';
+    productDel(e.currentTarget.parentElement.parentElement.id);
+  });
+}
 
 window.onclick = function (event) {
-  if (event.target == deletebox) {
-    deletebox.style.display = 'none';
+  if (event.target == deleteBoxRef) {
+    deleteBoxRef.style.display = 'none';
   }
 };
 
-/**
- * Add product Form
- */
-
-// Variables
-
-const form = document.querySelector('.new-item .form');
-const formElementsList = [...form.elements];
-
-// Event listener
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  if (validateForm(formElementsList)) {
-    console.log('send to database');
-  }
-});
-
-// Functions
-
-function validateInput(input, message) {
-  //check if input is empty
-  if (input.value.trim() === '') {
-    // TODO: error class with different border color
-    return false;
-  }
-  // TODO: other checks. Make sure the data is correct
-  return true;
-}
-
-function validateForm(validationArr) {
-  return validationArr.reduce((acc, el) => {
-    if (el.nodeName === 'INPUT') {
-      // checks every input and validate it or not
-      if (!validateInput(el, `please fill in the ${el.id} field`)) {
-        return false;
-      } else {
-        return acc;
-      }
-    } else {
-      return acc;
-    }
-  }, true);
+function productDel(productId) {
+  document.querySelector(
+    'form#productDeleteForm input[name=product_id]'
+  ).value = productId;
 }

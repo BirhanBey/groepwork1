@@ -16,7 +16,7 @@ $manifestObject = json_decode($manifest, true);
 <body>
     <div class="login">
         <h1>Login</h1>
-        <form method="post" action="auth.php">
+        <form method="post" action="./php/auth/auth.php">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" placeholder="Username">
             <label for="password">Password</label>

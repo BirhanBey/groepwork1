@@ -15,7 +15,6 @@ $username = $_POST["username"];
 $password = $_POST["password"];
 
 if ($username === "admin" && $password === "admin") {
-
     session_start();
     session_regenerate_id();
     $_SESSION["loggedIn"] = TRUE;

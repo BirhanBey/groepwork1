@@ -22,9 +22,9 @@ if (empty($_POST["password"])) {
 }
 
 $username = $_POST["username"];
-$password = $_POST["password"];
+$password = hash("sha256", hash("sha256", $_POST["password"]));
 
-if ($username === "admin" && $password === "admin") {
+if ($username === "admin" && $password === "998ed4d621742d0c2d85ed84173db569afa194d4597686cae947324aa58ab4bb") {
     session_start();
     session_regenerate_id();
     $_SESSION["loggedIn"] = TRUE;

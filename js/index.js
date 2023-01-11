@@ -1,4 +1,4 @@
-//import '../css/style.scss';
+import "../css/style.scss";
 
 /**
  * Navbar
@@ -177,9 +177,10 @@ function resetFilter() {
 }
 
 // image box(these are from w3school you can delete and put your owns, they arehere only for show an example)
-function openModal(id) {
+const sliderBtn = document.querySelector(".imgbtn");
+sliderBtn.onclick = function openModal(id) {
   document.getElementById("myModal" + id).style.display = "block";
-}
+};
 
 function closeModal(id) {
   document.getElementById("myModal" + id).style.display = "none";

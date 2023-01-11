@@ -6,8 +6,18 @@ if (!isset($_POST["username"], $_POST["password"])) {
 }
 
 // Empty fields
-if (empty($_POST["username"]) || empty($_POST["password"])) {
+if (empty($_POST["username"]) && empty($_POST["password"])) {
     header("Location: ../../login.php?error=1");
+    exit;
+}
+// Empty username
+if (empty($_POST["username"])) {
+    header("Location: ../../login.php?error=2");
+    exit;
+}
+// Empty password
+if (empty($_POST["password"])) {
+    header("Location: ../../login.php?error=3");
     exit;
 }
 
@@ -25,5 +35,5 @@ if ($username === "admin" && $password === "admin") {
 }
 
 // Wrong login
-header("Location: ../../login.php?error=2");
+header("Location: ../../login.php?error=4");
 exit;

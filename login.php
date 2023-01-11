@@ -1,6 +1,17 @@
 <?php
 $manifest = file_get_contents("./dist/manifest.json");
 $manifestObject = json_decode($manifest, true);
+
+$errors = [
+    "No direct access to auth",
+    "Please fill in all the fields",
+    "Please fill in your username",
+    "Please fill in your password",
+    "The username or password is incorrect"
+];
+$usernameErrors = [1, 2, 4];
+$passwordErrors = [1, 3, 4];
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -16,11 +27,18 @@ $manifestObject = json_decode($manifest, true);
 <body>
     <div class="login">
         <h1>Login</h1>
-        <form method="post" action="auth.php">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Username">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Password">
+        <p><?php
+            if (isset($_GET["error"])) {
+                echo $errors[$_GET["error"]];
+            }
+            ?></p>
+        <form method="post" action="./php/auth/auth.php">
+            <input <?php if (isset($_GET["error"]) && in_array($_GET["error"], $usernameErrors)) {
+                        echo 'class="error"';
+                    } ?>type="text" id="username" name="username" placeholder="Username">
+            <input <?php if (isset($_GET["error"]) && in_array($_GET["error"], $passwordErrors)) {
+                        echo 'class="error"';
+                    } ?> type="password" id="password" name="password" placeholder="Password">
             <button type="submit">Login</button>
         </form>
     </div>

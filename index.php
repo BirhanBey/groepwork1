@@ -15,9 +15,9 @@ $manifestObject = json_decode($manifest, true);
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shopping Ideas</title>
-  <!-- <link rel="stylesheet" href="css/style.scss"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./dist/<?= $manifestObject["js/index.css"]["file"] ?>">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js" defer></script>
   <script type="module" src="./dist/<?= $manifestObject["js/index.js"]["file"] ?>" defer></script>
 </head>
 
@@ -149,7 +149,7 @@ $manifestObject = json_decode($manifest, true);
     <!-- product-main started -->
     <div class="product-main">
       <?php foreach ($products as $product) { ?>
-        <div class="product-card" data-category="<?= $product["category"] ?>" data-color="<?= $product["color"] ?>" data-brand="<?= $product["brand"] ?>">
+        <div class="product-card" data-id="<?= $product["id"] ?>" data-category="<?= $product["category"] ?>" data-color="<?= $product["color"] ?>" data-brand="<?= $product["brand"] ?>">
           <div class="inset">
             <img src=" <?= $product["img"] ?>" alt="img" />
             <a href="<?= $product["url"] ?>" class="product-card-title">
@@ -182,60 +182,45 @@ $manifestObject = json_decode($manifest, true);
             </div>
           </div>
         </div>
-      <?php } ?>
+        <!-- imagebox started -->
 
-      <!-- imagebox started -->
+        <div id="myModal-<?php echo $product['id']; ?>" class="imagebox" data-id="<?= $product["id"] ?>">
+          <span class="close cursor">&times;</span>
+          <div class="modal-content">
+            <div class="swiper">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                <?php
 
-      <div id="myModal<?php echo $product['id']; ?>" class="imagebox">
-        <span class="close cursor" onclick="closeModal(<?php echo $product['id']; ?>)">&times;</span>
-        <div class="modal-content">
-          <div class="swiper">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-              <!-- Slides -->
-              <?php
+                $sql = "SELECT products_id, src,alt FROM images WHERE products_id =" . $product['id'] . "";
+                $result = $mysqli->query($sql);
 
-              $sql = "SELECT products_id, src,alt FROM images WHERE products_id =" . $product['id'] . "";
-              $result = $mysqli->query($sql);
+                foreach ($result as $image) {
+                  echo '<div class="swiper-slide"><img src="' . $image['src'] . '" alt="' . $image['alt'] . '"></div>';
+                }
+                ?>
 
-              foreach ($result as $image) {
-                echo '<div class="swiper-slide"><img src="' . $image['src'] . '" alt="' . $image['alt'] . '"></div>';
-              }
-              ?>
+              </div>
+              <!-- If we need pagination -->
+              <div class="swiper-pagination"></div>
 
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+
+              <!-- If we need scrollbar -->
+              <div class="swiper-scrollbar"></div>
             </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-
-            <!-- If we need scrollbar -->
-            <div class="swiper-scrollbar"></div>
           </div>
         </div>
-      </div>
-      <!-- imagebox finished -->
+        <!-- imagebox finished -->
+      <?php } ?>
+
+
     </div>
     <!-- product-main finished -->
   </section>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-  <script src="js/index.js"></script>
-  <script>
-    const swiper = new Swiper('.swiper', {
-      loop: true,
-
-      // Navigation arrows
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      scrollbar: {
-        el: '.swiper-scrollbar',
-      },
-    });
-  </script>
 </body>
 
 </html>

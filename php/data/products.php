@@ -1,5 +1,5 @@
 <?php
-require_once './data/db.php';
+require_once './php/data/db.php';
 
 $result = $mysqli->query("
 SELECT 

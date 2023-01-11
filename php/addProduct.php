@@ -1,8 +1,8 @@
 <?php
-require_once '../data/db.php';
+require_once './data/db.php';
 
 if (isset($_POST)) {
-  $result = $mysqli->query("
+  $result1 = $mysqli->query("
     INSERT INTO products (
       brands_id, 
       colors_id, 
@@ -39,8 +39,9 @@ if (isset($_POST)) {
     VALUES
       " . substr($categoriesValueSql, 0, -1);
 
-  $result = $mysqli->query($sql);
+  $result2 = $mysqli->query($sql);
+  // go back to admin page once inserts are done
+  if ($result2) {
+    header("Location: ../admin.php");
+  }
 };
-
-// go back to admin page once inserts are done
-header("Location: ../admin.php");

@@ -2,10 +2,9 @@
 $manifest = file_get_contents("./dist/manifest.json");
 $manifestObject = json_decode($manifest, true);
 
-require './data/db.php';
-require './data/products.php';
-require './data/categories.php';
-require './data/filters.php';
+require './php/data/products.php';
+require './php/data/categories.php';
+require './php/data/filters.php';
 
 ?>
 
@@ -55,17 +54,6 @@ require './data/filters.php';
         New Item
       </button>
     </div>
-    <?php
-
-    if (isset($_POST['form'])) {
-      if ($_POST['type'] == "productdel") {
-        $sql = $mysqli->query("DELETE FROM products WHERE id=" . $_POST['product_id']);
-        if ($sql) {
-          header("Refresh:0;");
-        }
-      }
-    }
-    ?>
     <table class="products">
       <tr>
         <th>ID</th>
@@ -92,7 +80,7 @@ require './data/filters.php';
             </button>
           </td>
           <td>
-            <button class="product__delete" onclick="productDel(<?php echo $product['id']; ?>)">
+            <button class="product__delete">
               <i class="fa-solid fa-trash-can-arrow-up"></i>
             </button>
 
@@ -253,7 +241,7 @@ require './data/filters.php';
   <!-- delete confirmation -->
   <div id="delete-box" class="deletebox">
     <span onclick="document.getElementById('delete-box').style.display='none'" class="close" title="Close deletebox"><i class="fa-solid fa-xmark"></i></span>
-    <form id="productDeleteForm" class="deletebox-content" method="post" action="?">
+    <form id="productDeleteForm" class="deletebox-content" method="post" action="php/deleteProduct.php">
       <div class="container">
         <h1>Delete Item</h1>
         <p>Are you sure you want to delete the Item?</p>
@@ -264,7 +252,7 @@ require './data/filters.php';
           </button>
           <input type="hidden" name="product_id">
           <input type="hidden" name="type" value="productdel">
-          <button type="submit" name="form" class="deletebtn">
+          <button type="submit" class="deletebtn">
             Delete
           </button>
         </div>
@@ -272,11 +260,6 @@ require './data/filters.php';
     </form>
   </div>
   <!-- admin page finished -->
-  <script>
-    function productDel(product_id) {
-      document.querySelector("form#productDeleteForm input[name=product_id]").value = product_id;
-    }
-  </script>
 </body>
 
 </html>

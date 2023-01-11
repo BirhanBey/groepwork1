@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["loggedIn"]) || !$_SESSION["loggedIn"]) {
+  header("Location: ./login.php");
+  exit;
+}
+
 $manifest = file_get_contents("./dist/manifest.json");
 $manifestObject = json_decode($manifest, true);
 
@@ -37,6 +44,14 @@ require './php/data/filters.php';
         <b></b>
         <a href="#">
           <span class="icon"><i class="fa-solid fa-gears"></i></span>
+          <span class="title">Product</span>
+        </a>
+      </li>
+      <li class="list">
+        <b></b>
+        <b></b>
+        <a href="./php/auth/logout.php">
+          <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>
           <span class="title">Product</span>
         </a>
       </li>

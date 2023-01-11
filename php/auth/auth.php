@@ -1,4 +1,16 @@
 <?php
+// Direct access to auth.php 
+if (!isset($_POST["username"], $_POST["password"])) {
+    header("Location: ../../login.php?error=0");
+    exit;
+}
+
+// Empty fields
+if (empty($_POST["username"]) || empty($_POST["password"])) {
+    header("Location: ../../login.php?error=1");
+    exit;
+}
+
 $username = $_POST["username"];
 $password = $_POST["password"];
 
@@ -14,5 +26,5 @@ if ($username === "admin" && $password === "admin") {
 }
 
 // Wrong login
-header("Location: ../../login.php");
+header("Location: ../../login.php?error=2");
 exit;

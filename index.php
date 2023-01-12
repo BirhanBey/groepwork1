@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 require './php/data/categories.php';
 require './php/data/products.php';
 require './php/data/filters.php';
@@ -96,64 +97,49 @@ $manifestObject = json_decode($manifest, true);
         <h3>Filters</h3>
       </div>
       <div class="sidebar-content">
+
+        <!-- color options -->
         <div class="filter-section">
           <h4>Color</h4>
           <div class="filter-option">
-
             <?php foreach ($colors as $color) { ?>
               <input type="radio" id="color-<?= $color["name"] ?>" name="color" value="<?= $color["name"] ?>" />
               <label class="color-<?= $color["name"] ?>" for="color-<?= $color["name"] ?>"><?= $color["name"] ?></label><br />
             <?php } ?>
-
             <input type="radio" id="color-none" name="color" value="" />
             <label for="color-none">None</label><br />
           </div>
-          <!-- color options -->
         </div>
 
-        <!-- <div class="filter-section">
-          <h4>Price</h4>
-          <div class="filter-option">
-            <input type="radio" id="price-low" name="price" value="low" />
-            <label for="price-low">low</label><br />
-            <input type="radio" id="price-middle" name="price" value="middle" />
-            <label for="price-middle">middle</label><br />
-            <input type="radio" id="price-high" name="price" value="high" />
-            <label for="price-high">high</label><br /><br />
-          </div>
-        </div> -->
-
-        <!-- price options -->
-
+        <!-- brand options -->
         <div class="filter-section">
           <h4>Brands</h4>
           <div class="filter-option">
-
             <?php foreach ($brands as $brand) { ?>
               <input type="radio" id="brand-<?= $brand["name"] ?>" name="brand" value="<?= $brand["name"] ?>" />
               <label for="brand-<?= $brand["name"] ?>"><?= $brand["name"] ?></label><br />
             <?php } ?>
-
           </div>
         </div>
+
+        <!-- price options -->
         <div class="filter-section">
           <h4>Price</h4>
           <div class="filter-option">
             <form method="post" action="">
-              <input type="text" name="min" placeholder="min" value="<?php echo $_POST['min']; ?>">
-              <input type="text" name="max" placeholder="max" value="<?php echo $_POST['max']; ?>">
-              <input type="hidden" name="price" value="true">
-              <button type="submit" name="pricefilter" value="true">send</button>
-              <button type="submit" name="pricefilter" value="reset">filter reset</button>
-              <button type="reset">form reset</button>
+              <div class="priceInput">
+                <input class="minPrice" type="text" name="min" placeholder="Min-Price" value="<?php echo $_POST['min']; ?>">
+                <input class="maxPrice" type="text" name="max" placeholder="Max-Price" value="<?php echo $_POST['max']; ?>">
+                <input type="hidden" name="price" value="true">
+              </div>
+              <div class="buttons">
+                <button class="applyBtn" type="submit" name="pricefilter" value="true">Apply</button>
+                <button class="resetBtn" type="submit" name="pricefilter" value="reset">Reset</button>
+              </div>
             </form>
           </div>
         </div>
-        <!-- brand options -->
       </div>
-      <!-- <div class="sidebar-footer">
-        <button class="btn btn-primary apply-filters-btn">Filter</button>
-      </div> -->
     </div>
     <!-- sidebar-filter finished -->
 

@@ -84,9 +84,9 @@ require './php/data/filters.php';
               <i class="fa-solid fa-trash-can-arrow-up"></i>
             </button>
 
-            <button class="editBtn">
+            <!-- <button class="editBtn">
               <i class="fa-solid fa-marker"></i>
-            </button>
+            </button> -->
           </td>
         </tr>
       <?php } ?>

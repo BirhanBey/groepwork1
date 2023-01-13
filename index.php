@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 require './php/data/categories.php';
 require './php/data/products.php';
 require './php/data/filters.php';
@@ -95,58 +96,72 @@ $manifestObject = json_decode($manifest, true);
         <h3>Filters</h3>
       </div>
       <div class="sidebar-content">
+
+        <!-- color options -->
         <div class="filter-section">
           <h4>Color</h4>
           <div class="filter-option">
-
             <?php foreach ($colors as $color) { ?>
               <input type="radio" id="color-<?= $color["name"] ?>" name="color" value="<?= $color["name"] ?>" />
               <label class="color-<?= $color["name"] ?>" for="color-<?= $color["name"] ?>"><?= $color["name"] ?></label><br />
             <?php } ?>
-
             <input type="radio" id="color-none" name="color" value="" />
             <label for="color-none">None</label><br />
           </div>
-          <!-- color options -->
         </div>
 
-        <!-- <div class="filter-section">
-          <h4>Price</h4>
-          <div class="filter-option">
-            <input type="radio" id="price-low" name="price" value="low" />
-            <label for="price-low">low</label><br />
-            <input type="radio" id="price-middle" name="price" value="middle" />
-            <label for="price-middle">middle</label><br />
-            <input type="radio" id="price-high" name="price" value="high" />
-            <label for="price-high">high</label><br /><br />
-          </div>
-        </div> -->
-
-        <!-- price options -->
-
+        <!-- brand options -->
         <div class="filter-section">
           <h4>Brands</h4>
           <div class="filter-option">
-
             <?php foreach ($brands as $brand) { ?>
               <input type="radio" id="brand-<?= $brand["name"] ?>" name="brand" value="<?= $brand["name"] ?>" />
               <label for="brand-<?= $brand["name"] ?>"><?= $brand["name"] ?></label><br />
             <?php } ?>
-
           </div>
         </div>
-        <!-- brand options -->
+
+        <!-- price options -->
+        <div class="filter-section">
+          <h4>Price</h4>
+          <div class="filter-option">
+            <form method="post" action="">
+              <div class="priceInput">
+                <input class="minPrice" type="text" name="min" placeholder="Min-Price" value="<?php echo $_POST['min']; ?>">
+                <input class="maxPrice" type="text" name="max" placeholder="Max-Price" value="<?php echo $_POST['max']; ?>">
+                <input type="hidden" name="price" value="true">
+              </div>
+              <div class="buttons">
+                <button class="applyBtn" type="submit" name="pricefilter" value="true">Apply</button>
+                <button class="resetBtn" type="submit" name="pricefilter" value="reset">Reset</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-      <!-- <div class="sidebar-footer">
-        <button class="btn btn-primary apply-filters-btn">Filter</button>
-      </div> -->
     </div>
     <!-- sidebar-filter finished -->
 
     <!-- product-main started -->
     <div class="product-main">
 
-      <?php foreach ($products as $product) { ?>
+      <?php
+
+      if (isset($_POST['price'])) {
+        if ($_POST['pricefilter'] == "reset") {
+          $price = '0 and 100000000000';
+        } else {
+          $price = $_POST['min'] . ' AND ' . $_POST['max'];
+        }
+        $select = "SELECT p.id, p.img, p.title, p.description, p.price, p.url, b.name AS brand, col.name AS color, GROUP_CONCAT(CONCAT_WS('-', parent_cat.name, cat.name) SEPARATOR ',') AS category, p.status FROM products AS p LEFT JOIN brands AS b ON p.brands_id = b.id LEFT JOIN colors AS col ON p.colors_id = col.id LEFT JOIN products_has_categories AS pc ON p.id = pc.products_id LEFT JOIN categories AS cat ON pc.categories_id = cat.id LEFT JOIN categories AS parent_cat ON cat.parent_id = parent_cat.id";
+        $select .= " WHERE p.price BETWEEN " . $price . " GROUP BY p.id ORDER BY p.id DESC";
+        $result = $mysqli->query($select);
+        $products = $result->fetch_all(MYSQLI_ASSOC);
+      }
+
+      foreach ($products as $product) {
+
+      ?>
         <div class="product-card" data-category="<?= $product["category"] ?>" data-color="<?= $product["color"] ?>" data-brand="<?= $product["brand"] ?>">
           <div class="inset">
             <img src=" <?= $product["img"] ?>" alt="img" />

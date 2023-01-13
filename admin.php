@@ -83,10 +83,6 @@ require './php/data/filters.php';
             <button class="product__delete">
               <i class="fa-solid fa-trash-can-arrow-up"></i>
             </button>
-
-            <!-- <button class="editBtn">
-              <i class="fa-solid fa-marker"></i>
-            </button> -->
           </td>
         </tr>
       <?php } ?>

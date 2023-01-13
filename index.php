@@ -1,7 +1,7 @@
 <?php
-require './data/categories.php';
-require './data/products.php';
-require './data/filters.php';
+require './php/data/categories.php';
+require './php/data/products.php';
+require './php/data/filters.php';
 
 $manifest = file_get_contents("./dist/manifest.json");
 $manifestObject = json_decode($manifest, true);
@@ -15,18 +15,26 @@ $manifestObject = json_decode($manifest, true);
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shopping Ideas</title>
-  <link rel="stylesheet" href="./dist/<?= $manifestObject["js/index.js"]["css"][0] ?>">
+  <link rel="stylesheet" href="./dist/<?= $manifestObject["js/index.css"]["file"] ?>">
   <script src="./dist/<?= $manifestObject["js/index.js"]["file"] ?>" defer></script>
 </head>
 
 <body>
   <!-- navbar starts -->
   <nav class="nav-container">
-    <div class="logo">
-      <span style="position: fixed"> LOGO </span>
+    <div>
+      <img class="logo" src="./img/logo3.png" alt="">
     </div>
+    <a href="./admin.php">Admin Page</a>
     <div class="navbar">
       <ul>
+        <li class="list active" data-category="All">
+          <a href="#">
+            <!-- use icons object -->
+            <span class="icon"><i class="fa-solid fa-earth-americas"></i></span>
+            <span class="text">All</span>
+          </a>
+        </li>
         <?php
 
         // create icons object to translate "database name" => "icon name"
@@ -44,9 +52,6 @@ $manifestObject = json_decode($manifest, true);
 
           // add class 'active' to the first category and add class 'dropdown' if it has subcategories
           $class = "list";
-          if ($index == 0) {
-            $class .= " active";
-          }
           if ($category["subcategories"]) {
             $class .= " dropdown";
           }
@@ -144,33 +149,35 @@ $manifestObject = json_decode($manifest, true);
 
       <?php foreach ($products as $product) { ?>
         <div class="product-card" data-category="<?= $product["category"] ?>" data-color="<?= $product["color"] ?>" data-brand="<?= $product["brand"] ?>">
-          <img src=" <?= $product["img"] ?>" alt="img" />
-          <a href="<?= $product["url"] ?>" class="product-card-title">
-            <?= $product["title"] ?>
-          </a>
-          <div class="product-card-price">
-            <h2>€ <?= $product["price"] ?></h2>
-          </div>
-          <div class="product-card-overlay">
-            <h6>About Product</h6>
-            <p class="product-description">
-              <?=
-              // making short description from 300 char
-              strlen($product["description"]) > 300
-                ?
-                substr($product["description"], 0, 300) . "..."
-                :
-                $product["description"]
-              ?>
-            </p>
-            <div class="connection">
-              <a href="<?= $product["url"] ?>" target="_blank">
-                <span><i class="fa-solid fa-link"></i></span>
-              </a>
-              <!-- <a style="margin-left: 10px" href="#"> -->
-              <!-- <button type="button" onclick="openModal(1)"><span>
+          <div class="inset">
+            <img src=" <?= $product["img"] ?>" alt="img" />
+            <a href="<?= $product["url"] ?>" class="product-card-title">
+              <?= $product["title"] ?>
+            </a>
+            <div class="product-card-price">
+              <h2>€ <?= $product["price"] ?></h2>
+            </div>
+            <div class="product-card-overlay">
+              <h6>About Product</h6>
+              <p class="product-description">
+                <?=
+                // making short description from 300 char
+                strlen($product["description"]) > 300
+                  ?
+                  substr($product["description"], 0, 300) . "..."
+                  :
+                  $product["description"]
+                ?>
+              </p>
+              <div class="connection">
+                <a href="<?= $product["url"] ?>" target="_blank">
+                  <span><i class="fa-solid fa-link"></i></span>
+                </a>
+                <!-- <a style="margin-left: 10px" href="#"> -->
+                <!-- <button type="button" onclick="openModal(1)"><span>
                   <i class="fa-regular fa-images"></i></span></button> -->
-              <!-- </a> -->
+                <!-- </a> -->
+              </div>
             </div>
           </div>
         </div>

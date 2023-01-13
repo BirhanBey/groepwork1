@@ -143,30 +143,6 @@ function validateForm(validationArr) {
 }
 
 /**
- * Edit product window
- */
-
-// Variables
-
-let closeEditBtn = document.querySelector('.close-edit');
-let editWindow = document.querySelector('.edit-item');
-let edititembtn = document.querySelector('.editBtn');
-
-// Event listener
-
-closeEditBtn.onclick = function () {
-  editWindow.style.display = 'none';
-};
-edititembtn.onclick = function () {
-  editWindow.style.display = 'flex';
-};
-editWindow.onclick = function (event) {
-  if (event.target == editWindow) {
-    editWindow.style.display = 'none';
-  }
-};
-
-/**
  * Delete
  */
 

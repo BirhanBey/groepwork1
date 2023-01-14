@@ -2,6 +2,7 @@
 require './php/data/categories.php';
 require './php/data/products.php';
 require './php/data/filters.php';
+require './php/data/images.php';
 
 $manifest = file_get_contents("./dist/manifest.json");
 $manifestObject = json_decode($manifest, true);
@@ -190,14 +191,13 @@ $manifestObject = json_decode($manifest, true);
             <div class="swiper">
               <!-- Additional required wrapper -->
               <div class="swiper-wrapper">
+
                 <!-- Slides -->
                 <?php
-
-                $sql = "SELECT products_id, src,alt FROM images WHERE products_id =" . $product['id'] . "";
-                $result = $mysqli->query($sql);
-
-                foreach ($result as $image) {
-                  echo '<div class="swiper-slide"><img src="' . $image['src'] . '" alt="' . $image['alt'] . '"></div>';
+                foreach ($images as $image) {
+                  if ($product['id'] == $image["products_id"]) {
+                    echo '<div class="swiper-slide"><img src="' . $image['src'] . '" alt="' . $image['alt'] . '"></div>';
+                  }
                 }
                 ?>
 

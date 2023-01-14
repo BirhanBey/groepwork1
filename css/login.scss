@@ -1,0 +1,70 @@
+@import url("./base/_reset.scss");
+@import url("./base/_fonts.scss");
+@import url("./base/_variables.scss");
+
+body {
+    background-color: gray;
+}
+.login {
+    font-family: 'Lato', sans-serif;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 50px;
+    border: 1px solid #4d5bf9;
+    border-radius: 4px;
+    padding: 2rem;
+    background-color: #fff;
+    h1 {
+        padding-bottom: 3.2rem;
+        font-size: 4rem;
+        text-align: center;
+        position: relative;
+    }
+    p {
+        color: rgb(255, 98, 98);
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        input {
+            margin-bottom: 1.6rem;
+            padding: 1.6rem;
+            border: 1px solid;
+            border-bottom: 2px solid;
+            border-color: #f6f6f6;
+            font-size: 1.6rem;
+            background-color: #f6f6f6;
+            transition: all 750ms;
+            &:focus {
+                background-color: #fff;
+                outline: none;
+                border-bottom: 2px solid #4d5bf9;
+            }
+            &.error {
+                border-color: rgb(255, 98, 98);
+                background-color: rgb(250, 189, 189);
+            }
+        }
+        button {
+            width: 60%;
+            margin: 0 auto;
+            margin-top: 1.6rem;
+            border: none;
+            padding: 1.3rem;
+            font-size: 1.9rem;
+            background-color: #4d5bf9;
+            color: white;
+            cursor: pointer;
+        }
+    }
+}
+    
+    
+    
+@media screen and (max-width: 500px) {
+    .login {
+        margin-top: 0;
+    }
+}

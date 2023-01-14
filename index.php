@@ -28,11 +28,10 @@ $manifestObject = json_decode($manifest, true);
     <div>
       <img class="logo" src="./img/logo3.png" alt="">
     </div>
-    <a href="./admin.php">Admin Page</a>
     <div class="navbar">
       <ul>
         <li class="list active" data-category="All">
-          <a href="">
+          <a href="#">
             <!-- use icons object -->
             <span class="icon"><i class="fa-solid fa-earth-americas"></i></span>
             <span class="text">All</span>

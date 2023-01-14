@@ -29,6 +29,7 @@ html {
 }
 body {
   background-color: #48c6f847;
+  font-size: 1.6rem;
 }
 
 /**
@@ -131,8 +132,8 @@ body {
   flex-direction: column;
   margin: 0;
   background-color: #48c6f8;
-  padding: 1.5rem 0.5rem;
-  border-radius: 1rem;
+  padding: 2.4rem 0.8rem;
+  border-radius: 1.6rem;
   min-width: 180px;
   position: absolute;
   right: 0;
@@ -145,7 +146,7 @@ body {
 .nav-container .navbar ul li ul li {
   width: 100%;
   height: auto;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
   border-radius: 5px;
   padding: 5px 0;
 }

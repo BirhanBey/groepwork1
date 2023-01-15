@@ -182,7 +182,7 @@ require './php/data/filters.php';
     </div>
   </div>
   <!-- Edit Item form -->
-  <div class="edit-item">
+  <!-- <div class="edit-item">
     <div class="background">
       <p class="border"></p>
       <form class="form">
@@ -237,7 +237,7 @@ require './php/data/filters.php';
         <i class="fa-regular fa-circle-xmark"></i>
       </button>
     </div>
-  </div>
+  </div> -->
   <!-- delete confirmation -->
   <div id="delete-box" class="deletebox">
     <span onclick="document.getElementById('delete-box').style.display='none'" class="close" title="Close deletebox"><i class="fa-solid fa-xmark"></i></span>

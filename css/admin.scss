@@ -1,5 +1,6 @@
 @import url("./base/_fonts.scss");
 @import url("./base/_icons.scss");
+@import url("./base/_variables.scss");
 
 * {
   margin: 0;
@@ -8,8 +9,8 @@
   font-family: "Lato", sans-serif;
   scroll-behavior: smooth;
   ::selection {
-    color: #f44336;
-    background: #4d5bf9;
+    color: var(--red);
+    background: var(--adminblue);
   }
   /* Chrome, Edge, Firefox and Safari */
   /* ===== Scrollbar CSS ===== */
@@ -21,14 +22,14 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #4d5bf9;
+    background: var(--adminblue);
     border-radius: 9px;
-    border: 2px solid #ecb96b;
+    border: 2px solid var(--navorange);
   }
 }
 body {
   min-height: 100vh;
-  background-color: #fff;
+  background-color: var(--whiteS);
 }
 .navigation {
   position: fixed;
@@ -36,8 +37,8 @@ body {
   width: 70px;
   border-radius: 10px;
   box-sizing: initial;
-  border-left: 5px solid #4d5bf9;
-  background: #4d5bf9;
+  border-left: 5px solid var(--adminblue);
+  background: var(--adminblue);
   transition: 0.5s;
   overflow: hidden;
   &.active {
@@ -57,13 +58,13 @@ body {
       border-top-left-radius: 20px;
       border-bottom-left-radius: 20px;
       &.active {
-        background: #fff;
+        background: var(--whiteS);
         b:nth-child(1),
         b:nth-child(2) {
           display: block;
         }
         a {
-          color: #333;
+          color: var(--black);
         }
       }
       b:nth-child(1) {
@@ -71,7 +72,7 @@ body {
         top: -20px;
         height: 20px;
         width: 100%;
-        background: #fff;
+        background: var(--whiteS);
         display: none;
         &::before {
           content: "";
@@ -80,7 +81,7 @@ body {
           left: 0;
           width: 100%;
           height: 100%;
-          background-color: #4d5bf9;
+          background-color: var(--adminblue);
           border-bottom-right-radius: 20px;
         }
       }
@@ -89,7 +90,7 @@ body {
         bottom: -20px;
         height: 20px;
         width: 100%;
-        background: #fff;
+        background: var(--whiteS);
         display: none;
         &::before {
           content: "";
@@ -98,7 +99,7 @@ body {
           left: 0;
           width: 100%;
           height: 100%;
-          background-color: #4d5bf9;
+          background-color: var(--adminblue);
           border-top-right-radius: 20px;
         }
       }
@@ -108,7 +109,7 @@ body {
         width: 100%;
         display: flex;
         text-decoration: none;
-        color: #fff;
+        color: var(--whiteS);
         .icon {
           position: relative;
           display: block;
@@ -138,7 +139,7 @@ body {
   right: 20px;
   width: 50px;
   height: 50px;
-  background: #4d5bf9;
+  background: var(--adminblue);
   cursor: pointer;
   border-radius: 10px;
   display: flex;
@@ -154,7 +155,7 @@ body {
   }
   i {
     position: absolute;
-    color: #fff;
+    color: var(--whiteS);
     font-size: 34px;
     display: none;
     &.open {
@@ -176,7 +177,7 @@ body {
     transition: 0.5s;
   }
   .products {
-    border: 2px solid #4d5bf9;
+    border: 2px solid var(--adminblue);
     border-radius: 15px;
     padding: 10px 20px;
     width: 100%;
@@ -187,7 +188,7 @@ body {
         width: 100%;
         th {
           padding: 0 10px;
-          border-bottom: 3px solid #ddd;
+          border-bottom: 3px solid var(--gray);
           height: 40px;
           &.hide {
             display: none;
@@ -204,7 +205,7 @@ body {
     td {
       padding: 0 5px;
       height: 40px;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid var(--gray);
     }
     .product__status,
     td button {
@@ -217,7 +218,7 @@ body {
       cursor: default;
       i {
         padding: 0;
-        color: blue;
+        color:var(--adminblue);
       }
       &--error {
         i {
@@ -235,8 +236,8 @@ body {
     margin: 5px 15px;
     .hide-item {
       padding: 5px 10px;
-      color: #4d5bf9;
-      background-color: #fff;
+      color: var(--adminblue);
+      background-color: var(--whiteS);
       border-radius: 10px;
       width: 99px;
       display: flex;
@@ -246,8 +247,8 @@ body {
     }
     .add-item-page {
       padding: 5px 10px;
-      color: #fff;
-      background-color: #4d5bf9;
+      color: var(--whiteS);
+      background-color: var(--adminblue);
       border-radius: 10px;
       cursor: pointer;
     }
@@ -271,10 +272,10 @@ body {
     top: 20px;
     border-radius: 15px;
     z-index: 2;
-    background-color: #fff;
+    background-color: var(--whiteS);
     .border {
       content: " ";
-      background-color: #4d5bf9;
+      background-color: var(--adminblue);
       height: 650px;
       width: 80px;
       border-radius: 15px;
@@ -293,18 +294,18 @@ body {
           height: 70px;
           border-top-left-radius: 50%;
           border-bottom-left-radius: 50%;
-          background: #fff;
+          background: var(--whiteS);
           position: absolute;
           left: 0px;
           margin-top: -15px;
         }
         .icon {
           font-size: 36px;
-          color: #4d5bf9;
+          color: var(--adminblue);
           margin-right: 14px;
           width: 45px;
           height: 45px;
-          background-color: #fff;
+          background-color: var(--whiteS);
           display: inline-flex;
           justify-content: space-evenly;
           align-items: center;
@@ -318,7 +319,7 @@ body {
           font-size: 22px;
           top: -18px;
           position: relative;
-          color: #4d5bf9;
+          color: var(--adminblue);
         }
         p {
           position: relative;
@@ -334,9 +335,9 @@ body {
           border-radius: 15px;
           border: none;
           padding: 0 10px;
-          background: #fff;
+          background: var(--whiteS);
           &.error {
-            background: #f4433638;
+            background: var(--mistake);
           }
         }
         .list-selector {
@@ -348,7 +349,7 @@ body {
           border: none;
           color: #888;
           &.error {
-            background: #f4433638;
+            background: var(--mistake);
           }
           option {
             color: black;
@@ -360,12 +361,12 @@ body {
         height: 45px;
         bottom: 0;
         right: 0;
-        border: 1px solid #fff;
+        border: 1px solid var(--whiteS);
         border-radius: 15px;
         padding: 5px 10px;
         font-size: 16px;
-        color: #fff;
-        background-color: #4d5bf9;
+        color: var(--whiteS);
+        background-color: var(--adminblue);
       }
     }
 
@@ -382,8 +383,8 @@ body {
       border: none;
       border-radius: 50%;
       font-size: 36px;
-      background: #fff;
-      color: #4d5bf9;
+      background: var(--whiteS);
+      color: var(--adminblue);
     }
   }
 }
@@ -405,21 +406,21 @@ body {
     top: 15px;
     font-size: 20px;
     font-weight: bold;
-    color: #4d5bf9;
+    color: var(--adminblue);
     background-color: #ffffff4a;
-    border: 3px solid #fff;
+    border: 3px solid var(--whiteS);
     border-radius: 50%;
     width: 33px;
     padding: 1px 7px;
     &:hover {
-      color: #f44336;
+      color: var(--red);
       cursor: pointer;
     }
   }
   .deletebox-content {
     background-color: #fefefe;
     margin: 15% auto 15% auto;
-    border: 1px solid #888;
+    border: 1px solid var(--shadow);
     width: 50%;
     font-size: 16px;
     border-radius: 15px;
@@ -433,17 +434,17 @@ body {
           text-align: center;
           width: 50%;
           height: 45px;
-          color: #fff;
-          border: 1px solid #fff;
+          color: var(--whiteS);
+          border: 1px solid var(--whiteS);
           border-radius: 15px;
           font-size: 16px;
         }
         .cancelbtn {
-          background-color: #4d5bf9;
-          color: #fff;
+          background-color: var(--adminblue);
+          color: var(--whiteS);
         }
         .deletebtn {
-          background-color: #f44336;
+          background-color: var(--red);
         }
       }
     }

@@ -64,18 +64,21 @@ addWindow.onclick = function (event) {
 
 // Variables
 
-let input = document.querySelector('.info input');
-let info = document.querySelector('.info');
+let infoRef = document.querySelectorAll('.info');
+
+console.log(infoRef);
 
 // Event listener
 
-input.onclick = function () {
-  info.classList.toggle('active');
-};
+infoRef.forEach((info) =>
+  info.addEventListener('click', () => {
+    // remove active class on all info
+    infoRef.forEach((info) => info.classList.remove('active'));
 
-// input.onclick = function () {
-//   info.forEach((e) => e.classList.toggle("active"));
-// };
+    // add class to this info
+    info.classList.add('active');
+  })
+);
 
 /**
  * Add product Form

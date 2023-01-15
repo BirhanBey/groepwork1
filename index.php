@@ -96,51 +96,35 @@ $manifestObject = json_decode($manifest, true);
         <h3>Filters</h3>
       </div>
       <div class="sidebar-content">
+
+        <!-- color options -->
         <div class="filter-section">
           <h4>Color</h4>
           <div class="filter-option">
-
             <?php foreach ($colors as $color) { ?>
               <input type="radio" id="color-<?= $color["name"] ?>" name="color" value="<?= $color["name"] ?>" />
               <label class="color-<?= $color["name"] ?>" for="color-<?= $color["name"] ?>"><?= $color["name"] ?></label><br />
             <?php } ?>
-
             <input type="radio" id="color-none" name="color" value="" />
             <label for="color-none">None</label><br />
           </div>
-          <!-- color options -->
         </div>
 
-        <!-- <div class="filter-section">
-          <h4>Price</h4>
-          <div class="filter-option">
-            <input type="radio" id="price-low" name="price" value="low" />
-            <label for="price-low">low</label><br />
-            <input type="radio" id="price-middle" name="price" value="middle" />
-            <label for="price-middle">middle</label><br />
-            <input type="radio" id="price-high" name="price" value="high" />
-            <label for="price-high">high</label><br /><br />
-          </div>
-        </div> -->
-
-        <!-- price options -->
-
+        <!-- brand options -->
         <div class="filter-section">
           <h4>Brands</h4>
           <div class="filter-option">
-
             <?php foreach ($brands as $brand) { ?>
               <input type="radio" id="brand-<?= $brand["name"] ?>" name="brand" value="<?= $brand["name"] ?>" />
               <label for="brand-<?= $brand["name"] ?>"><?= $brand["name"] ?></label><br />
             <?php } ?>
-
           </div>
         </div>
-        <!-- brand options -->
+
+        <!-- price options -->
+
       </div>
-      <!-- <div class="sidebar-footer">
-        <button class="btn btn-primary apply-filters-btn">Filter</button>
-      </div> -->
+
     </div>
     <!-- sidebar-filter finished -->
 
@@ -151,7 +135,7 @@ $manifestObject = json_decode($manifest, true);
         <div class="product-card" data-category="<?= $product["category"] ?>" data-color="<?= $product["color"] ?>" data-brand="<?= $product["brand"] ?>">
           <div class="inset">
             <img src=" <?= $product["img"] ?>" alt="img" />
-            <a href="<?= $product["url"] ?>" class="product-card-title">
+            <a href="<?= $product["url"] ?>" class="product-card-title" target="_blank">
               <?= $product["title"] ?>
             </a>
             <div class="product-card-price">
@@ -173,10 +157,6 @@ $manifestObject = json_decode($manifest, true);
                 <a href="<?= $product["url"] ?>" target="_blank">
                   <span><i class="fa-solid fa-link"></i></span>
                 </a>
-                <!-- <a style="margin-left: 10px" href="#"> -->
-                <!-- <button type="button" onclick="openModal(1)"><span>
-                  <i class="fa-regular fa-images"></i></span></button> -->
-                <!-- </a> -->
               </div>
             </div>
           </div>

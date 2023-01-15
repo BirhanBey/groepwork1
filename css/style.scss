@@ -10,6 +10,10 @@
   box-sizing: border-box;
   font-family: "Oswald", sans-serif;
   font-weight: 500;
+  ::selection {
+    color: var(--blue4);
+    background: var(--navorange);
+  }
 }
 html {
   /* Chrome, Edge, Firefox and Safari */
@@ -18,11 +22,11 @@ html {
     width: 9px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--blue1);
+    background: var(--nav);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--blue2);
+    background: var(--navorange);
     border-radius: 9px;
     border: 2px solid var(--navorange);
   }
@@ -51,6 +55,7 @@ body {
     top: 19px;
     left: 23px;
     width: 129px;
+    mix-blend-mode: multiply;
   }
   .navbar {
     position: relative;
@@ -333,7 +338,6 @@ body {
     margin-top: 30px;
     .product-card {
       display: grid;
-      height: 410px;
       border-radius: 20px;
       border-radius: 20px;
       box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px var(--whiteS);
@@ -392,7 +396,7 @@ body {
           border-top-right-radius: 20px;
           font-family: "Raleway", sans-serif;
           mix-blend-mode: luminosity;
-          backdrop-filter: blur(20px);
+          backdrop-filter: blur(10px);
           height: 300px;
           box-shadow: inset 0 5px 10px 10px var(--shadow);
           .connection {

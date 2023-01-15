@@ -52,7 +52,7 @@ require './php/data/filters.php';
         <b></b>
         <a href="./php/auth/logout.php">
           <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>
-          <span class="title">Product</span>
+          <span class="title">Log Out</span>
         </a>
       </li>
     </ul>

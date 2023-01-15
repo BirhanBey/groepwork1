@@ -151,6 +151,9 @@ body {
       &.close {
         display: block;
       }
+      &.open {
+        display: none;
+      }
     }
   }
   i {
@@ -161,9 +164,6 @@ body {
     &.open {
       display: block;
     }
-  }
-  .toggle.active i.open {
-    display: none;
   }
 }
 
@@ -218,7 +218,7 @@ body {
       cursor: default;
       i {
         padding: 0;
-        color:var(--adminblue);
+        color: var(--adminblue);
       }
       &--error {
         i {

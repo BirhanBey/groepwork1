@@ -142,29 +142,29 @@ function validateForm(validationArr) {
   }, true);
 }
 
-/**
- * Edit product window
- */
+// /**
+//  * Edit product window
+//  */
 
-// Variables
+// // Variables
 
-let closeEditBtn = document.querySelector('.close-edit');
-let editWindow = document.querySelector('.edit-item');
-let edititembtn = document.querySelector('.editBtn');
+// let closeEditBtn = document.querySelector('.close-edit');
+// let editWindow = document.querySelector('.edit-item');
+// let edititembtn = document.querySelector('.editBtn');
 
-// Event listener
+// // Event listener
 
-closeEditBtn.onclick = function () {
-  editWindow.style.display = 'none';
-};
-edititembtn.onclick = function () {
-  editWindow.style.display = 'flex';
-};
-editWindow.onclick = function (event) {
-  if (event.target == editWindow) {
-    editWindow.style.display = 'none';
-  }
-};
+// closeEditBtn.onclick = function () {
+//   editWindow.style.display = 'none';
+// };
+// edititembtn.onclick = function () {
+//   editWindow.style.display = 'flex';
+// };
+// editWindow.onclick = function (event) {
+//   if (event.target == editWindow) {
+//     editWindow.style.display = 'none';
+//   }
+// };
 
 /**
  * Delete
@@ -174,6 +174,8 @@ editWindow.onclick = function (event) {
 
 const deleteBtnRef = document.querySelectorAll('.product__delete');
 const deleteBoxRef = document.getElementById('delete-box');
+const closeBtnRef = document.querySelectorAll('.close');
+const cancelBtnRef = document.querySelectorAll('.cancelbtn');
 
 // Event listener
 for (let i = 0; i < deleteBtnRef.length; i++) {
@@ -188,6 +190,20 @@ window.onclick = function (event) {
     deleteBoxRef.style.display = 'none';
   }
 };
+
+closeBtnRef.forEach((closeBtn) => {
+  closeBtn.addEventListener(
+    'click',
+    () => (deleteBoxRef.style.display = 'none')
+  );
+});
+
+cancelBtnRef.forEach((cancelBtn) => {
+  cancelBtn.addEventListener(
+    'click',
+    () => (deleteBoxRef.style.display = 'none')
+  );
+});
 
 function productDel(productId) {
   document.querySelector(

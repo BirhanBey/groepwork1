@@ -99,9 +99,9 @@ require './php/data/filters.php';
               <i class="fa-solid fa-trash-can-arrow-up"></i>
             </button>
 
-            <button class="editBtn">
+            <!-- <button class="editBtn">
               <i class="fa-solid fa-marker"></i>
-            </button>
+            </button> -->
           </td>
         </tr>
       <?php } ?>
@@ -255,14 +255,14 @@ require './php/data/filters.php';
   </div> -->
   <!-- delete confirmation -->
   <div id="delete-box" class="deletebox">
-    <span onclick="document.getElementById('delete-box').style.display='none'" class="close" title="Close deletebox"><i class="fa-solid fa-xmark"></i></span>
+    <span class="close" title="Close deletebox"><i class="fa-solid fa-xmark"></i></span>
     <form id="productDeleteForm" class="deletebox-content" method="post" action="php/deleteProduct.php">
       <div class="container">
         <h1>Delete Item</h1>
         <p>Are you sure you want to delete the Item?</p>
 
         <div class="buttonbox">
-          <button type="button" onclick="document.getElementById('delete-box').style.display='none'" class="cancelbtn">
+          <button type="button" class="cancelbtn">
             Cancel
           </button>
           <input type="hidden" name="product_id">

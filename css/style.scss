@@ -28,6 +28,7 @@ html {
   }
 }
 body {
+  font-size: 1.6rem;
   background-color: var(--body);
 }
 
@@ -131,8 +132,8 @@ body {
           flex-direction: column;
           margin: 0;
           background-color: var(--blue3);
-          padding: 1.5rem 0.5rem;
-          border-radius: 1rem;
+          padding: 2.4rem 0.8rem;
+          border-radius: 1.6rem;
           min-width: 180px;
           position: absolute;
           right: 0;
@@ -145,7 +146,7 @@ body {
           li {
             width: 100%;
             height: auto;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.5rem;
             border-radius: 5px;
             padding: 5px 0;
             &:hover {
@@ -363,7 +364,7 @@ body {
           color: var(--black);
           font-weight: 600;
           font-size: 15px;
-          padding: 10px 20px;
+          padding: 0px 20px;
           font-family: "Raleway";
         }
         .product-card-price {
@@ -371,7 +372,7 @@ body {
           text-align: center;
           color: var(--black);
           font-weight: 400;
-          padding: 20px 40px;
+          padding: 10px 40px 30px;
           border-bottom-left-radius: 10px;
           border-bottom-right-radius: 10px;
         }
@@ -416,6 +417,7 @@ body {
             font-size: 24px;
             border: none;
             mix-blend-mode: darken;
+            background-color: transparent;
           }
           button:hover,
           a:hover {

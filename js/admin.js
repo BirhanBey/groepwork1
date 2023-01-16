@@ -66,8 +66,6 @@ addWindow.onclick = function (event) {
 
 let infoRef = document.querySelectorAll('.info');
 
-console.log(infoRef);
-
 // Event listener
 
 infoRef.forEach((info) =>

@@ -114,11 +114,11 @@ require './php/data/filters.php';
     <div class="background">
       <p class="border"></p>
       <form class="form" method="post" action="php/addProduct.php">
-        <div class="info info1">
+        <!-- <div class="info info1">
           <i class="fa-solid fa-hashtag icon"></i>
           <label for="product-id">ID</label><br />
           <p><?= $products[0]["id"] + 1 ?></p>
-        </div>
+        </div> -->
         <div class="info info2">
           <i class="fa-regular fa-image icon"></i>
           <label class="active" for="image">Image</label><br />

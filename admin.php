@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["loggedIn"]) || !$_SESSION["loggedIn"]) {
+  header("Location: ./login.php");
+  exit;
+}
+
 $manifest = file_get_contents("./dist/manifest.json");
 $manifestObject = json_decode($manifest, true);
 
@@ -38,6 +45,14 @@ require './php/data/filters.php';
         <a href="#">
           <span class="icon"><i class="fa-solid fa-gears"></i></span>
           <span class="title">Product</span>
+        </a>
+      </li>
+      <li class="list">
+        <b></b>
+        <b></b>
+        <a href="./php/auth/logout.php">
+          <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+          <span class="title">Log Out</span>
         </a>
       </li>
     </ul>
@@ -83,6 +98,10 @@ require './php/data/filters.php';
             <button class="product__delete">
               <i class="fa-solid fa-trash-can-arrow-up"></i>
             </button>
+
+            <!-- <button class="editBtn">
+              <i class="fa-solid fa-marker"></i>
+            </button> -->
           </td>
         </tr>
       <?php } ?>
@@ -95,11 +114,11 @@ require './php/data/filters.php';
     <div class="background">
       <p class="border"></p>
       <form class="form" method="post" action="php/addProduct.php">
-        <div class="info info1">
+        <!-- <div class="info info1">
           <i class="fa-solid fa-hashtag icon"></i>
           <label for="product-id">ID</label><br />
-          <p>ID</p>
-        </div>
+          <p><?= $products[0]["id"] + 1 ?></p>
+        </div> -->
         <div class="info info2">
           <i class="fa-regular fa-image icon"></i>
           <label class="active" for="image">Image</label><br />
@@ -178,7 +197,7 @@ require './php/data/filters.php';
     </div>
   </div>
   <!-- Edit Item form -->
-  <div class="edit-item">
+  <!-- <div class="edit-item">
     <div class="background">
       <p class="border"></p>
       <form class="form">
@@ -233,17 +252,17 @@ require './php/data/filters.php';
         <i class="fa-regular fa-circle-xmark"></i>
       </button>
     </div>
-  </div>
+  </div> -->
   <!-- delete confirmation -->
   <div id="delete-box" class="deletebox">
-    <span onclick="document.getElementById('delete-box').style.display='none'" class="close" title="Close deletebox"><i class="fa-solid fa-xmark"></i></span>
+    <span class="close" title="Close deletebox"><i class="fa-solid fa-xmark"></i></span>
     <form id="productDeleteForm" class="deletebox-content" method="post" action="php/deleteProduct.php">
       <div class="container">
         <h1>Delete Item</h1>
         <p>Are you sure you want to delete the Item?</p>
 
         <div class="buttonbox">
-          <button type="button" onclick="document.getElementById('delete-box').style.display='none'" class="cancelbtn">
+          <button type="button" class="cancelbtn">
             Cancel
           </button>
           <input type="hidden" name="product_id">

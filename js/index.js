@@ -145,6 +145,7 @@ filterOptionsRef.forEach((filterOption) =>
     hideProducts(category);
     // filter on color, price and brand
     filterProducts(color, price, brand);
+    console.log(color, price, brand);
   })
 );
 
@@ -183,43 +184,33 @@ function resetFilter() {
 }
 
 // image box(these are from w3school you can delete and put your owns, they arehere only for show an example)
-function openModal(id) {
-  document.getElementById("myModal" + id).style.display = "block";
-}
+const sliderBtnsRef = document.querySelectorAll('.imgbtn');
+sliderBtnsRef.forEach((sliderBtnRef) =>
+  sliderBtnRef.addEventListener('click', (e) => {
+    const productId =
+      e.currentTarget.parentElement.parentElement.parentElement.parentElement
+        .parentElement.dataset.id;
+    document.getElementById('myModal-' + productId).style.display = 'block';
+  })
+);
 
-function closeModal(id) {
-  document.getElementById("myModal" + id).style.display = "none";
-}
+const closeBtnsRef = document.querySelectorAll('.close.cursor');
+closeBtnsRef.forEach((closeBtnRef) =>
+  closeBtnRef.addEventListener('click', (e) => {
+    const productId = e.currentTarget.parentElement.dataset.id;
+    document.getElementById('myModal-' + productId).style.display = 'none';
+  })
+);
 
-var slideIndex = 1;
-showSlides(slideIndex);
+const swiper = new Swiper('.swiper', {
+  loop: true,
 
-function plusSlides(n) {
-  showSlides((slideIndex += n));
-}
-
-function currentSlide(n) {
-  showSlides((slideIndex = n));
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("slides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
-  captionText.innerHTML = dots[slideIndex - 1].alt;
-}
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});

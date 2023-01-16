@@ -64,18 +64,19 @@ addWindow.onclick = function (event) {
 
 // Variables
 
-let input = document.querySelector('.info input');
-let info = document.querySelector('.info');
+let infoRef = document.querySelectorAll('.info');
 
 // Event listener
 
-input.onclick = function () {
-  info.classList.toggle('active');
-};
+infoRef.forEach((info) =>
+  info.addEventListener('click', () => {
+    // remove active class on all info
+    infoRef.forEach((info) => info.classList.remove('active'));
 
-// input.onclick = function () {
-//   info.forEach((e) => e.classList.toggle("active"));
-// };
+    // add class to this info
+    info.classList.add('active');
+  })
+);
 
 /**
  * Add product Form
@@ -142,6 +143,30 @@ function validateForm(validationArr) {
   }, true);
 }
 
+// /**
+//  * Edit product window
+//  */
+
+// // Variables
+
+// let closeEditBtn = document.querySelector('.close-edit');
+// let editWindow = document.querySelector('.edit-item');
+// let edititembtn = document.querySelector('.editBtn');
+
+// // Event listener
+
+// closeEditBtn.onclick = function () {
+//   editWindow.style.display = 'none';
+// };
+// edititembtn.onclick = function () {
+//   editWindow.style.display = 'flex';
+// };
+// editWindow.onclick = function (event) {
+//   if (event.target == editWindow) {
+//     editWindow.style.display = 'none';
+//   }
+// };
+
 /**
  * Delete
  */
@@ -150,6 +175,8 @@ function validateForm(validationArr) {
 
 const deleteBtnRef = document.querySelectorAll('.product__delete');
 const deleteBoxRef = document.getElementById('delete-box');
+const closeBtnRef = document.querySelectorAll('.close');
+const cancelBtnRef = document.querySelectorAll('.cancelbtn');
 
 // Event listener
 for (let i = 0; i < deleteBtnRef.length; i++) {
@@ -164,6 +191,20 @@ window.onclick = function (event) {
     deleteBoxRef.style.display = 'none';
   }
 };
+
+closeBtnRef.forEach((closeBtn) => {
+  closeBtn.addEventListener(
+    'click',
+    () => (deleteBoxRef.style.display = 'none')
+  );
+});
+
+cancelBtnRef.forEach((cancelBtn) => {
+  cancelBtn.addEventListener(
+    'click',
+    () => (deleteBoxRef.style.display = 'none')
+  );
+});
 
 function productDel(productId) {
   document.querySelector(

@@ -200,7 +200,6 @@ $manifestObject = json_decode($manifest, true);
         <!-- imagebox finished -->
       <?php } ?>
 
-
     </div>
     <!-- product-main finished -->
   </section>
